@@ -1,0 +1,75 @@
+[
+    {
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "number",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": true,
+    "inForm": false,
+    "inIndex": true,
+    "inView": true
+    },
+    {
+        "name": "id_local",
+        "dbType": "integer",
+        "htmlType": "number",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "clasification",
+        "dbType": "string",
+        "htmlType": "select,Sede:1,Preferido:2,Normal:3",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    }
+,
+{
+    "name": "ghin",
+    "dbType": "string",
+    "htmlType": "number",
+    "validations": "",
+    "searchable": true,
+    "fillable": true,
+    "primary": false,
+    "inForm": true,
+    "inIndex": false,
+    "inView": true
+},
+{
+    "name": "handicap_indice",
+    "dbType": "double",
+    "htmlType": "number",
+    "validations": "",
+    "searchable": true,
+    "fillable": true,
+    "primary": false,
+    "inForm": true,
+    "inIndex": false,
+    "inView": true
+},
+    {
+        "name": "lead_type",
+        "dbType": "string:default,DIFHAND",
+        "htmlType": "select,DiferenciaHandicaps:DIFHAND,Hitorico:HIST,Fijo:FIJO,Manual:MANUAL",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": false,
+        "inView": true
+    }
+]

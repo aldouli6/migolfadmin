@@ -1,0 +1,108 @@
+  469  php artisan migrate:rollback --step=1
+  php artisan migrate:rollback --path=/database/migrations/your-specific-migration.php
+  470  php artisan infyom:rollback League scaffold
+  471  php artisan infyom:scaffold League
+  472  php artisan migrate
+  473  php artisan vendor:publish --tag=datatables-buttons --force
+  474  php artisan vendor:publish --tag=datatables-html
+  475  git clone https://github.com/aldouli6/adminScorefan.git
+  476  cd adminScorefan
+  477  cd scorefan-admin
+  478  php artisan migrate
+  479  composer u -vvv
+  480  php artisan vendor:pub�lish
+  481  php artisan vendor:publish
+  482  php artisan ui bootstrap --auth
+  483  php artisan infyom:publish
+  484  php artisan infyom.publish:layout
+  php artisan infyom.publish:user
+  php artisan infyom:rollback $MODEL_NAME $COMMAND_TYPE 
+php artisan infyom:api_scaffold Category --fieldsFile=/Applications/MAMP/htdocs/adminScorefan/resources/model_schemas/Category.json
+
+php artisan infyom:rollback Category api_scaffold
+php artisan migrate:rollback --path=/database/migrations/2020_06_15_230853_create_categories_table.php
+php artisan migrate --path=/database/migrations/2020_10_14_173945_create_tokens_table.php
+sftp://172.16.30.104/var/www/vhosts/eants.ndi.mx/database/migrations/
+
+php artisan infyom:api_scaffold Token --fieldsFile=/var/www/vhosts/eants.ndi.mx/resources/model_schemas/Token.json
+php artisan infyom:rollback Device api_scaffold
+
+ cd scorefancom/public_html/
+git clone https://github.com/aldouli6/adminScorefan.git .
+git add .
+git commit -m "Commit message"
+git config --global user.email "aldouli6@gmail.com"
+git commit -m "Commit message"
+git config --global user.email "aldouli6@gmail.com"
+git config --global user.name "AldoRemoto"
+git commit -m "Commit message"
+git push origin master
+ea-php73 /opt/cpanel/composer/bin/composer install
+php artisan migrate
+php artisan migrate
+php artisan migrate
+cd database/migrations/
+ls -l
+cd ..
+chomod 775 migrations/ -R
+chmod 775 migrations/ -R
+cd migrations/
+ls -l
+cd ..
+cd ..
+php artisan migrate
+php artisan migrate:fresh
+php artisan migrate
+php artisan storage:link
+history
+php artisan passport:install
+php artisan infyom:scaffold Category --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Category.json
+php artisan migrate:rollback --path=/database/migrations/2021_01_22_191435_create_categories_table.php
+
+php artisan migrate:rollback --path=/database/migrations/2021_01_27_023459_create_turnos_table.php
+
+/Applications/MAMP/htdocs/turno2021/database/migrations/2021_01_22_19143 5_create_categories_table.php
+
+establishment
+
+php artisan infyom:api_scaffold Establishment --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Establishment.json
+
+php artisan infyom:rollback Turno api_scaffold
+
+  php artisan migrate:rollback --path=database/migrations/2021_01_27_023459_create_turnos_table.php
+
+php artisan infyom.scaffold:views Category --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Category.json 
+
+
+php artisan infyom.api:controller Category --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Category.json 
+
+php artisan infyom:api_scaffold StatusTurno --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/StatusTurno.json --skip=migration
+
+php artisan infyom:api_scaffold Help --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Help.json
+
+php artisan migrate:rollback --path=database/migrations/2021_06_07_224914_create_helps_table.php
+
+php artisan infyom:rollback Help api_scaffold
+
+php artisan infyom:rollback Category api_scaffold
+php artisan infyom:api_scaffold Category --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Category.json --skip=migration
+
+
+hacer el link de imagenes
+
+
+ln -s /home/hnqyrukx/turno2021/storage/app/public /home/hnqyrukx/public_html/public
+
+ln -s /Applications/MAMP/htdocs/migolf/storage/app/public /Applications/MAMP/htdocs/migolf/public
+
+SELECT * FROM turnos WHERE 1
+and CAST(start_time as time) <=time('11:45')
+AND CAST(start_time as time) > time('11:40')
+and timestamp(date) = timestamp('2021-07-29')
+AND status_turno_id = 3
+
+/Users/developer/flutter/bin/flutter build appbundle   
+
+php artisan infyom:api_scaffold Post --skip=migration,model
+
+php artisan infyom:api_scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model

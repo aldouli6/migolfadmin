@@ -57,3 +57,30 @@ Route::resource('countries', App\Http\Controllers\CountryController::class);
 
 
 Route::resource('states', App\Http\Controllers\StateController::class);
+
+
+
+
+
+
+
+
+
+
+Route::resource('clubs', App\Http\Controllers\ClubController::class);
+
+
+
+
+Route::resource('fields', App\Http\Controllers\FieldController::class);
+
+
+Route::resource('startColors', App\Http\Controllers\StartColorController::class);
+
+
+
+
+Route::resource('starts', App\Http\Controllers\StartController::class);
+
+
+Route::resource('users', App\Http\Controllers\UserController::class);
