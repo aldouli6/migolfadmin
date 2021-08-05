@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         \App\Providers\ViewServiceProvider::class,
         InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
-
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Package Service Providers...
          */

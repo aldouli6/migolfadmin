@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use Spatie\Permission\Models\Role;
 use App\Models\Start;
 use App\Models\StartColor;
 use App\Models\Field;
@@ -30,6 +31,10 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['users.fields'], function ($view) {
+            $roleItems = Role::pluck('name','name')->toArray();
+            $view->with('roleItems', $roleItems);
+        });
         View::composer(['users.fields'], function ($view) {
             $startItems = Start::pluck('startcolor_id','id')->toArray();
             $view->with('startItems', $startItems);

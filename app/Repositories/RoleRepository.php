@@ -2,35 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+
+use Spatie\Permission\Models\Role;
 use App\Repositories\BaseRepository;
 
 /**
- * Class UserRepository
+ * Class RoleRepository
  * @package App\Repositories
- * @version August 4, 2021, 8:43 pm UTC
+ * @version August 4, 2021, 9:20 pm UTC
 */
 
-class UserRepository extends BaseRepository
+class RoleRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'enabled',
-        'alias',
         'name',
-        'lastname',
-        'gender',
-        'country_id',
-        'state_id',
-        'phone',
-        'email',
-        'password',
-        'frequency',
-        'field_id',
-        'role',
-        'start_id'
+        'guard_name'
     ];
 
     /**
@@ -48,6 +37,6 @@ class UserRepository extends BaseRepository
      **/
     public function model()
     {
-        return User::class;
+        return Role::class;
     }
 }

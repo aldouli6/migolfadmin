@@ -16,13 +16,13 @@ class AddFieldToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             
             $table->boolean('enabled')->default(true);
-            $table->string('alias')->default('')->unique();	
+            $table->string('alias')->nullable()->unique();	
             $table->string('lastname')->nullable();
             $table->char('gender')->nullable();
             $table->integer('country_id')->nullable()->unsigned();
             $table->integer('state_id')->nullable()->unsigned();		
-            $table->string('fcm_token', 255)->unique()->nullable();
-            $table->string('phone')->unique();
+            $table->string('fcm_token', 255)->nullable();
+            $table->string('phone')->nullable()->unique();
             $table->string('frequency')->nullable();
             $table->integer('field_id')->nullable()->unsigned();
             $table->integer('start_id')->nullable()->unsigned();

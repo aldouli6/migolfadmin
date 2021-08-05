@@ -34,6 +34,7 @@ class UserFactory extends Factory
         'password' => $this->faker->word,
         'frequency' => $this->faker->word,
         'field_id' => $this->faker->randomDigitNotNull,
+        'role' => $this->faker->randomDigitNotNull,
         'start_id' => $this->faker->randomDigitNotNull,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')

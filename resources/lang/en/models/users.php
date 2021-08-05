@@ -18,6 +18,7 @@ return array (
     'password' => 'Password',
     'frequency' => 'Frequency',
     'field_id' => 'Field Id',
+    'role' => 'Role',
     'start_id' => 'Start Id',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',

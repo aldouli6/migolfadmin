@@ -68,6 +68,12 @@
     {!! Form::select('field_id', $fieldItems, null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Role Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('role', __('models/users.fields.role').':') !!}
+    {!! Form::select('role', $roleItems, isset($roleItems)?$user->roles()->pluck('name'):[], ['class' => 'form-control']) !!}
+</div>
+
 <!-- Start Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('start_id', __('models/users.fields.start_id').':') !!}

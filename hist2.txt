@@ -84,8 +84,8 @@ php artisan migrate:rollback --path=database/migrations/2021_06_07_224914_create
 
 php artisan infyom:rollback Help api_scaffold
 
-php artisan infyom:rollback Category api_scaffold
-php artisan infyom:api_scaffold Category --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Category.json --skip=migration
+php artisan infyom:rollback Role scaffold
+php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Role.json --skip=migration
 
 
 hacer el link de imagenes
@@ -104,5 +104,8 @@ AND status_turno_id = 3
 /Users/developer/flutter/bin/flutter build appbundle   
 
 php artisan infyom:api_scaffold Post --skip=migration,model
-
 php artisan infyom:api_scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model
+php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Role.json --skip=migration
+
+
+php artisan migrate:rollback --path=database/migrations/2021_08_04_155544_add_field_to_users.php

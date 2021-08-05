@@ -58,6 +58,8 @@ class UserController extends AppBaseController
 
         $user = $this->userRepository->create($input);
 
+        $user = $this->userRepository->create($input);
+        $user->assignRole($request->role);
         Flash::success(__('messages.saved', ['model' => __('models/users.singular')]));
 
         return redirect(route('users.index'));
@@ -122,7 +124,8 @@ class UserController extends AppBaseController
         }
 
         $user = $this->userRepository->update($request->all(), $id);
-
+        $user->roles()->detach();
+        $user->assignRole($request->role);
         Flash::success(__('messages.updated', ['model' => __('models/users.singular')]));
 
         return redirect(route('users.index'));

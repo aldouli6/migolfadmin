@@ -9,6 +9,7 @@
         <th>@lang('models/users.fields.email')</th>
         <th>@lang('models/users.fields.frequency')</th>
         <th>@lang('models/users.fields.field_id')</th>
+        <th>@lang('models/users.fields.role')</th>
         <th>@lang('models/users.fields.start_id')</th>
                 <th colspan="3">@lang('crud.action')</th>
             </tr>
@@ -23,6 +24,7 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->frequency }}</td>
             <td>{{ $user->field_id }}</td>
+            <td>{{ implode(' ', $user->getRoleNames()->toArray()) }}</td>
             <td>{{ $user->start_id }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}

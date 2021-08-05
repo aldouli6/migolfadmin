@@ -70,6 +70,12 @@
     <p>{{ $user->field_id }}</p>
 </div>
 
+<!-- Role Field -->
+<div class="form-group">
+    {!! Form::label('role', __('models/users.fields.role').':') !!}
+    <p>{{ implode(' ', $user->getRoleNames()->toArray())}}</p>
+</div>
+
 <!-- Start Id Field -->
 <div class="form-group">
     {!! Form::label('start_id', __('models/users.fields.start_id').':') !!}
