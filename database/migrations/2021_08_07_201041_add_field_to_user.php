@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldToUsers extends Migration
+class AddFieldToUser extends Migration
 {
     /**
      * Run the migrations.
@@ -23,9 +23,6 @@ class AddFieldToUsers extends Migration
             $table->integer('state_id')->nullable()->unsigned();		
             $table->string('fcm_token', 255)->nullable();
             $table->string('phone')->nullable()->unique();
-            $table->string('frequency')->nullable();
-            $table->integer('field_id')->nullable()->unsigned();
-            $table->integer('start_id')->nullable()->unsigned();
             $table->boolean('terms')->default(false);	
             $table->boolean('privacy_notice')->default(false);
         });
@@ -33,8 +30,6 @@ class AddFieldToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {	
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('state_id')->references('id')->on('states');
-            $table->foreign('field_id')->references('id')->on('fields');
-            $table->foreign('start_id')->references('id')->on('starts');
         });
     }
 
@@ -46,10 +41,10 @@ class AddFieldToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['country_id']);	
+            $table->dropForeign(['country_id']);
             $table->dropForeign(['state_id']);
-            $table->dropForeign(['field_id']);
-            $table->dropForeign(['start_id']);
+            $table->dropIndex('users_country_id_foreign');	
+            $table->dropIndex('users_state_id_foreign');
             $table->dropColumn('enabled');	
             $table->dropColumn('alias');	
             $table->dropColumn('lastname');	
@@ -58,9 +53,6 @@ class AddFieldToUsers extends Migration
             $table->dropColumn('state_id');
             $table->dropColumn('fcm_token');	
             $table->dropColumn('phone');	
-            $table->dropColumn('frequency');
-            $table->dropColumn('field_id');
-            $table->dropColumn('start_id');
             $table->dropColumn('terms');	
             $table->dropColumn('privacy_notice');	
         });

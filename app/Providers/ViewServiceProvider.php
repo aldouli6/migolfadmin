@@ -33,52 +33,12 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(['user_players.fields'], function ($view) {
-            $startItems = Start::pluck('startcolor_id','id')->toArray();
-            $view->with('startItems', $startItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
             $fieldItems = Field::pluck('alias','id')->toArray();
             $view->with('fieldItems', $fieldItems);
         });
         View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
             $startItems = Start::pluck('startcolor_id','id')->toArray();
             $view->with('startItems', $startItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $startItems = Start::pluck('startcolor_id','id')->toArray();
-            $view->with('startItems', $startItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $startItems = Start::pluck('startcolor_id','id')->toArray();
-            $view->with('startItems', $startItems);
-        });
-        View::composer(['user_players.fields'], function ($view) {
-            $userItems = User::pluck('alias','id')->toArray();
-            $view->with('userItems', $userItems);
         });
         View::composer(['user_players.fields'], function ($view) {
             $userItems = User::pluck('alias','id')->toArray();

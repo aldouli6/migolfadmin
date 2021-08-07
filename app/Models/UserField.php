@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class UserField
  * @package App\Models
- * @version August 7, 2021, 7:24 pm UTC
+ * @version August 7, 2021, 7:56 pm UTC
  *
  * @property integer $user_id
  * @property integer $field_id

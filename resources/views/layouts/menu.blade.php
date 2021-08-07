@@ -53,12 +53,20 @@
 </li>
 
 
+
+
+
+
+
+
+
+<li class="{{ Request::is('userPlayers*') ? 'active' : '' }}">
+    <a href="{{ route('userPlayers.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userPlayers.plural')</span></a>
+</li>
+
 <li class="{{ Request::is('userFields*') ? 'active' : '' }}">
     <a href="{{ route('userFields.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userFields.plural')</span></a>
 </li>
-
-
-
 
 <li class="{{ Request::is('userPlayers*') ? 'active' : '' }}">
     <a href="{{ route('userPlayers.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userPlayers.plural')</span></a>

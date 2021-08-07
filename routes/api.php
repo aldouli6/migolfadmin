@@ -58,7 +58,12 @@ Route::resource('user_clubs', App\Http\Controllers\API\UserClubAPIController::cl
 
 
 
-Route::resource('user_fields', App\Http\Controllers\API\UserFieldAPIController::class);
+
+
+
+
+
+
 
 
 
@@ -68,3 +73,6 @@ Route::resource('user_fields', App\Http\Controllers\API\UserFieldAPIController::
 
 
 Route::resource('user_players', App\Http\Controllers\API\UserPlayerAPIController::class);
+
+
+Route::resource('user_fields', App\Http\Controllers\API\UserFieldAPIController::class);

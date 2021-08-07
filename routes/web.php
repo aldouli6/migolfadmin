@@ -114,13 +114,24 @@ Route::resource('userClubs', App\Http\Controllers\UserClubController::class);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
+
+
 Route::resource('userFields', App\Http\Controllers\UserFieldController::class);
-
-
-
-
-
-
 
 
 Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);

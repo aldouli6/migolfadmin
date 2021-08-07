@@ -58,28 +58,10 @@
     <p>{{ $user->email }}</p>
 </div>
 
-<!-- Frequency Field -->
-<div class="form-group">
-    {!! Form::label('frequency', __('models/users.fields.frequency').':') !!}
-    <p>{{ $user->frequency }}</p>
-</div>
-
-<!-- Field Id Field -->
-<div class="form-group">
-    {!! Form::label('field_id', __('models/users.fields.field_id').':') !!}
-    <p>{{ $user->field_id }}</p>
-</div>
-
 <!-- Role Field -->
 <div class="form-group">
     {!! Form::label('role', __('models/users.fields.role').':') !!}
     <p>{{ implode(' ', $user->getRoleNames()->toArray())}}</p>
-</div>
-
-<!-- Start Id Field -->
-<div class="form-group">
-    {!! Form::label('start_id', __('models/users.fields.start_id').':') !!}
-    <p>{{ $user->start_id }}</p>
 </div>
 
 <!-- Created At Field -->

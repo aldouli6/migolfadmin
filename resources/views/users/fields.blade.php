@@ -56,28 +56,10 @@
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Frequency Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('frequency', __('models/users.fields.frequency').':') !!}
-    {!! Form::select('frequency', ['RGLR' => 'Regular', 'EVNT' => 'Evetual', 'NRML' => 'Normal'], null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Field Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('field_id', __('models/users.fields.field_id').':') !!}
-    {!! Form::select('field_id', $fieldItems, null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role', __('models/users.fields.role').':') !!}
     {!! Form::select('role', $roleItems, isset($roleItems)?$user->roles()->pluck('name'):[], ['class' => 'form-control']) !!}
-</div>
-
-<!-- Start Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('start_id', __('models/users.fields.start_id').':') !!}
-    {!! Form::select('start_id', $startItems, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

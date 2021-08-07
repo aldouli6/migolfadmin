@@ -26,7 +26,7 @@
     {
         "name": "field_id",
         "dbType": "integer:unsigned:foreign,fields,id",
-        "htmlType": "selectTable:fields:alias,id", 
+        "htmlType": "selectTable:fields:alias,id",
         "validations": "required",
         "searchable": true,
         "fillable": true,
