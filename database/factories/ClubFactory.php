@@ -26,6 +26,7 @@ class ClubFactory extends Factory
         'country_id' => $this->faker->randomDigitNotNull,
         'state_id' => $this->faker->randomDigitNotNull,
         'city' => $this->faker->word,
+        'email' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

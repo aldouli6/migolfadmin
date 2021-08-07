@@ -29,7 +29,7 @@
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('gender', __('models/users.fields.gender').':') !!}
-    {!! Form::select('gender', ['D' => 'Lady', 'C' => 'Gentleman'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('gender', ['F' => 'Female', 'M' => 'Male'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Country Id Field -->

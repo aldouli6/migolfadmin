@@ -97,3 +97,30 @@ Route::resource('users', App\Http\Controllers\UserController::class);
 
 
 Route::resource('roles', App\Http\Controllers\RoleController::class);
+
+
+
+
+Route::resource('holes', App\Http\Controllers\HoleController::class);
+
+
+Route::resource('fieldStartDefaults', App\Http\Controllers\FieldStartDefaultController::class);
+
+
+
+
+Route::resource('userClubs', App\Http\Controllers\UserClubController::class);
+
+
+
+
+Route::resource('userFields', App\Http\Controllers\UserFieldController::class);
+
+
+
+
+
+
+
+
+Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);

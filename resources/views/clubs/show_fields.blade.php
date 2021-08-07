@@ -28,6 +28,12 @@
     <p>{{ $club->city }}</p>
 </div>
 
+<!-- Email Field -->
+<div class="form-group">
+    {!! Form::label('email', __('models/clubs.fields.email').':') !!}
+    <p>{{ $club->email }}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', __('models/clubs.fields.created_at').':') !!}

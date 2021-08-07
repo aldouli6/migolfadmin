@@ -39,3 +39,28 @@
 
 
 
+<li class="{{ Request::is('holes*') ? 'active' : '' }}">
+    <a href="{{ route('holes.index') }}"><i class="fa fa-edit"></i><span>@lang('models/holes.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('fieldStartDefaults*') ? 'active' : '' }}">
+    <a href="{{ route('fieldStartDefaults.index') }}"><i class="fa fa-edit"></i><span>@lang('models/fieldStartDefaults.plural')</span></a>
+</li>
+
+
+<li class="{{ Request::is('userClubs*') ? 'active' : '' }}">
+    <a href="{{ route('userClubs.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userClubs.plural')</span></a>
+</li>
+
+
+<li class="{{ Request::is('userFields*') ? 'active' : '' }}">
+    <a href="{{ route('userFields.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userFields.plural')</span></a>
+</li>
+
+
+
+
+<li class="{{ Request::is('userPlayers*') ? 'active' : '' }}">
+    <a href="{{ route('userPlayers.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userPlayers.plural')</span></a>
+</li>
+

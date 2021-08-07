@@ -22,6 +22,12 @@
     {!! Form::text('city', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Email Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('email', __('models/clubs.fields.email').':') !!}
+    {!! Form::email('email', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit(__('crud.save'), ['class' => 'btn btn-primary']) !!}

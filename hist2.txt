@@ -82,7 +82,7 @@ php artisan infyom:api_scaffold Help --fieldsFile=/Applications/MAMP/htdocs/turn
 
 php artisan migrate:rollback --path=database/migrations/2021_06_07_224914_create_helps_table.php
 
-php artisan infyom:rollback Help api_scaffold
+php artisan infyom:rollback Hole api_scaffold
 
 php artisan infyom:rollback Role scaffold
 php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Role.json --skip=migration
@@ -109,3 +109,11 @@ php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/migolf/r
 
 
 php artisan migrate:rollback --path=database/migrations/2021_08_04_155544_add_field_to_users.php
+
+php artisan infyom:api_scaffold Club --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Club.json --skip=migration
+php artisan infyom:api_scaffold Hole --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Hole.json --skip=migration
+php artisan infyom:api_scaffold FieldStartDefault --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/FieldStartDefault.json 
+php artisan infyom:api_scaffold UserClub --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserClub.json 
+php artisan infyom:api_scaffold UserField --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserField.json 
+php artisan infyom:api_scaffold UserPlayer --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserPlayer.json 
+php artisan infyom:api_scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model

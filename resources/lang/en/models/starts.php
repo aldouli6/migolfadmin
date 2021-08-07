@@ -6,9 +6,9 @@ return array (
   'fields' => 
   array (
     'id' => 'Id',
+    'enabled' => 'Enabled',
     'field_id' => 'Field Id',
     'gender' => 'Gender',
-    'default' => 'Default',
     'startcolor_id' => 'Startcolor Id',
     'slope' => 'Slope',
     'rating' => 'Rating',

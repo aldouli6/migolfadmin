@@ -1,3 +1,13 @@
+<!-- 'bootstrap / Toggle Switch Enabled Field' -->
+<div class="form-group col-sm-6">
+    {!! Form::label('enabled', __('models/starts.fields.enabled').':') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('enabled', 0) !!}
+        {!! Form::checkbox('enabled', 1, null,  ['data-toggle' => 'toggle']) !!}
+    </label>
+</div>
+
+
 <!-- Field Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('field_id', __('models/starts.fields.field_id').':') !!}
@@ -7,18 +17,8 @@
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('gender', __('models/starts.fields.gender').':') !!}
-    {!! Form::select('gender', ['D' => 'Lady', 'C' => 'Gentleman'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('gender', ['F' => 'Female', 'M' => 'Male'], null, ['class' => 'form-control']) !!}
 </div>
-
-<!-- 'bootstrap / Toggle Switch Default Field' -->
-<div class="form-group col-sm-6">
-    {!! Form::label('default', __('models/starts.fields.default').':') !!}
-    <label class="checkbox-inline">
-        {!! Form::hidden('default', 0) !!}
-        {!! Form::checkbox('default', 1, null,  ['data-toggle' => 'toggle']) !!}
-    </label>
-</div>
-
 
 <!-- Startcolor Id Field -->
 <div class="form-group col-sm-6">

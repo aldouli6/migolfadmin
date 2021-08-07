@@ -18,7 +18,7 @@ class CreateStartsTable extends Migration
             $table->increments('id');
             $table->integer('field_id')->unsigned();
             $table->string('gender');
-            $table->boolean('default')->default(false);
+            $table->boolean('enable')->default(true);
             $table->integer('startcolor_id')->unsigned();
             $table->double('slope');
             $table->double('rating');

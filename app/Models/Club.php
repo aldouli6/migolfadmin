@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Club
  * @package App\Models
- * @version August 3, 2021, 5:23 pm UTC
+ * @version August 5, 2021, 4:53 pm UTC
  *
  * @property string $name
  * @property integer $country_id
  * @property integer $state_id
  * @property string $city
+ * @property string $email
  */
 class Club extends Model
 {
@@ -33,7 +34,8 @@ class Club extends Model
         'name',
         'country_id',
         'state_id',
-        'city'
+        'city',
+        'email'
     ];
 
     /**
@@ -46,7 +48,8 @@ class Club extends Model
         'name' => 'string',
         'country_id' => 'integer',
         'state_id' => 'integer',
-        'city' => 'string'
+        'city' => 'string',
+        'email' => 'string'
     ];
 
     /**

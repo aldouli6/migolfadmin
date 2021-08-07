@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -28,9 +29,6 @@ class User extends Authenticatable
         'country_id',
         'state_id',
         'phone',
-        'frequency',
-        'field_id',
-        'start_id',
     ];
 
     /**
@@ -53,7 +51,6 @@ class User extends Authenticatable
         'country_id' => 'integer',
         'state_id' => 'integer',
         'field_id' => 'integer',
-        'start_id' => 'integer',
         'email_verified_at' => 'datetime',
         'name' => 'string',
         'lastname' => 'string',
@@ -70,7 +67,6 @@ class User extends Authenticatable
         'gender' => 'required',
         'state_id' => 'required',
         'phone' => 'required|unique:users',
-        'frecuency' => 'required',
         'email' => 'required|email|unique:users',
         'lastname' => 'required',
         'name' => 'required',

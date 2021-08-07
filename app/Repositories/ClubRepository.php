@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ClubRepository
  * @package App\Repositories
- * @version August 3, 2021, 5:23 pm UTC
+ * @version August 5, 2021, 4:53 pm UTC
 */
 
 class ClubRepository extends BaseRepository
@@ -20,7 +20,8 @@ class ClubRepository extends BaseRepository
         'name',
         'country_id',
         'state_id',
-        'city'
+        'city',
+        'email'
     ];
 
     /**

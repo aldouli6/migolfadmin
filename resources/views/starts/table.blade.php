@@ -3,9 +3,9 @@
         <thead>
             <tr>
                 <th>@lang('models/starts.fields.id')</th>
+        <th>@lang('models/starts.fields.enabled')</th>
         <th>@lang('models/starts.fields.field_id')</th>
         <th>@lang('models/starts.fields.gender')</th>
-        <th>@lang('models/starts.fields.default')</th>
         <th>@lang('models/starts.fields.startcolor_id')</th>
         <th>@lang('models/starts.fields.slope')</th>
         <th>@lang('models/starts.fields.rating')</th>
@@ -17,9 +17,9 @@
         @foreach($starts as $start)
             <tr>
                        <td>{{ $start->id }}</td>
+            <td>{{ $start->enabled }}</td>
             <td>{{ $start->field_id }}</td>
             <td>{{ $start->gender }}</td>
-            <td>{{ $start->default }}</td>
             <td>{{ $start->startcolor_id }}</td>
             <td>{{ $start->slope }}</td>
             <td>{{ $start->rating }}</td>

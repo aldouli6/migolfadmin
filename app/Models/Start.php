@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Start
  * @package App\Models
- * @version August 3, 2021, 7:28 pm UTC
+ * @version August 7, 2021, 6:42 pm UTC
  *
+ * @property boolean $enabled
  * @property integer $field_id
  * @property string $gender
- * @property boolean $default
  * @property integer $startcolor_id
  * @property number $slope
  * @property number $rating
@@ -33,9 +33,9 @@ class Start extends Model
 
 
     public $fillable = [
+        'enabled',
         'field_id',
         'gender',
-        'default',
         'startcolor_id',
         'slope',
         'rating',
@@ -49,9 +49,9 @@ class Start extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'enabled' => 'boolean',
         'field_id' => 'integer',
         'gender' => 'string',
-        'default' => 'boolean',
         'startcolor_id' => 'integer',
         'slope' => 'double',
         'rating' => 'double',
@@ -66,7 +66,10 @@ class Start extends Model
     public static $rules = [
         'field_id' => 'required',
         'gender' => 'required',
-        'startcolor_id' => 'required'
+        'startcolor_id' => 'required',
+        'slope' => 'required',
+        'rating' => 'required',
+        'par' => 'required'
     ];
 
     

@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class StartRepository
  * @package App\Repositories
- * @version August 3, 2021, 7:28 pm UTC
+ * @version August 7, 2021, 6:42 pm UTC
 */
 
 class StartRepository extends BaseRepository
@@ -17,9 +17,9 @@ class StartRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'enabled',
         'field_id',
         'gender',
-        'default',
         'startcolor_id',
         'slope',
         'rating',

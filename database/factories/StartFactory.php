@@ -22,9 +22,9 @@ class StartFactory extends Factory
     public function definition()
     {
         return [
-            'field_id' => $this->faker->randomDigitNotNull,
+            'enabled' => $this->faker->word,
+        'field_id' => $this->faker->randomDigitNotNull,
         'gender' => $this->faker->word,
-        'default' => $this->faker->word,
         'startcolor_id' => $this->faker->randomDigitNotNull,
         'slope' => $this->faker->word,
         'rating' => $this->faker->word,

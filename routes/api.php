@@ -41,3 +41,30 @@ Route::resource('starts', App\Http\Controllers\API\StartAPIController::class);
 
 
 Route::resource('users', App\Http\Controllers\API\UserAPIController::class);
+
+
+
+
+Route::resource('holes', App\Http\Controllers\API\HoleAPIController::class);
+
+
+Route::resource('field_start_defaults', App\Http\Controllers\API\FieldStartDefaultAPIController::class);
+
+
+
+
+Route::resource('user_clubs', App\Http\Controllers\API\UserClubAPIController::class);
+
+
+
+
+Route::resource('user_fields', App\Http\Controllers\API\UserFieldAPIController::class);
+
+
+
+
+
+
+
+
+Route::resource('user_players', App\Http\Controllers\API\UserPlayerAPIController::class);

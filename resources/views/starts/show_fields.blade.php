@@ -4,6 +4,12 @@
     <p>{{ $start->id }}</p>
 </div>
 
+<!-- Enabled Field -->
+<div class="form-group">
+    {!! Form::label('enabled', __('models/starts.fields.enabled').':') !!}
+    <p>{{ $start->enabled }}</p>
+</div>
+
 <!-- Field Id Field -->
 <div class="form-group">
     {!! Form::label('field_id', __('models/starts.fields.field_id').':') !!}
@@ -14,12 +20,6 @@
 <div class="form-group">
     {!! Form::label('gender', __('models/starts.fields.gender').':') !!}
     <p>{{ $start->gender }}</p>
-</div>
-
-<!-- Default Field -->
-<div class="form-group">
-    {!! Form::label('default', __('models/starts.fields.default').':') !!}
-    <p>{{ $start->default }}</p>
 </div>
 
 <!-- Startcolor Id Field -->
