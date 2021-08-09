@@ -1,16 +1,5 @@
 [
-    {
-        "name": "ghin",
-        "dbType": "string",
-        "htmlType": "number",
-        "validations": "",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": false,
-        "inView": true
-    },
+    
     {
         "name": "handicap_indice",
         "dbType": "double",
@@ -22,17 +11,5 @@
         "inForm": true,
         "inIndex": false,
         "inView": true
-    },
-        {
-            "name": "lead_type",
-            "dbType": "string:default,DIFHAND",
-            "htmlType": "select,DiferenciaHandicaps:DIFHAND,Hitorico:HIST,Fijo:FIJO,Manual:MANUAL",
-            "validations": "required",
-            "searchable": true,
-            "fillable": true,
-            "primary": false,
-            "inForm": true,
-            "inIndex": false,
-            "inView": true
-        }
+    }
 ]

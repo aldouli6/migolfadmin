@@ -32,6 +32,42 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['userdatas.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_datas.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_scores.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
         View::composer(['user_players.fields'], function ($view) {
             $fieldItems = Field::pluck('alias','id')->toArray();
             $view->with('fieldItems', $fieldItems);

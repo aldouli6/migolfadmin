@@ -135,3 +135,6 @@ Route::resource('userFields', App\Http\Controllers\UserFieldController::class);
 
 
 Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
+
+
+Route::resource('userScores', App\Http\Controllers\UserScoreController::class);

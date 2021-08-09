@@ -88,7 +88,8 @@ php artisan infyom:rollback Role scaffold
 php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Role.json --skip=migration
 
 
- COMPOSER_MEMORY_LIMIT=-1 composer dump-autoload    
+ 
+ dump-autoload    
 hacer el link de imagenes
 
 
@@ -119,3 +120,4 @@ php artisan infyom:api_scaffold UserField --fieldsFile=/Applications/MAMP/htdocs
 php artisan infyom:api_scaffold UserPlayer --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserPlayer.json 
 php artisan infyom:api_scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model
 php artisan migrate:rollback  --path=database/migrations/2021_08_04_155544_add_field_to_users.php
+php artisan infyom:api_scaffold UserData --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserData.json 
