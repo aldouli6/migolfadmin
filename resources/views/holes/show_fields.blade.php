@@ -10,10 +10,10 @@
     <p>{{ $hole->hole_number }}</p>
 </div>
 
-<!-- Start Id Field -->
+<!-- Tee Id Field -->
 <div class="form-group">
-    {!! Form::label('start_id', __('models/holes.fields.start_id').':') !!}
-    <p>{{ $hole->start_id }}</p>
+    {!! Form::label('tee_id', __('models/holes.fields.tee_id').':') !!}
+    <p>{{ $hole->tee_id }}</p>
 </div>
 
 <!-- Par Field -->
@@ -22,10 +22,10 @@
     <p>{{ $hole->par }}</p>
 </div>
 
-<!-- Lead Field -->
+<!-- Hole Raiting Field -->
 <div class="form-group">
-    {!! Form::label('lead', __('models/holes.fields.lead').':') !!}
-    <p>{{ $hole->lead }}</p>
+    {!! Form::label('hole_raiting', __('models/holes.fields.hole_raiting').':') !!}
+    <p>{{ $hole->hole_raiting }}</p>
 </div>
 
 <!-- Created At Field -->

@@ -4,10 +4,10 @@
     {!! Form::number('hole_number', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Start Id Field -->
+<!-- Tee Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('start_id', __('models/holes.fields.start_id').':') !!}
-    {!! Form::select('start_id', $startItems, null, ['class' => 'form-control']) !!}
+    {!! Form::label('tee_id', __('models/holes.fields.tee_id').':') !!}
+    {!! Form::select('tee_id', $teeItems, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Par Field -->
@@ -16,10 +16,10 @@
     {!! Form::number('par', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Lead Field -->
+<!-- Hole Raiting Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('lead', __('models/holes.fields.lead').':') !!}
-    {!! Form::number('lead', null, ['class' => 'form-control']) !!}
+    {!! Form::label('hole_raiting', __('models/holes.fields.hole_raiting').':') !!}
+    {!! Form::number('hole_raiting', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

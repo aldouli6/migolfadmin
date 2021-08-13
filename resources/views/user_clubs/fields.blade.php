@@ -10,10 +10,10 @@
     {!! Form::select('club_id', $clubItems, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Clasification Field -->
+<!-- Classification Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('clasification', __('models/userClubs.fields.clasification').':') !!}
-    {!! Form::select('clasification', ['1' => 'Sede', '2' => 'Preferido', '3' => 'Normal'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('classification', __('models/userClubs.fields.classification').':') !!}
+    {!! Form::select('classification', ['1' => 'Sede', '2' => 'Preferido', '3' => 'Normal'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

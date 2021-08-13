@@ -46,6 +46,8 @@ Route::resource('field_start_defaults', FieldStartDefaultAPIController::class);
 
 
 Route::resource('user_clubs', UserClubAPIController::class);
+Route::get('/countries', 'CountryStateAPIController@countries');
+Route::get('/states/{id}', 'CountryStateAPIController@states');
 
 
 
@@ -71,3 +73,15 @@ Route::resource('user_fields', UserFieldAPIController::class);
 
 
 Route::resource('user_scores', UserScoreAPIController::class);
+
+
+Route::resource('courses', App\Http\Controllers\API\CourseAPIController::class);
+
+
+Route::resource('tees', App\Http\Controllers\API\TeeAPIController::class);
+
+
+Route::resource('course_tee_defaults', App\Http\Controllers\API\CourseTeeDefaultAPIController::class);
+
+
+Route::resource('user_courses', App\Http\Controllers\API\UserCourseAPIController::class);

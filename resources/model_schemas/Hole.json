@@ -24,9 +24,9 @@
         "inView": true
     },
     {
-        "name": "start_id",
-        "dbType": "integer:unsigned:foreign,starts,id",
-        "htmlType": "selectTable:starts:startcolor_id,id",
+        "name": "tee_id",
+        "dbType": "integer:unsigned:foreign,tees,id",
+        "htmlType": "selectTable:tees:teecolor_id,id",
         "validations": "",
         "searchable": true,
         "fillable": true,
@@ -48,8 +48,8 @@
         "inView": true
     },
     {
-        "name": "lead",
-        "dbType": "integer",
+        "name": "hole_raiting",
+        "dbType": "double",
         "htmlType": "number",
         "validations": "required",
         "searchable": true,

@@ -27,7 +27,7 @@
         "name": "alias",
         "dbType": "string",
         "htmlType": "text",
-        "validations": "required",
+        "validations": "required|max:8",
         "searchable": true,
         "fillable": true,
         "primary": false,

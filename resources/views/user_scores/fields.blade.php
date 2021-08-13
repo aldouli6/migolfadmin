@@ -4,27 +4,27 @@
     {!! Form::select('player_id', $userItems, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Lead Type Field -->
+<!-- Hole Raiting Type Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('lead_type', __('models/userScores.fields.lead_type').':') !!}
-    {!! Form::select('lead_type', ['NIGUNA' => 'Ninguna', 'DIFHAND' => 'DiferenciaHandicaps', 'HIST' => 'Hitorico', 'FIJO' => 'Fijo', 'MANUAL' => 'Manual'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('hole_raiting_type', __('models/userScores.fields.hole_raiting_type').':') !!}
+    {!! Form::select('hole_raiting_type', ['NIGUNA' => 'Ninguna', 'DIFHAND' => 'DiferenciaHandicaps', 'HIST' => 'Hitorico', 'FIJO' => 'Fijo', 'MANUAL' => 'Manual'], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Lead Field -->
+<!-- Hole Raitinig Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('lead', __('models/userScores.fields.lead').':') !!}
-    {!! Form::number('lead', null, ['class' => 'form-control']) !!}
+    {!! Form::label('hole_raitinig', __('models/userScores.fields.hole_raitinig').':') !!}
+    {!! Form::number('hole_raitinig', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Date Lead Field -->
+<!-- Date Hole Raiting Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('date_lead', __('models/userScores.fields.date_lead').':') !!}
-    {!! Form::date('date_lead', null, ['class' => 'form-control','id'=>'date_lead']) !!}
+    {!! Form::label('date_hole_raiting', __('models/userScores.fields.date_hole_raiting').':') !!}
+    {!! Form::date('date_hole_raiting', null, ['class' => 'form-control','id'=>'date_hole_raiting']) !!}
 </div>
 
 @push('scripts')
     <script type="text/javascript">
-        $('#date_lead').datetimepicker({
+        $('#date_hole_raiting').datetimepicker({
             format: 'YYYY-MM-DD HH:mm:ss',
             useCurrent: false
         })
@@ -57,21 +57,6 @@
     {!! Form::label('ghin', __('models/userScores.fields.ghin').':') !!}
     {!! Form::number('ghin', null, ['class' => 'form-control']) !!}
 </div>
-
-<!-- Date Ghin Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('date_ghin', __('models/userScores.fields.date_ghin').':') !!}
-    {!! Form::date('date_ghin', null, ['class' => 'form-control','id'=>'date_ghin']) !!}
-</div>
-
-@push('scripts')
-    <script type="text/javascript">
-        $('#date_ghin').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: false
-        })
-    </script>
-@endpush
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

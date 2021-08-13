@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class UserScoreRepository
  * @package App\Repositories
- * @version August 7, 2021, 9:46 pm UTC
+ * @version August 13, 2021, 5:54 pm UTC
 */
 
 class UserScoreRepository extends BaseRepository
@@ -18,8 +18,8 @@ class UserScoreRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'player_id',
-        'lead_type',
-        'lead',
+        'hole_raiting_type',
+        'hole_raitinig',
         'handicap_index',
         'ghin'
     ];

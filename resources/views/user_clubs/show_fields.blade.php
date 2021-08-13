@@ -16,10 +16,10 @@
     <p>{{ $userClub->club_id }}</p>
 </div>
 
-<!-- Clasification Field -->
+<!-- Classification Field -->
 <div class="form-group">
-    {!! Form::label('clasification', __('models/userClubs.fields.clasification').':') !!}
-    <p>{{ $userClub->clasification }}</p>
+    {!! Form::label('classification', __('models/userClubs.fields.classification').':') !!}
+    <p>{{ $userClub->classification }}</p>
 </div>
 
 <!-- Created At Field -->

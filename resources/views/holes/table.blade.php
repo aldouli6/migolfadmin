@@ -4,9 +4,9 @@
             <tr>
                 <th>@lang('models/holes.fields.id')</th>
         <th>@lang('models/holes.fields.hole_number')</th>
-        <th>@lang('models/holes.fields.start_id')</th>
+        <th>@lang('models/holes.fields.tee_id')</th>
         <th>@lang('models/holes.fields.par')</th>
-        <th>@lang('models/holes.fields.lead')</th>
+        <th>@lang('models/holes.fields.hole_raiting')</th>
                 <th colspan="3">@lang('crud.action')</th>
             </tr>
         </thead>
@@ -15,9 +15,9 @@
             <tr>
                        <td>{{ $hole->id }}</td>
             <td>{{ $hole->hole_number }}</td>
-            <td>{{ $hole->start_id }}</td>
+            <td>{{ $hole->tee_id }}</td>
             <td>{{ $hole->par }}</td>
-            <td>{{ $hole->lead }}</td>
+            <td>{{ $hole->hole_raiting }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['holes.destroy', $hole->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

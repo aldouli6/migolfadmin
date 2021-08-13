@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class UserClubRepository
  * @package App\Repositories
- * @version August 7, 2021, 7:17 pm UTC
+ * @version August 13, 2021, 5:14 pm UTC
 */
 
 class UserClubRepository extends BaseRepository
@@ -19,7 +19,7 @@ class UserClubRepository extends BaseRepository
     protected $fieldSearchable = [
         'user_id',
         'club_id',
-        'clasification'
+        'classification'
     ];
 
     /**

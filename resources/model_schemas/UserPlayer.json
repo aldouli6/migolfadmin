@@ -48,9 +48,9 @@
         "inView": true
     },
     {
-        "name": "field_id",
-        "dbType": "integer:unsigned:foreign,fields,id",
-        "htmlType": "selectTable:fields:alias,id",
+        "name": "course_id",
+        "dbType": "integer:unsigned:foreign,courses,id",
+        "htmlType": "selectTable:courses:alias,id",
         "validations": "",
         "searchable": true,
         "fillable": true,
@@ -60,9 +60,9 @@
         "inView": true
     },
     {
-        "name": "start_id",
-        "dbType": "integer:nullable:unsigned:foreign,starts,id",
-        "htmlType": "selectTable:starts:startcolor_id,id",
+        "name": "tee_id",
+        "dbType": "integer:nullable:unsigned:foreign,tees,id",
+        "htmlType": "selectTable:tees:teecolor_id,id",
         "validations": "",
         "searchable": true,
         "fillable": true,

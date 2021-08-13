@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "lead_type",
+        "name": "hole_raiting_type",
         "dbType": "string:default,'NIGUNA'",
         "htmlType": "select,Ninguna:NIGUNA,DiferenciaHandicaps:DIFHAND,Hitorico:HIST,Fijo:FIJO,Manual:MANUAL",
         "validations": "required",
@@ -36,7 +36,7 @@
         "inView": true
     },
     {
-        "name": "lead",
+        "name": "hole_raitinig",
         "dbType": "string:nullable",
         "htmlType": "number",
         "validations": "",
@@ -48,8 +48,8 @@
         "inView": true
     },
     {
-        "name": "date_lead",
-        "dbType": "date",
+        "name": "date_hole_raiting",
+        "dbType": "date:nullable",
         "htmlType": "date",
         "validations": "",
         "searchable": false,
@@ -73,7 +73,7 @@
     },
     {
         "name": "date_handicap_index",
-        "dbType": "date",
+        "dbType": "date:nullable",
         "htmlType": "date",
         "validations": "",
         "searchable": false,
@@ -93,18 +93,6 @@
         "primary": false,
         "inForm": true,
         "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "date_ghin",
-        "dbType": "date",
-        "htmlType": "date",
-        "validations": "",
-        "searchable": false,
-        "fillable": false,
-        "primary": false,
-        "inForm": true,
-        "inIndex": false,
         "inView": true
     },
     {

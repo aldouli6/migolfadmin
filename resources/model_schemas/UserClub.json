@@ -36,7 +36,7 @@
         "inView": true
     },
     {
-        "name": "clasification",
+        "name": "classification",
         "dbType": "string",
         "htmlType": "select,Sede:1,Preferido:2,Normal:3",
         "validations": "required",

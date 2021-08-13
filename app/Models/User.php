@@ -66,6 +66,7 @@ class User extends Authenticatable
         'country_id' => 'required',
         'gender' => 'required',
         'state_id' => 'required',
+        'alias' => 'required|max:10',
         'phone' => 'required|unique:users',
         'email' => 'required|email|unique:users',
         'lastname' => 'required',

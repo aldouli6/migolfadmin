@@ -9,10 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Role
  * @package App\Models
- * @version August 4, 2021, 9:20 pm UTC
+ * @version August 13, 2021, 4:09 pm UTC
  *
  * @property string $name
- * @property string $guard_name
  */
 class Role extends Model
 {
@@ -28,8 +27,7 @@ class Role extends Model
 
 
     public $fillable = [
-        'name',
-        'guard_name'
+        'name'
     ];
 
     /**
@@ -39,8 +37,7 @@ class Role extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'string',
-        'guard_name' => 'string'
+        'name' => 'string'
     ];
 
     /**

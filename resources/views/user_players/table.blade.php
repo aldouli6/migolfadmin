@@ -6,8 +6,8 @@
         <th>@lang('models/userPlayers.fields.user_id')</th>
         <th>@lang('models/userPlayers.fields.player_id')</th>
         <th>@lang('models/userPlayers.fields.frequency')</th>
-        <th>@lang('models/userPlayers.fields.field_id')</th>
-        <th>@lang('models/userPlayers.fields.start_id')</th>
+        <th>@lang('models/userPlayers.fields.course_id')</th>
+        <th>@lang('models/userPlayers.fields.tee_id')</th>
                 <th colspan="3">@lang('crud.action')</th>
             </tr>
         </thead>
@@ -18,8 +18,8 @@
             <td>{{ $userPlayer->user_id }}</td>
             <td>{{ $userPlayer->player_id }}</td>
             <td>{{ $userPlayer->frequency }}</td>
-            <td>{{ $userPlayer->field_id }}</td>
-            <td>{{ $userPlayer->start_id }}</td>
+            <td>{{ $userPlayer->course_id }}</td>
+            <td>{{ $userPlayer->tee_id }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userPlayers.destroy', $userPlayer->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

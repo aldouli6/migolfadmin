@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Hole
  * @package App\Models
- * @version August 7, 2021, 6:57 pm UTC
+ * @version August 13, 2021, 5:09 pm UTC
  *
  * @property integer $hole_number
- * @property integer $start_id
+ * @property integer $tee_id
  * @property integer $par
- * @property integer $lead
+ * @property number $hole_raiting
  */
 class Hole extends Model
 {
@@ -31,9 +31,9 @@ class Hole extends Model
 
     public $fillable = [
         'hole_number',
-        'start_id',
+        'tee_id',
         'par',
-        'lead'
+        'hole_raiting'
     ];
 
     /**
@@ -44,9 +44,9 @@ class Hole extends Model
     protected $casts = [
         'id' => 'integer',
         'hole_number' => 'integer',
-        'start_id' => 'integer',
+        'tee_id' => 'integer',
         'par' => 'integer',
-        'lead' => 'integer'
+        'hole_raiting' => 'double'
     ];
 
     /**
@@ -57,7 +57,7 @@ class Hole extends Model
     public static $rules = [
         'hole_number' => 'required',
         'par' => 'required',
-        'lead' => 'required'
+        'hole_raiting' => 'required'
     ];
 
     

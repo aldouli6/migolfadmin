@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class UserScore
  * @package App\Models
- * @version August 7, 2021, 9:46 pm UTC
+ * @version August 13, 2021, 5:54 pm UTC
  *
  * @property integer $player_id
- * @property string $lead_type
- * @property string $lead
+ * @property string $hole_raiting_type
+ * @property string $hole_raitinig
  * @property number $handicap_index
  * @property number $ghin
  */
@@ -32,8 +32,8 @@ class UserScore extends Model
 
     public $fillable = [
         'player_id',
-        'lead_type',
-        'lead',
+        'hole_raiting_type',
+        'hole_raitinig',
         'handicap_index',
         'ghin'
     ];
@@ -46,13 +46,12 @@ class UserScore extends Model
     protected $casts = [
         'id' => 'integer',
         'player_id' => 'integer',
-        'lead_type' => 'string',
-        'lead' => 'string',
-        'date_lead' => 'date',
+        'hole_raiting_type' => 'string',
+        'hole_raitinig' => 'string',
+        'date_hole_raiting' => 'date',
         'handicap_index' => 'double',
         'date_handicap_index' => 'date',
-        'ghin' => 'double',
-        'date_ghin' => 'date'
+        'ghin' => 'double'
     ];
 
     /**
@@ -62,7 +61,7 @@ class UserScore extends Model
      */
     public static $rules = [
         'player_id' => 'required',
-        'lead_type' => 'required'
+        'hole_raiting_type' => 'required'
     ];
 
     

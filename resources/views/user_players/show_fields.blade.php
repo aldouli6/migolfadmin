@@ -22,16 +22,16 @@
     <p>{{ $userPlayer->frequency }}</p>
 </div>
 
-<!-- Field Id Field -->
+<!-- Course Id Field -->
 <div class="form-group">
-    {!! Form::label('field_id', __('models/userPlayers.fields.field_id').':') !!}
-    <p>{{ $userPlayer->field_id }}</p>
+    {!! Form::label('course_id', __('models/userPlayers.fields.course_id').':') !!}
+    <p>{{ $userPlayer->course_id }}</p>
 </div>
 
-<!-- Start Id Field -->
+<!-- Tee Id Field -->
 <div class="form-group">
-    {!! Form::label('start_id', __('models/userPlayers.fields.start_id').':') !!}
-    <p>{{ $userPlayer->start_id }}</p>
+    {!! Form::label('tee_id', __('models/userPlayers.fields.tee_id').':') !!}
+    <p>{{ $userPlayer->tee_id }}</p>
 </div>
 
 <!-- Created At Field -->

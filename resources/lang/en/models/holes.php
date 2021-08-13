@@ -7,9 +7,9 @@ return array (
   array (
     'id' => 'Id',
     'hole_number' => 'Hole Number',
-    'start_id' => 'Start Id',
+    'tee_id' => 'Tee Id',
     'par' => 'Par',
-    'lead' => 'Lead',
+    'hole_raiting' => 'Hole Raiting',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
   ),

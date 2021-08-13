@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class HoleRepository
  * @package App\Repositories
- * @version August 7, 2021, 6:57 pm UTC
+ * @version August 13, 2021, 5:09 pm UTC
 */
 
 class HoleRepository extends BaseRepository
@@ -18,9 +18,9 @@ class HoleRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'hole_number',
-        'start_id',
+        'tee_id',
         'par',
-        'lead'
+        'hole_raiting'
     ];
 
     /**

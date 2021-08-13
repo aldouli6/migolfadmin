@@ -59,7 +59,7 @@
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role', __('models/users.fields.role').':') !!}
-    {!! Form::select('role', $roleItems, isset($roleItems)?$user->roles()->pluck('name'):[], ['class' => 'form-control']) !!}
+    {!! Form::select('role', $roleItems, isset($user)?$user->roles()->pluck('name'):[], ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

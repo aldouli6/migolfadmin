@@ -8,7 +8,7 @@ return array (
     'id' => 'Id',
     'user_id' => 'User Id',
     'club_id' => 'Club Id',
-    'clasification' => 'Clasification',
+    'classification' => 'Classification',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
   ),

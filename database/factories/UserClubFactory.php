@@ -24,7 +24,7 @@ class UserClubFactory extends Factory
         return [
             'user_id' => $this->faker->word,
         'club_id' => $this->faker->randomDigitNotNull,
-        'clasification' => $this->faker->word,
+        'classification' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

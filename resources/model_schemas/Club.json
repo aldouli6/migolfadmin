@@ -61,7 +61,7 @@
     },
     {
         "name": "email",
-        "dbType": "string",
+        "dbType": "string:nullable",
         "htmlType": "email",
         "validations": "",
         "searchable": true,

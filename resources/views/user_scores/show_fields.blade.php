@@ -10,22 +10,22 @@
     <p>{{ $userScore->player_id }}</p>
 </div>
 
-<!-- Lead Type Field -->
+<!-- Hole Raiting Type Field -->
 <div class="form-group">
-    {!! Form::label('lead_type', __('models/userScores.fields.lead_type').':') !!}
-    <p>{{ $userScore->lead_type }}</p>
+    {!! Form::label('hole_raiting_type', __('models/userScores.fields.hole_raiting_type').':') !!}
+    <p>{{ $userScore->hole_raiting_type }}</p>
 </div>
 
-<!-- Lead Field -->
+<!-- Hole Raitinig Field -->
 <div class="form-group">
-    {!! Form::label('lead', __('models/userScores.fields.lead').':') !!}
-    <p>{{ $userScore->lead }}</p>
+    {!! Form::label('hole_raitinig', __('models/userScores.fields.hole_raitinig').':') !!}
+    <p>{{ $userScore->hole_raitinig }}</p>
 </div>
 
-<!-- Date Lead Field -->
+<!-- Date Hole Raiting Field -->
 <div class="form-group">
-    {!! Form::label('date_lead', __('models/userScores.fields.date_lead').':') !!}
-    <p>{{ $userScore->date_lead }}</p>
+    {!! Form::label('date_hole_raiting', __('models/userScores.fields.date_hole_raiting').':') !!}
+    <p>{{ $userScore->date_hole_raiting }}</p>
 </div>
 
 <!-- Handicap Index Field -->
@@ -44,12 +44,6 @@
 <div class="form-group">
     {!! Form::label('ghin', __('models/userScores.fields.ghin').':') !!}
     <p>{{ $userScore->ghin }}</p>
-</div>
-
-<!-- Date Ghin Field -->
-<div class="form-group">
-    {!! Form::label('date_ghin', __('models/userScores.fields.date_ghin').':') !!}
-    <p>{{ $userScore->date_ghin }}</p>
 </div>
 
 <!-- Created At Field -->

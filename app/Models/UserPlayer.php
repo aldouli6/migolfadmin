@@ -9,13 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class UserPlayer
  * @package App\Models
- * @version August 7, 2021, 8:25 pm UTC
+ * @version August 13, 2021, 5:43 pm UTC
  *
  * @property integer $user_id
  * @property integer $player_id
  * @property string $frequency
- * @property integer $field_id
- * @property integer $start_id
+ * @property integer $course_id
+ * @property integer $tee_id
  */
 class UserPlayer extends Model
 {
@@ -34,8 +34,8 @@ class UserPlayer extends Model
         'user_id',
         'player_id',
         'frequency',
-        'field_id',
-        'start_id'
+        'course_id',
+        'tee_id'
     ];
 
     /**
@@ -48,8 +48,8 @@ class UserPlayer extends Model
         'user_id' => 'integer',
         'player_id' => 'integer',
         'frequency' => 'string',
-        'field_id' => 'integer',
-        'start_id' => 'integer'
+        'course_id' => 'integer',
+        'tee_id' => 'integer'
     ];
 
     /**

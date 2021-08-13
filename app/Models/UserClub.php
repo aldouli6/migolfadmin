@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class UserClub
  * @package App\Models
- * @version August 7, 2021, 7:17 pm UTC
+ * @version August 13, 2021, 5:14 pm UTC
  *
  * @property integer $user_id
  * @property integer $club_id
- * @property string $clasification
+ * @property string $classification
  */
 class UserClub extends Model
 {
@@ -31,7 +31,7 @@ class UserClub extends Model
     public $fillable = [
         'user_id',
         'club_id',
-        'clasification'
+        'classification'
     ];
 
     /**
@@ -43,7 +43,7 @@ class UserClub extends Model
         'id' => 'integer',
         'user_id' => 'integer',
         'club_id' => 'integer',
-        'clasification' => 'string'
+        'classification' => 'string'
     ];
 
     /**
@@ -54,7 +54,7 @@ class UserClub extends Model
     public static $rules = [
         'user_id' => 'required',
         'club_id' => 'required',
-        'clasification' => 'required'
+        'classification' => 'required'
     ];
 
     

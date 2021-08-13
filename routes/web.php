@@ -72,15 +72,12 @@ Route::resource('clubs', App\Http\Controllers\ClubController::class);
 
 
 
-Route::resource('fields', App\Http\Controllers\FieldController::class);
-
-
-Route::resource('startColors', App\Http\Controllers\StartColorController::class);
 
 
 
 
-Route::resource('starts', App\Http\Controllers\StartController::class);
+
+
 
 
 Route::resource('users', App\Http\Controllers\UserController::class);
@@ -104,7 +101,6 @@ Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('holes', App\Http\Controllers\HoleController::class);
 
 
-Route::resource('fieldStartDefaults', App\Http\Controllers\FieldStartDefaultController::class);
 
 
 
@@ -131,10 +127,33 @@ Route::resource('userClubs', App\Http\Controllers\UserClubController::class);
 Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
 
 
-Route::resource('userFields', App\Http\Controllers\UserFieldController::class);
 
 
 Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
+
+
+Route::resource('userScores', App\Http\Controllers\UserScoreController::class);
+
+
+Route::resource('courses', App\Http\Controllers\CourseController::class);
+
+
+Route::resource('teeColors', App\Http\Controllers\TeeColorController::class);
+
+
+Route::resource('tees', App\Http\Controllers\TeeController::class);
+
+
+Route::resource('courseTeeDefaults', App\Http\Controllers\CourseTeeDefaultController::class);
+
+
+Route::resource('userClubs', App\Http\Controllers\UserClubController::class);
+
+
+Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
+
+
+Route::resource('userCourses', App\Http\Controllers\UserCourseController::class);
 
 
 Route::resource('userScores', App\Http\Controllers\UserScoreController::class);

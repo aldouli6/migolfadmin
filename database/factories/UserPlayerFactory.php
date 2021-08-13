@@ -25,8 +25,8 @@ class UserPlayerFactory extends Factory
             'user_id' => $this->faker->word,
         'player_id' => $this->faker->word,
         'frequency' => $this->faker->word,
-        'field_id' => $this->faker->randomDigitNotNull,
-        'start_id' => $this->faker->randomDigitNotNull,
+        'course_id' => $this->faker->randomDigitNotNull,
+        'tee_id' => $this->faker->randomDigitNotNull,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

@@ -82,7 +82,7 @@ php artisan infyom:api_scaffold Help --fieldsFile=/Applications/MAMP/htdocs/turn
 
 php artisan migrate:rollback --path=database/migrations/2021_06_07_224914_create_helps_table.php
 
-php artisan infyom:rollback Hole api_scaffold
+php artisan infyom:rollback UserField api_scaffold
 
 php artisan infyom:rollback Role scaffold
 php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/turno2021/resources/model_schemas/Role.json --skip=migration
@@ -121,3 +121,21 @@ php artisan infyom:api_scaffold UserPlayer --fieldsFile=/Applications/MAMP/htdoc
 php artisan infyom:api_scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model
 php artisan migrate:rollback  --path=database/migrations/2021_08_04_155544_add_field_to_users.php
 php artisan infyom:api_scaffold UserData --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserData.json 
+
+
+
+
+php artisan infyom:scaffold Country --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Country.json 
+php artisan infyom:scaffold State --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/State.json 
+php artisan infyom:api_scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model
+php artisan infyom:scaffold Role --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Role.json --skip=migration
+php artisan infyom:api_scaffold Club --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Club.json 
+php artisan infyom:api_scaffold Course --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Course.json 
+php artisan infyom:scaffold TeeColor --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/TeeColor.json 
+php artisan infyom:api_scaffold Tee --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Tee.json 
+php artisan infyom:api_scaffold CourseTeeDefault --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/CourseTeeDefault.json 
+php artisan infyom:api_scaffold Hole --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Hole.json 
+php artisan infyom:api_scaffold UserClub --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserClub.json 
+php artisan infyom:api_scaffold UserPlayer --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserPlayer.json 
+php artisan infyom:api_scaffold UserCourse --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserCourse.json 
+php artisan infyom:api_scaffold UserScore --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserScore.json 
