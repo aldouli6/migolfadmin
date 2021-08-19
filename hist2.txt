@@ -138,4 +138,9 @@ php artisan infyom:api_scaffold Hole --fieldsFile=/Applications/MAMP/htdocs/migo
 php artisan infyom:api_scaffold UserClub --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserClub.json 
 php artisan infyom:api_scaffold UserPlayer --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserPlayer.json 
 php artisan infyom:api_scaffold UserCourse --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserCourse.json 
-php artisan infyom:api_scaffold UserScore --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserScore.json 
+php artisan infyom:api_scaffold UserHandicapIndex --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserHandicapIndex.json 
+php artisan infyom:api_scaffold UserHoleRaiting --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserHoleRaiting.json 
+
+php artisan infyom:rollback UserScore api_scaffold
+
+COMPOSER_MEMORY_LIMIT=-1 composer require laravel/passport

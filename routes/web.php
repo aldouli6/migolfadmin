@@ -132,7 +132,6 @@ Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class)
 Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
 
 
-Route::resource('userScores', App\Http\Controllers\UserScoreController::class);
 
 
 Route::resource('courses', App\Http\Controllers\CourseController::class);
@@ -153,7 +152,16 @@ Route::resource('userClubs', App\Http\Controllers\UserClubController::class);
 Route::resource('userPlayers', App\Http\Controllers\UserPlayerController::class);
 
 
+
+
+
+
+Route::resource('userHandicapIndices', App\Http\Controllers\UserHandicapIndexController::class);
+
+
+Route::resource('userHoleRaitings', App\Http\Controllers\UserHoleRaitingController::class);
+
+
+
+
 Route::resource('userCourses', App\Http\Controllers\UserCourseController::class);
-
-
-Route::resource('userScores', App\Http\Controllers\UserScoreController::class);

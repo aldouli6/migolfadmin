@@ -64,7 +64,12 @@
     <a href="{{ route('userCourses.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userCourses.plural')</span></a>
 </li>
 
-<li class="{{ Request::is('userScores*') ? 'active' : '' }}">
-    <a href="{{ route('userScores.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userScores.plural')</span></a>
+
+<li class="{{ Request::is('userHandicapIndices*') ? 'active' : '' }}">
+    <a href="{{ route('userHandicapIndices.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userHandicapIndices.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('userHoleRaitings*') ? 'active' : '' }}">
+    <a href="{{ route('userHoleRaitings.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userHoleRaitings.plural')</span></a>
 </li>
 

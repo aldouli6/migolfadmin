@@ -16,6 +16,18 @@
     <p>{{ $userCourse->course_id }}</p>
 </div>
 
+<!-- Tee Default Male Field -->
+<div class="form-group">
+    {!! Form::label('tee_default_male', __('models/userCourses.fields.tee_default_male').':') !!}
+    <p>{{ $userCourse->tee_default_male }}</p>
+</div>
+
+<!-- Tee Default Female Field -->
+<div class="form-group">
+    {!! Form::label('tee_default_female', __('models/userCourses.fields.tee_default_female').':') !!}
+    <p>{{ $userCourse->tee_default_female }}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', __('models/userCourses.fields.created_at').':') !!}

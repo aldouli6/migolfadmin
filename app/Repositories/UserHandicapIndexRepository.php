@@ -2,25 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\UserCourse;
+use App\Models\UserHandicapIndex;
 use App\Repositories\BaseRepository;
 
 /**
- * Class UserCourseRepository
+ * Class UserHandicapIndexRepository
  * @package App\Repositories
- * @version August 16, 2021, 6:01 pm UTC
+ * @version August 16, 2021, 4:00 pm UTC
 */
 
-class UserCourseRepository extends BaseRepository
+class UserHandicapIndexRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'user_id',
-        'course_id',
-        'tee_default_male',
-        'tee_default_female'
+        'player_id',
+        'handicap_index',
+        'ghin'
     ];
 
     /**
@@ -38,6 +37,6 @@ class UserCourseRepository extends BaseRepository
      **/
     public function model()
     {
-        return UserCourse::class;
+        return UserHandicapIndex::class;
     }
 }

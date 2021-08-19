@@ -68,5 +68,9 @@ class Tee extends Model
         'rating' => 'required'
     ];
 
+    public function tee_color()
+    {
+        return $this->hasOne(Teecolor::class,'id');
+    }
     
 }

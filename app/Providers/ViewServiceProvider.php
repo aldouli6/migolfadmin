@@ -32,6 +32,46 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['user_courses.fields'], function ($view) {
+            $teeItems = Tee::pluck('teecolor_id','id')->toArray();
+            $view->with('teeItems', $teeItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $teeItems = Tee::pluck('teecolor_id','id')->toArray();
+            $view->with('teeItems', $teeItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $courseItems = Course::pluck('alias','id')->toArray();
+            $view->with('courseItems', $courseItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $teeItems = Tee::pluck('teecolor_id','id')->toArray();
+            $view->with('teeItems', $teeItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $teeItems = Tee::pluck('teecolor_id','id')->toArray();
+            $view->with('teeItems', $teeItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $courseItems = Course::pluck('alias','id')->toArray();
+            $view->with('courseItems', $courseItems);
+        });
+        View::composer(['user_courses.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_hole_raitings.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_handicap_indices.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
         View::composer(['user_scores.fields'], function ($view) {
             $userItems = User::pluck('alias','id')->toArray();
             $view->with('userItems', $userItems);
@@ -41,6 +81,14 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('courseItems', $courseItems);
         });
         View::composer(['user_courses.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_clubs.fields'], function ($view) {
+            $clubItems = Club::pluck('name','id')->toArray();
+            $view->with('clubItems', $clubItems);
+        });
+        View::composer(['user_clubs.fields'], function ($view) {
             $userItems = User::pluck('alias','id')->toArray();
             $view->with('userItems', $userItems);
         });

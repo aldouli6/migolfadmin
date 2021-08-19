@@ -14,74 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout');
+Route::post('/register', 'AuthController@register');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware(['auth:api'])->group(function(){
 
+    Route::resource('clubs', ClubAPIController::class);
+    Route::resource('users', UserAPIController::class);
+    Route::resource('holes', HoleAPIController::class);
+    Route::resource('field_start_defaults', FieldStartDefaultAPIController::class);
+    Route::resource('user_clubs', UserClubAPIController::class);
+    Route::resource('user_players', UserPlayerAPIController::class);
+    Route::resource('user_fields', UserFieldAPIController::class);
+    Route::resource('user_scores', UserScoreAPIController::class);
+    Route::resource('courses', CourseAPIController::class);
+    Route::resource('tees', TeeAPIController::class);
+    Route::resource('course_tee_defaults', CourseTeeDefaultAPIController::class);
+    Route::resource('user_courses', UserCourseAPIController::class);
+    Route::resource('user_handicap_indices', UserHandicapIndexAPIController::class);
+    Route::resource('user_hole_raitings', UserHoleRaitingAPIController::class);
 
-Route::resource('clubs', ClubAPIController::class);
+    Route::get('/usuario/{usuario}', 'CallController@usuario');
 
+});
 
-
-
-Route::resource('fields', FieldAPIController::class);
-
-
-
-
-Route::resource('starts', StartAPIController::class);
-
-
-Route::resource('users', UserAPIController::class);
-
-
-
-
-Route::resource('holes', HoleAPIController::class);
-
-
-Route::resource('field_start_defaults', FieldStartDefaultAPIController::class);
-
-
-
-
-Route::resource('user_clubs', UserClubAPIController::class);
 Route::get('/countries', 'CountryStateAPIController@countries');
 Route::get('/states/{id}', 'CountryStateAPIController@states');
+Route::get('/courses', 'CourseAPIController@index');
+Route::get('/clubs', 'ClubAPIController@index');
+Route::get('/tees', 'TeeAPIController@index');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::resource('user_players', UserPlayerAPIController::class);
-
-
-Route::resource('user_fields', UserFieldAPIController::class);
-
-
-Route::resource('user_scores', UserScoreAPIController::class);
-
-
-Route::resource('courses', App\Http\Controllers\API\CourseAPIController::class);
-
-
-Route::resource('tees', App\Http\Controllers\API\TeeAPIController::class);
-
-
-Route::resource('course_tee_defaults', App\Http\Controllers\API\CourseTeeDefaultAPIController::class);
-
-
-Route::resource('user_courses', App\Http\Controllers\API\UserCourseAPIController::class);
+ 

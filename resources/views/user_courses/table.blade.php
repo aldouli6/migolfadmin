@@ -5,6 +5,8 @@
                 <th>@lang('models/userCourses.fields.id')</th>
         <th>@lang('models/userCourses.fields.user_id')</th>
         <th>@lang('models/userCourses.fields.course_id')</th>
+        <th>@lang('models/userCourses.fields.tee_default_male')</th>
+        <th>@lang('models/userCourses.fields.tee_default_female')</th>
                 <th colspan="3">@lang('crud.action')</th>
             </tr>
         </thead>
@@ -14,6 +16,8 @@
                        <td>{{ $userCourse->id }}</td>
             <td>{{ $userCourse->user_id }}</td>
             <td>{{ $userCourse->course_id }}</td>
+            <td>{{ $userCourse->tee_default_male }}</td>
+            <td>{{ $userCourse->tee_default_female }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userCourses.destroy', $userCourse->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

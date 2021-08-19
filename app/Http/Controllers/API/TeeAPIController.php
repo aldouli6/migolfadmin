@@ -39,7 +39,9 @@ class TeeAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
+        foreach ($tees as $tee) {
+            $tee['teecolor'] =Tee::find($tee['teecolor_id'])->tee_color; 
+        }
         return $this->sendResponse(
             $tees->toArray(),
             __('messages.retrieved', ['model' => __('models/tees.plural')])
@@ -78,7 +80,6 @@ class TeeAPIController extends AppBaseController
     {
         /** @var Tee $tee */
         $tee = $this->teeRepository->find($id);
-
         if (empty($tee)) {
             return $this->sendError(
                 __('messages.not_found', ['model' => __('models/tees.singular')])

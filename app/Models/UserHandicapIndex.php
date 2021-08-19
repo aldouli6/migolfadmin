@@ -7,22 +7,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class UserCourse
+ * Class UserHandicapIndex
  * @package App\Models
- * @version August 16, 2021, 6:01 pm UTC
+ * @version August 16, 2021, 4:00 pm UTC
  *
- * @property integer $user_id
- * @property integer $course_id
- * @property integer $tee_default_male
- * @property integer $tee_default_female
+ * @property integer $player_id
+ * @property number $handicap_index
+ * @property number $ghin
  */
-class UserCourse extends Model
+class UserHandicapIndex extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'user_courses';
+    public $table = 'user_handicap_indices';
     
 
     protected $dates = ['deleted_at'];
@@ -30,10 +29,10 @@ class UserCourse extends Model
 
 
     public $fillable = [
-        'user_id',
-        'course_id',
-        'tee_default_male',
-        'tee_default_female'
+        'player_id',
+        'handicap_index',
+        'date_handicap_index',
+        'ghin'
     ];
 
     /**
@@ -43,10 +42,10 @@ class UserCourse extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'user_id' => 'integer',
-        'course_id' => 'integer',
-        'tee_default_male' => 'integer',
-        'tee_default_female' => 'integer'
+        'player_id' => 'integer',
+        'handicap_index' => 'double',
+        'date_handicap_index' => 'date',
+        'ghin' => 'double'
     ];
 
     /**
@@ -55,8 +54,7 @@ class UserCourse extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
-        'course_id' => 'required'
+        'player_id' => 'required'
     ];
 
     

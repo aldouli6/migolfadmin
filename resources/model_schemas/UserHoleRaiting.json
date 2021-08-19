@@ -12,7 +12,7 @@
         "inView": true
     },
     {
-        "name": "user_id",
+        "name": "player_id",
         "dbType": "biginteger:unsigned:foreign,users,id",
         "htmlType": "selectTable:users:alias,id",
         "validations": "required",
@@ -24,39 +24,39 @@
         "inView": true
     },
     {
-        "name": "course_id",
-        "dbType": "integer:unsigned:foreign,courses,id",
-        "htmlType": "selectTable:courses:alias,id",
+        "name": "hole_raiting_type",
+        "dbType": "string:default,'NIGUNA'",
+        "htmlType": "select,Ninguna:NIGUNA,DiferenciaHandicaps:DIFHAND,Hitorico:HIST,Fijo:FIJO,Manual:MANUAL",
         "validations": "required",
         "searchable": true,
         "fillable": true,
         "primary": false,
         "inForm": true,
-        "inIndex": true,
+        "inIndex": false,
         "inView": true
     },
     {
-        "name": "tee_default_male",
-        "dbType": "integer:nullable:unsigned:foreign,tees,id",
-        "htmlType": "selectTable:tees:teecolor_id,id",
+        "name": "hole_raitinig",
+        "dbType": "string:nullable",
+        "htmlType": "number",
         "validations": "",
         "searchable": true,
         "fillable": true,
         "primary": false,
         "inForm": true,
-        "inIndex": true,
+        "inIndex": false,
         "inView": true
     },
     {
-        "name": "tee_default_female",
-        "dbType": "integer:nullable:unsigned:foreign,tees,id",
-        "htmlType": "selectTable:tees:teecolor_id,id",
+        "name": "date_hole_raiting",
+        "dbType": "date:nullable",
+        "htmlType": "date",
         "validations": "",
-        "searchable": true,
+        "searchable": false,
         "fillable": true,
         "primary": false,
         "inForm": true,
-        "inIndex": true,
+        "inIndex": false,
         "inView": true
     },
     {
