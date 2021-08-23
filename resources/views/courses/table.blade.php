@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>@lang('models/courses.fields.id')</th>
+        <th>@lang('models/courses.fields.enabled')</th>
         <th>@lang('models/courses.fields.description')</th>
         <th>@lang('models/courses.fields.alias')</th>
         <th>@lang('models/courses.fields.club_id')</th>
@@ -13,6 +14,7 @@
         @foreach($courses as $course)
             <tr>
                        <td>{{ $course->id }}</td>
+            <td>{{ $course->enabled }}</td>
             <td>{{ $course->description }}</td>
             <td>{{ $course->alias }}</td>
             <td>{{ $course->club_id }}</td>

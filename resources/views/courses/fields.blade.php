@@ -1,3 +1,13 @@
+<!-- 'bootstrap / Toggle Switch Enabled Field' -->
+<div class="form-group col-sm-6">
+    {!! Form::label('enabled', __('models/courses.fields.enabled').':') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('enabled', 0) !!}
+        {!! Form::checkbox('enabled', 1, null,  ['data-toggle' => 'toggle']) !!}
+    </label>
+</div>
+
+
 <!-- Description Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('description', __('models/courses.fields.description').':') !!}

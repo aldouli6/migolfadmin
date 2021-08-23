@@ -6,6 +6,7 @@ return array (
   'fields' => 
   array (
     'id' => 'Id',
+    'enabled' => 'Enabled',
     'name' => 'Name',
     'country_id' => 'Country Id',
     'state_id' => 'State Id',

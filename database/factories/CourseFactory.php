@@ -22,7 +22,8 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'description' => $this->faker->word,
+            'enabled' => $this->faker->word,
+        'description' => $this->faker->word,
         'alias' => $this->faker->word,
         'club_id' => $this->faker->randomDigitNotNull,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),

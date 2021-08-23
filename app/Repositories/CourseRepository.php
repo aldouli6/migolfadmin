@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class CourseRepository
  * @package App\Repositories
- * @version August 13, 2021, 4:21 pm UTC
+ * @version August 23, 2021, 7:50 pm UTC
 */
 
 class CourseRepository extends BaseRepository
@@ -17,6 +17,7 @@ class CourseRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'enabled',
         'description',
         'alias',
         'club_id'

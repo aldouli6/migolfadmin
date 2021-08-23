@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ClubRepository
  * @package App\Repositories
- * @version August 13, 2021, 4:12 pm UTC
+ * @version August 23, 2021, 7:49 pm UTC
 */
 
 class ClubRepository extends BaseRepository
@@ -17,6 +17,7 @@ class ClubRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'enabled',
         'name',
         'country_id',
         'state_id',

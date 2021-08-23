@@ -4,6 +4,12 @@
     <p>{{ $club->id }}</p>
 </div>
 
+<!-- Enabled Field -->
+<div class="form-group">
+    {!! Form::label('enabled', __('models/clubs.fields.enabled').':') !!}
+    <p>{{ $club->enabled }}</p>
+</div>
+
 <!-- Name Field -->
 <div class="form-group">
     {!! Form::label('name', __('models/clubs.fields.name').':') !!}

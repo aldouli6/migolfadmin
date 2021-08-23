@@ -6,6 +6,7 @@ return array (
   'fields' => 
   array (
     'id' => 'Id',
+    'enabled' => 'Enabled',
     'description' => 'Description',
     'alias' => 'Alias',
     'club_id' => 'Club Id',

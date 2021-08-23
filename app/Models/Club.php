@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Club
  * @package App\Models
- * @version August 13, 2021, 4:12 pm UTC
+ * @version August 23, 2021, 7:49 pm UTC
  *
+ * @property boolean $enabled
  * @property string $name
  * @property integer $country_id
  * @property integer $state_id
@@ -31,6 +32,7 @@ class Club extends Model
 
 
     public $fillable = [
+        'enabled',
         'name',
         'country_id',
         'state_id',
@@ -45,6 +47,7 @@ class Club extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'enabled' => 'boolean',
         'name' => 'string',
         'country_id' => 'integer',
         'state_id' => 'integer',

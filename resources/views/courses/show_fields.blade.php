@@ -4,6 +4,12 @@
     <p>{{ $course->id }}</p>
 </div>
 
+<!-- Enabled Field -->
+<div class="form-group">
+    {!! Form::label('enabled', __('models/courses.fields.enabled').':') !!}
+    <p>{{ $course->enabled }}</p>
+</div>
+
 <!-- Description Field -->
 <div class="form-group">
     {!! Form::label('description', __('models/courses.fields.description').':') !!}

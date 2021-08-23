@@ -22,7 +22,8 @@ class ClubFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
+            'enabled' => $this->faker->word,
+        'name' => $this->faker->word,
         'country_id' => $this->faker->randomDigitNotNull,
         'state_id' => $this->faker->randomDigitNotNull,
         'city' => $this->faker->word,
