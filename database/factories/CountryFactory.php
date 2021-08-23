@@ -22,7 +22,8 @@ class CountryFactory extends Factory
     public function definition()
     {
         return [
-            'code' => $this->faker->word,
+            'enabled' => $this->faker->word,
+        'code' => $this->faker->word,
         'name' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')

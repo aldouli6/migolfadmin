@@ -4,6 +4,12 @@
     <p>{{ $country->id }}</p>
 </div>
 
+<!-- Enabled Field -->
+<div class="form-group">
+    {!! Form::label('enabled', __('models/countries.fields.enabled').':') !!}
+    <p>{{ $country->enabled }}</p>
+</div>
+
 <!-- Code Field -->
 <div class="form-group">
     {!! Form::label('code', __('models/countries.fields.code').':') !!}

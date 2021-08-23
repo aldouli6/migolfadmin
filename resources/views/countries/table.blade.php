@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>@lang('models/countries.fields.id')</th>
+        <th>@lang('models/countries.fields.enabled')</th>
         <th>@lang('models/countries.fields.code')</th>
         <th>@lang('models/countries.fields.name')</th>
                 <th colspan="3">@lang('crud.action')</th>
@@ -12,6 +13,7 @@
         @foreach($countries as $country)
             <tr>
                        <td>{{ $country->id }}</td>
+            <td>{{ $country->enabled }}</td>
             <td>{{ $country->code }}</td>
             <td>{{ $country->name }}</td>
                        <td class=" text-center">
