@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class StateRepository
  * @package App\Repositories
- * @version August 13, 2021, 4:00 pm UTC
+ * @version August 23, 2021, 7:47 pm UTC
 */
 
 class StateRepository extends BaseRepository
@@ -17,6 +17,7 @@ class StateRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'enabled',
         'country_id',
         'code',
         'name'

@@ -1,3 +1,13 @@
+<!-- 'bootstrap / Toggle Switch Enabled Field' -->
+<div class="form-group col-sm-6">
+    {!! Form::label('enabled', __('models/states.fields.enabled').':') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('enabled', 0) !!}
+        {!! Form::checkbox('enabled', 1, null,  ['data-toggle' => 'toggle']) !!}
+    </label>
+</div>
+
+
 <!-- Country Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('country_id', __('models/states.fields.country_id').':') !!}

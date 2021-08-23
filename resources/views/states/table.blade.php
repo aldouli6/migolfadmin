@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>@lang('models/states.fields.id')</th>
+        <th>@lang('models/states.fields.enabled')</th>
         <th>@lang('models/states.fields.country_id')</th>
         <th>@lang('models/states.fields.code')</th>
         <th>@lang('models/states.fields.name')</th>
@@ -13,6 +14,7 @@
         @foreach($states as $state)
             <tr>
                        <td>{{ $state->id }}</td>
+            <td>{{ $state->enabled }}</td>
             <td>{{ $state->country_id }}</td>
             <td>{{ $state->code }}</td>
             <td>{{ $state->name }}</td>

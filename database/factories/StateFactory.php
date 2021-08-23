@@ -22,7 +22,8 @@ class StateFactory extends Factory
     public function definition()
     {
         return [
-            'country_id' => $this->faker->randomDigitNotNull,
+            'enabled' => $this->faker->word,
+        'country_id' => $this->faker->randomDigitNotNull,
         'code' => $this->faker->word,
         'name' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
