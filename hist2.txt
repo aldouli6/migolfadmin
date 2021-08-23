@@ -144,3 +144,6 @@ php artisan infyom:api_scaffold UserHoleRaiting --fieldsFile=/Applications/MAMP/
 php artisan infyom:rollback UserScore api_scaffold
 
 COMPOSER_MEMORY_LIMIT=-1 composer require laravel/passport
+
+
+php artisan infyom:api_scaffold Clave --fieldsFile=/var/www/eants.ndi.mx/resources/model_schemas/Clave.json 

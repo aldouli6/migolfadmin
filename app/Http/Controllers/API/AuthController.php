@@ -24,6 +24,7 @@ class AuthController extends  AppBaseController
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'alias' => ['required', 'string',  'max:255', 'unique:users'],
             'phone' => ['required', 'string',  'max:255', 'unique:users'],
+            'phone_code' => ['required', 'string',  'max:10'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ));
         if ($validator->fails()) {

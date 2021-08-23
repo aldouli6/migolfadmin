@@ -25,11 +25,8 @@ Route::middleware(['auth:api'])->group(function(){
     Route::resource('clubs', ClubAPIController::class);
     Route::resource('users', UserAPIController::class);
     Route::resource('holes', HoleAPIController::class);
-    Route::resource('field_start_defaults', FieldStartDefaultAPIController::class);
     Route::resource('user_clubs', UserClubAPIController::class);
     Route::resource('user_players', UserPlayerAPIController::class);
-    Route::resource('user_fields', UserFieldAPIController::class);
-    Route::resource('user_scores', UserScoreAPIController::class);
     Route::resource('courses', CourseAPIController::class);
     Route::resource('tees', TeeAPIController::class);
     Route::resource('course_tee_defaults', CourseTeeDefaultAPIController::class);

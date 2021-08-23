@@ -5,6 +5,7 @@
                 <th>@lang('models/users.fields.id')</th>
         <th>@lang('models/users.fields.enabled')</th>
         <th>@lang('models/users.fields.alias')</th>
+        <th>@lang('models/users.fields.phone_code')</th>
         <th>@lang('models/users.fields.phone')</th>
         <th>@lang('models/users.fields.email')</th>
         <th>@lang('models/users.fields.role')</th>
@@ -17,6 +18,7 @@
                        <td>{{ $user->id }}</td>
             <td>{{ $user->enabled }}</td>
             <td>{{ $user->alias }}</td>
+            <td>{{ $user->phone_code }}</td>
             <td>{{ $user->phone }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ implode(' ', $user->getRoleNames()->toArray()) }}</td>

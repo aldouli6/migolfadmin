@@ -29,6 +29,7 @@ class User extends Authenticatable
         'country_id',
         'state_id',
         'phone',
+        'phone_code',
     ];
 
     /**
@@ -68,6 +69,7 @@ class User extends Authenticatable
         'state_id' => 'required',
         'alias' => 'required|max:10',
         'phone' => 'required|unique:users',
+        'phone_code' => 'required',
         'email' => 'required|email|unique:users',
         'lastname' => 'required',
         'name' => 'required',

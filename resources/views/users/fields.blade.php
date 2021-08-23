@@ -44,6 +44,12 @@
     {!! Form::select('state_id', $stateItems, null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Phone Code Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('phone_code', __('models/users.fields.phone_code').':') !!}
+    {!! Form::text('phone_code', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Phone Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone', __('models/users.fields.phone').':') !!}
@@ -59,7 +65,7 @@
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role', __('models/users.fields.role').':') !!}
-    {!! Form::select('role', $roleItems, isset($user)?$user->roles()->pluck('name'):[], ['class' => 'form-control']) !!}
+    {!! Form::select('role', $roleItems, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

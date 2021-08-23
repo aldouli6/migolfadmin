@@ -29,6 +29,7 @@ class UserFactory extends Factory
         'gender' => $this->faker->word,
         'country_id' => $this->faker->randomDigitNotNull,
         'state_id' => $this->faker->randomDigitNotNull,
+        'phone_code' => $this->faker->word,
         'phone' => $this->faker->word,
         'email' => $this->faker->word,
         'password' => $this->faker->word,

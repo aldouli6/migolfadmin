@@ -13,6 +13,7 @@ return array (
     'gender' => 'Gender',
     'country_id' => 'Country Id',
     'state_id' => 'State Id',
+    'phone_code' => 'Phone Code',
     'phone' => 'Phone',
     'email' => 'Email',
     'password' => 'Password',

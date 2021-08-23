@@ -46,6 +46,12 @@
     <p>{{ $user->state_id }}</p>
 </div>
 
+<!-- Phone Code Field -->
+<div class="form-group">
+    {!! Form::label('phone_code', __('models/users.fields.phone_code').':') !!}
+    <p>{{ $user->phone_code }}</p>
+</div>
+
 <!-- Phone Field -->
 <div class="form-group">
     {!! Form::label('phone', __('models/users.fields.phone').':') !!}
@@ -61,7 +67,7 @@
 <!-- Role Field -->
 <div class="form-group">
     {!! Form::label('role', __('models/users.fields.role').':') !!}
-    <p>{{ implode(' ', $user->getRoleNames()->toArray())}}</p>
+    <p>{{ $user->role }}</p>
 </div>
 
 <!-- Created At Field -->
