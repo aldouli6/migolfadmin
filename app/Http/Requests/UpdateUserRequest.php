@@ -25,7 +25,14 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        $rules =[];
+         $rules = [
+            'alias' => 'required|max:10',
+            'phone' => 'required|unique:users',
+            'phone_code' => 'required',
+            'email' => 'required|email|unique:users',
+            'lastname' => 'required',
+            'name' => 'required',
+        ];
         
         return $rules;
     }

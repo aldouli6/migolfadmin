@@ -6,14 +6,14 @@
         <th>@lang('models/userHandicapIndices.fields.player_id')</th>
         <th>@lang('models/userHandicapIndices.fields.handicap_index')</th>
         <th>@lang('models/userHandicapIndices.fields.ghin')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($userHandicapIndices as $userHandicapIndex)
             <tr>
                        <td>{{ $userHandicapIndex->id }}</td>
-            <td>{{ $userHandicapIndex->player_id }}</td>
+            <td>{{ $userItems[$userHandicapIndex->player_id] ?? '' }}</td>
             <td>{{ $userHandicapIndex->handicap_index }}</td>
             <td>{{ $userHandicapIndex->ghin }}</td>
                        <td class=" text-center">

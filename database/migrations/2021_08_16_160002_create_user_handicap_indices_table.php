@@ -19,7 +19,7 @@ class CreateUserHandicapIndicesTable extends Migration
             $table->biginteger('player_id')->unsigned();
             $table->double('handicap_index')->nullable();
             $table->date('date_handicap_index')->nullable();
-            $table->double('ghin')->nullable();
+            $table->string('ghin')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('player_id')->references('id')->on('users');

@@ -147,3 +147,11 @@ COMPOSER_MEMORY_LIMIT=-1 composer require laravel/passport
 
 
 php artisan infyom:api_scaffold Clave --fieldsFile=/var/www/eants.ndi.mx/resources/model_schemas/Clave.json 
+
+
+
+php artisan infyom:scaffold Country --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Country.json --skip=migration
+php artisan infyom:scaffold State --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/State.json --skip=migration
+php artisan infyom:scaffold Club --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Club.json --skip=migration
+php artisan infyom:scaffold Course --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Course.json --skip=migration
+php artisan infyom:api_scaffold UserCourse --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserCourse.json --skip=migration

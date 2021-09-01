@@ -9,7 +9,7 @@ return array (
     'enabled' => 'Enabled',
     'description' => 'Description',
     'alias' => 'Alias',
-    'club_id' => 'Club Id',
+    'club_id' => 'Club',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
   ),

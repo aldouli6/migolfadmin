@@ -7,25 +7,31 @@
 <!-- User Id Field -->
 <div class="form-group">
     {!! Form::label('user_id', __('models/userCourses.fields.user_id').':') !!}
-    <p>{{ $userCourse->user_id }}</p>
+    <p>{{ $userItems[$userCourse->user_id] ?? '' }}</p>
 </div>
 
 <!-- Course Id Field -->
 <div class="form-group">
     {!! Form::label('course_id', __('models/userCourses.fields.course_id').':') !!}
-    <p>{{ $userCourse->course_id }}</p>
+    <p>{{ $courseItems[$userCourse->course_id] ?? '' }}</p>
+</div>
+
+<!-- Classification Field -->
+<div class="form-group">
+    {!! Form::label('classification', __('models/userCourses.fields.classification').':') !!}
+    <p>@lang('models/userCourses.fields.0'.$userCourse->classification  )</p>
 </div>
 
 <!-- Tee Default Male Field -->
 <div class="form-group">
     {!! Form::label('tee_default_male', __('models/userCourses.fields.tee_default_male').':') !!}
-    <p>{{ $userCourse->tee_default_male }}</p>
+    <p>{{ $teesMales[$userCourse->tee_default_male] ?? '' }}</p>
 </div>
 
 <!-- Tee Default Female Field -->
 <div class="form-group">
     {!! Form::label('tee_default_female', __('models/userCourses.fields.tee_default_female').':') !!}
-    <p>{{ $userCourse->tee_default_female }}</p>
+    <p>{{ $teesFemales[$userCourse->tee_default_female] ?? '' }}</p>
 </div>
 
 <!-- Created At Field -->

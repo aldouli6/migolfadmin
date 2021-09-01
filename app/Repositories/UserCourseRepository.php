@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class UserCourseRepository
  * @package App\Repositories
- * @version August 16, 2021, 6:01 pm UTC
+ * @version August 23, 2021, 7:58 pm UTC
 */
 
 class UserCourseRepository extends BaseRepository
@@ -19,6 +19,7 @@ class UserCourseRepository extends BaseRepository
     protected $fieldSearchable = [
         'user_id',
         'course_id',
+        'classification',
         'tee_default_male',
         'tee_default_female'
     ];

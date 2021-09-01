@@ -9,17 +9,17 @@
         <th>@lang('models/tees.fields.teecolor_id')</th>
         <th>@lang('models/tees.fields.slope')</th>
         <th>@lang('models/tees.fields.rating')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($tees as $tee)
             <tr>
-                       <td>{{ $tee->id }}</td>
-            <td>{{ $tee->enabled }}</td>
-            <td>{{ $tee->course_id }}</td>
-            <td>{{ $tee->gender }}</td>
-            <td>{{ $tee->teecolor_id }}</td>
+            <td>{{ $tee->id }}</td>
+            <td>{!! Form::checkbox('enabled', 1, $tee->enabled,  ['class' => 'toggle','number'=>$tee->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+            <td>{{ $courseItems[$tee->course_id] ?? '' }}</td>
+            <td> @lang('models/tees.fields.'.$tee->gender  )</td>
+            <td>{{ $tee_colorItems[$tee->teecolor_id] ?? '' }}</td>
             <td>{{ $tee->slope }}</td>
             <td>{{ $tee->rating }}</td>
                        <td class=" text-center">

@@ -7,9 +7,11 @@ return array (
   array (
     'id' => 'Id',
     'enabled' => 'Enabled',
-    'course_id' => 'Course Id',
+    'course_id' => 'Course',
     'gender' => 'Gender',
-    'teecolor_id' => 'Teecolor Id',
+    'teecolor_id' => 'Tee Color',
+    'M' => 'Male',
+    'F' => 'Female',
     'slope' => 'Slope',
     'rating' => 'Rating',
     'created_at' => 'Created At',

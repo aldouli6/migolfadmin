@@ -1,12 +1,12 @@
 <?php
 
 return array (
-  'singular' => 'UserHandicapIndex',
-  'plural' => 'UserHandicapIndices',
+  'singular' => 'User Handicap Index',
+  'plural' => 'User Handicap Indices',
   'fields' => 
   array (
     'id' => 'Id',
-    'player_id' => 'Player Id',
+    'player_id' => 'Player',
     'handicap_index' => 'Handicap Index',
     'date_handicap_index' => 'Date Handicap Index',
     'ghin' => 'Ghin',

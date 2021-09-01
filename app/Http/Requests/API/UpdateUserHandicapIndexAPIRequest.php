@@ -24,7 +24,7 @@ class UpdateUserHandicapIndexAPIRequest extends APIRequest
      */
     public function rules()
     {
-        $rules = UserHandicapIndex::$rules;
+        $rules = UserHandicapIndex::$rulesUpdate;
         
         return $rules;
     }

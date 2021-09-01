@@ -67,5 +67,8 @@ class Club extends Model
         'city' => 'required'
     ];
 
-    
+    public function club()
+    {
+        return $this->hasOne(Club::class,'id');
+    }
 }

@@ -7,15 +7,15 @@
         <th>@lang('models/states.fields.country_id')</th>
         <th>@lang('models/states.fields.code')</th>
         <th>@lang('models/states.fields.name')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($states as $state)
             <tr>
-                       <td>{{ $state->id }}</td>
-            <td>{{ $state->enabled }}</td>
-            <td>{{ $state->country_id }}</td>
+            <td>{{ $state->id }}</td>
+            <td> {!! Form::checkbox('enabled', 1, $state->enabled,  ['class' => 'toggle','number'=>$state->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini', 'data-offstyle'=>'secondary']) !!}</td>
+            <td>{{ $countryItems[$state->country_id] ?? '' }}</td>
             <td>{{ $state->code }}</td>
             <td>{{ $state->name }}</td>
                        <td class=" text-center">

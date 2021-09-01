@@ -1,10 +1,9 @@
 <!-- 'bootstrap / Toggle Switch Enabled Field' -->
 <div class="form-group col-sm-6">
     {!! Form::label('enabled', __('models/clubs.fields.enabled').':') !!}
-    <label class="checkbox-inline">
         {!! Form::hidden('enabled', 0) !!}
-        {!! Form::checkbox('enabled', 1, null,  ['data-toggle' => 'toggle']) !!}
-    </label>
+    {!! Form::checkbox('enabled', 1, $club->enabled,  ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+
 </div>
 
 

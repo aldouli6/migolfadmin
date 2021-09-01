@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateCourseAPIRequest;
 use App\Http\Requests\API\UpdateCourseAPIRequest;
 use App\Models\Course;
+use App\Models\Club;
 use App\Repositories\CourseRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -39,7 +40,9 @@ class CourseAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
+        foreach ($courses as $course) {
+            $course['club'] =Club::find($course['club_id']); 
+        }
         return $this->sendResponse(
             $courses->toArray(),
             __('messages.retrieved', ['model' => __('models/courses.plural')])
@@ -59,7 +62,6 @@ class CourseAPIController extends AppBaseController
         $input = $request->all();
 
         $course = $this->courseRepository->create($input);
-
         return $this->sendResponse(
             $course->toArray(),
             __('messages.saved', ['model' => __('models/courses.singular')])
@@ -79,6 +81,7 @@ class CourseAPIController extends AppBaseController
         /** @var Course $course */
         $course = $this->courseRepository->find($id);
 
+        $course['club']= Club::find($course['club_id'])->club; 
         if (empty($course)) {
             return $this->sendError(
                 __('messages.not_found', ['model' => __('models/courses.singular')])

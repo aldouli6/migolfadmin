@@ -7,7 +7,7 @@
 <!-- Enabled Field -->
 <div class="form-group">
     {!! Form::label('enabled', __('models/clubs.fields.enabled').':') !!}
-    <p>{{ $club->enabled }}</p>
+    <p>@if ($club->enabled==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
 </div>
 
 <!-- Name Field -->
@@ -19,13 +19,13 @@
 <!-- Country Id Field -->
 <div class="form-group">
     {!! Form::label('country_id', __('models/clubs.fields.country_id').':') !!}
-    <p>{{ $club->country_id }}</p>
+    <p>{{ $countryItems[$club->country_id] ?? '' }}</p>
 </div>
 
 <!-- State Id Field -->
 <div class="form-group">
     {!! Form::label('state_id', __('models/clubs.fields.state_id').':') !!}
-    <p>{{ $club->state_id }}</p>
+    <p>{{ $stateItems[$club->state_id] ?? '' }}</p>
 </div>
 
 <!-- City Field -->

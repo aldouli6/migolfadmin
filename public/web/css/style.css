@@ -1657,7 +1657,10 @@ h6 .badge {
     border-color: transparent !important;
     background-color: white;
 }
-
+.toggle-handle{
+    border-color: transparent !important;
+    background-color: white;
+}
 .btn > i {
     margin-left: 0 !important;
 }

@@ -24,7 +24,12 @@ class UpdateUserAPIRequest extends APIRequest
      */
     public function rules()
     {
-        $rules = [];
+        $rules = [
+            'alias' => 'max:10',
+            'phone' => 'unique:users',
+            'email' => 'email|unique:users',
+            'alias' => 'unique:users',
+        ];
         
         return $rules;
     }

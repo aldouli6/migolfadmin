@@ -25,7 +25,7 @@ class UpdateUserHandicapIndexRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = UserHandicapIndex::$rules;
+        $rules = UserHandicapIndex::$rulesUpdate;
         
         return $rules;
     }

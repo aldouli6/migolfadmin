@@ -4,14 +4,18 @@
             <tr>
                 <th>@lang('models/userHoleRaitings.fields.id')</th>
         <th>@lang('models/userHoleRaitings.fields.player_id')</th>
-                <th colspan="3">@lang('crud.action')</th>
+        <th>@lang('models/userHoleRaitings.fields.hole_raiting_type')</th>
+        <th>@lang('models/userHoleRaitings.fields.hole_raitinig')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($userHoleRaitings as $userHoleRaiting)
             <tr>
                        <td>{{ $userHoleRaiting->id }}</td>
-            <td>{{ $userHoleRaiting->player_id }}</td>
+            <td>{{ $userItems[$userHoleRaiting->player_id] ?? '' }}</td>
+            <td> @lang('models/userHoleRaitings.fields.'.$userHoleRaiting->hole_raiting_type  )</td>
+            <td>{{ $userHoleRaiting->hole_raitinig }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userHoleRaitings.destroy', $userHoleRaiting->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

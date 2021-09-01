@@ -1,19 +1,19 @@
 <!-- Course Id Field -->
 <div class="form-group">
     {!! Form::label('course_id', __('models/courseTeeDefaults.fields.course_id').':') !!}
-    <p>{{ $courseTeeDefault->course_id }}</p>
+    <p>{{ $courseItems[$courseTeeDefault->course_id] ?? '' }}</p>
 </div>
 
 <!-- Gender Field -->
 <div class="form-group">
     {!! Form::label('gender', __('models/courseTeeDefaults.fields.gender').':') !!}
-    <p>{{ $courseTeeDefault->gender }}</p>
+    <p>@lang('models/tees.fields.'.$courseTeeDefault->gender  )</p>
 </div>
 
 <!-- Tee Id Field -->
 <div class="form-group">
     {!! Form::label('tee_id', __('models/courseTeeDefaults.fields.tee_id').':') !!}
-    <p>{{ $courseTeeDefault->tee_id }}</p>
+    <p>{{  $tee_colorItems[ $teeItems[$courseTeeDefault->tee_id]] }}</p>
 </div>
 
 <!-- Created At Field -->

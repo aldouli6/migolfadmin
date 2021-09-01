@@ -25,6 +25,7 @@ Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
 
+Route::post('/updateEnabled', [App\Http\Controllers\AjaxController::class, 'updateEnabled']);
 
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
 

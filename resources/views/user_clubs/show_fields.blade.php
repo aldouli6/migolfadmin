@@ -7,19 +7,19 @@
 <!-- User Id Field -->
 <div class="form-group">
     {!! Form::label('user_id', __('models/userClubs.fields.user_id').':') !!}
-    <p>{{ $userClub->user_id }}</p>
+    <p>{{ $userItems[$userClub->user_id] ?? '' }}</p>
 </div>
 
 <!-- Club Id Field -->
 <div class="form-group">
     {!! Form::label('club_id', __('models/userClubs.fields.club_id').':') !!}
-    <p>{{ $userClub->club_id }}</p>
+    <p>{{ $clubItems[$userClub->club_id] ?? '' }}</p>
 </div>
 
 <!-- Classification Field -->
 <div class="form-group">
     {!! Form::label('classification', __('models/userClubs.fields.classification').':') !!}
-    <p>{{ $userClub->classification }}</p>
+    <p>@lang('models/userClubs.fields.0'.$userClub->classification  )</p>
 </div>
 
 <!-- Created At Field -->

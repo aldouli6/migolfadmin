@@ -8,17 +8,17 @@
         <th>@lang('models/clubs.fields.country_id')</th>
         <th>@lang('models/clubs.fields.state_id')</th>
         <th>@lang('models/clubs.fields.city')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($clubs as $club)
             <tr>
-                       <td>{{ $club->id }}</td>
-            <td>{{ $club->enabled }}</td>
+            <td>{{ $club->id }}</td>
+            <td>{!! Form::checkbox('enabled', 1, $club->enabled,  ['class' => 'toggle','number'=>$club->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
             <td>{{ $club->name }}</td>
-            <td>{{ $club->country_id }}</td>
-            <td>{{ $club->state_id }}</td>
+            <td>{{ $countryItems[$club->country_id] ?? '' }}</td>
+            <td>{{ $stateItems[$club->state_id] ?? '' }}</td>
             <td>{{ $club->city }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['clubs.destroy', $club->id], 'method' => 'delete']) !!}

@@ -39,7 +39,7 @@ class UserCourseAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
+        $userCourses->sortByDesc('classification');
         return $this->sendResponse(
             $userCourses->toArray(),
             __('messages.retrieved', ['model' => __('models/userCourses.plural')])

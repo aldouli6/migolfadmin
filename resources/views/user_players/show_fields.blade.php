@@ -7,31 +7,31 @@
 <!-- User Id Field -->
 <div class="form-group">
     {!! Form::label('user_id', __('models/userPlayers.fields.user_id').':') !!}
-    <p>{{ $userPlayer->user_id }}</p>
+    <p>{{ $userItems[$userPlayer->user_id] ?? '' }}</p>
 </div>
 
 <!-- Player Id Field -->
 <div class="form-group">
     {!! Form::label('player_id', __('models/userPlayers.fields.player_id').':') !!}
-    <p>{{ $userPlayer->player_id }}</p>
+    <p>{{ $userItems[$userPlayer->player_id] ?? '' }}</p>
 </div>
 
 <!-- Frequency Field -->
 <div class="form-group">
     {!! Form::label('frequency', __('models/userPlayers.fields.frequency').':') !!}
-    <p>{{ $userPlayer->frequency }}</p>
+    <p>@lang('models/userPlayers.fields.'.$userPlayer->frequency  )</p>
 </div>
 
 <!-- Course Id Field -->
 <div class="form-group">
     {!! Form::label('course_id', __('models/userPlayers.fields.course_id').':') !!}
-    <p>{{ $userPlayer->course_id }}</p>
+    <p>{{ $courseItems[$userPlayer->course_id] ?? '' }}</p>
 </div>
 
 <!-- Tee Id Field -->
 <div class="form-group">
     {!! Form::label('tee_id', __('models/userPlayers.fields.tee_id').':') !!}
-    <p>{{ $userPlayer->tee_id }}</p>
+    <p>{{  $tee_colorItems[ $teeItems[$userPlayer->tee_id]] ?? '' }}</p>
 </div>
 
 <!-- Created At Field -->

@@ -28,7 +28,7 @@
 <!-- Ghin Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ghin', __('models/userHandicapIndices.fields.ghin').':') !!}
-    {!! Form::number('ghin', null, ['class' => 'form-control']) !!}
+    {!! Form::text('ghin', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

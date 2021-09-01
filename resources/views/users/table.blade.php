@@ -9,14 +9,14 @@
         <th>@lang('models/users.fields.phone')</th>
         <th>@lang('models/users.fields.email')</th>
         <th>@lang('models/users.fields.role')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($users as $user)
             <tr>
-                       <td>{{ $user->id }}</td>
-            <td>{{ $user->enabled }}</td>
+            <td>{{ $user->id }}</td>
+            <td> {!! Form::checkbox('enabled', 1, $user->enabled,  ['class' => 'toggle','number'=>$user->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-onstyle'=>'primary', 'data-offstyle'=>'secondary']) !!}</td>
             <td>{{ $user->alias }}</td>
             <td>{{ $user->phone_code }}</td>
             <td>{{ $user->phone }}</td>

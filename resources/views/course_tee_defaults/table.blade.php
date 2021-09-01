@@ -5,15 +5,15 @@
                 <th>@lang('models/courseTeeDefaults.fields.course_id')</th>
         <th>@lang('models/courseTeeDefaults.fields.gender')</th>
         <th>@lang('models/courseTeeDefaults.fields.tee_id')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($courseTeeDefaults as $courseTeeDefault)
             <tr>
-                       <td>{{ $courseTeeDefault->course_id }}</td>
-            <td>{{ $courseTeeDefault->gender }}</td>
-            <td>{{ $courseTeeDefault->tee_id }}</td>
+            <td>{{ $courseItems[$courseTeeDefault->course_id] ?? '' }}</td> 
+            <td> @lang('models/tees.fields.'.$courseTeeDefault->gender  )</td>
+            <td>{{  $tee_colorItems[ $teeItems[$courseTeeDefault->tee_id]??0] ?? '' }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['courseTeeDefaults.destroy', $courseTeeDefault->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

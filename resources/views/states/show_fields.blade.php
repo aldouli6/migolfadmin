@@ -7,13 +7,13 @@
 <!-- Enabled Field -->
 <div class="form-group">
     {!! Form::label('enabled', __('models/states.fields.enabled').':') !!}
-    <p>{{ $state->enabled }}</p>
+    <p>@if ($state->enabled==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
 </div>
 
 <!-- Country Id Field -->
 <div class="form-group">
     {!! Form::label('country_id', __('models/states.fields.country_id').':') !!}
-    <p>{{ $state->country_id }}</p>
+    <p>{{ $countryItems[$state->country_id] ?? '' }}</p>
 </div>
 
 <!-- Code Field -->

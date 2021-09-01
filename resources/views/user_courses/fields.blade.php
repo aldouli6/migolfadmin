@@ -10,16 +10,22 @@
     {!! Form::select('course_id', $courseItems, null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Classification Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('classification', __('models/userCourses.fields.classification').':') !!}
+    {!! Form::select('classification', ['1' => 'Sede', '2' => 'Preferido', '3' => 'Normal'], null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Tee Default Male Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tee_default_male', __('models/userCourses.fields.tee_default_male').':') !!}
-    {!! Form::select('tee_default_male', $teeItems, null, ['class' => 'form-control']) !!}
+    {!! Form::select('tee_default_male', $teesMales, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tee Default Female Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tee_default_female', __('models/userCourses.fields.tee_default_female').':') !!}
-    {!! Form::select('tee_default_female', $teeItems, null, ['class' => 'form-control']) !!}
+    {!! Form::select('tee_default_female', $teesFemales, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'singular' => 'TeeColor',
-  'plural' => 'TeeColors',
+  'singular' => 'Tee Color',
+  'plural' => 'Tee Colors',
   'fields' => 
   array (
     'id' => 'Id',

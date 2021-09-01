@@ -8,18 +8,19 @@
         <th>@lang('models/userPlayers.fields.frequency')</th>
         <th>@lang('models/userPlayers.fields.course_id')</th>
         <th>@lang('models/userPlayers.fields.tee_id')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($userPlayers as $userPlayer)
             <tr>
                        <td>{{ $userPlayer->id }}</td>
-            <td>{{ $userPlayer->user_id }}</td>
-            <td>{{ $userPlayer->player_id }}</td>
-            <td>{{ $userPlayer->frequency }}</td>
-            <td>{{ $userPlayer->course_id }}</td>
-            <td>{{ $userPlayer->tee_id }}</td>
+
+            <td>{{ $userItems[$userPlayer->user_id] ?? '' }}</td> 
+            <td>{{ $userItems[$userPlayer->player_id] ?? '' }}</td> 
+            <td> @lang('models/userPlayers.fields.'.$userPlayer->frequency  )</td>
+            <td>{{ $courseItems[$userPlayer->course_id] ?? '' }}</td> 
+            <td>{{  $tee_colorItems[ $teeItems[$userPlayer->tee_id]??0] ?? '' }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userPlayers.destroy', $userPlayer->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

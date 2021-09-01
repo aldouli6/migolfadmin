@@ -7,13 +7,13 @@
 <!-- Player Id Field -->
 <div class="form-group">
     {!! Form::label('player_id', __('models/userHoleRaitings.fields.player_id').':') !!}
-    <p>{{ $userHoleRaiting->player_id }}</p>
+    <p>{{ $userItems[$userHoleRaiting->player_id] ?? '' }}</p>
 </div>
 
 <!-- Hole Raiting Type Field -->
 <div class="form-group">
     {!! Form::label('hole_raiting_type', __('models/userHoleRaitings.fields.hole_raiting_type').':') !!}
-    <p>{{ $userHoleRaiting->hole_raiting_type }}</p>
+    <p>@lang('models/userHoleRaitings.fields.'.$userHoleRaiting->hole_raiting_type  )</p>
 </div>
 
 <!-- Hole Raitinig Field -->

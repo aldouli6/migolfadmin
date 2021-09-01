@@ -5,7 +5,7 @@
                 <th>@lang('models/teeColors.fields.id')</th>
         <th>@lang('models/teeColors.fields.name')</th>
         <th>@lang('models/teeColors.fields.color')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

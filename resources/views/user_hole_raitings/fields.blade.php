@@ -7,7 +7,7 @@
 <!-- Hole Raiting Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hole_raiting_type', __('models/userHoleRaitings.fields.hole_raiting_type').':') !!}
-    {!! Form::select('hole_raiting_type', ['NIGUNA' => 'Ninguna', 'DIFHAND' => 'DiferenciaHandicaps', 'HIST' => 'Hitorico', 'FIJO' => 'Fijo', 'MANUAL' => 'Manual'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('hole_raiting_type', ['NIGUNA' => 'Ninguna', 'DIFHAND' => 'Diferencia de Handicaps', 'HIST' => 'Histórico', 'FIJO' => 'Fijo', 'MANUAL' => 'Manual'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Hole Raitinig Field -->

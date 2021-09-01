@@ -7,7 +7,7 @@ return array (
   array (
     'id' => 'Id',
     'hole_number' => 'Hole Number',
-    'tee_id' => 'Tee Id',
+    'tee_id' => 'Tee',
     'par' => 'Par',
     'hole_raiting' => 'Hole Raiting',
     'created_at' => 'Created At',

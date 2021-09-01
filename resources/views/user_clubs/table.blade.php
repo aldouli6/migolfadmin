@@ -6,16 +6,16 @@
         <th>@lang('models/userClubs.fields.user_id')</th>
         <th>@lang('models/userClubs.fields.club_id')</th>
         <th>@lang('models/userClubs.fields.classification')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($userClubs as $userClub)
             <tr>
-                       <td>{{ $userClub->id }}</td>
-            <td>{{ $userClub->user_id }}</td>
-            <td>{{ $userClub->club_id }}</td>
-            <td>{{ $userClub->classification }}</td>
+            <td>{{ $userClub->id }}</td> 
+            <td>{{ $userItems[$userClub->user_id] ?? '' }}</td> 
+            <td>{{ $clubItems[$userClub->club_id] ?? '' }}</td> 
+            <td> @lang('models/userClubs.fields.0'.$userClub->classification  )</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userClubs.destroy', $userClub->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

@@ -44,8 +44,8 @@ class UserHandicapIndex extends Model
         'id' => 'integer',
         'player_id' => 'integer',
         'handicap_index' => 'double',
-        'date_handicap_index' => 'date',
-        'ghin' => 'double'
+        'date_handicap_index' => 'datetime',
+        'ghin' => 'string'
     ];
 
     /**
@@ -55,6 +55,9 @@ class UserHandicapIndex extends Model
      */
     public static $rules = [
         'player_id' => 'required'
+    ];
+    public static $rulesUpdate = [
+        'player_id' => ''
     ];
 
     

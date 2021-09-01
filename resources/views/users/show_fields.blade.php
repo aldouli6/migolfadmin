@@ -7,7 +7,7 @@
 <!-- Enabled Field -->
 <div class="form-group">
     {!! Form::label('enabled', __('models/users.fields.enabled').':') !!}
-    <p>{{ $user->enabled }}</p>
+    <p>@if ($user->enabled==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
 </div>
 
 <!-- Alias Field -->

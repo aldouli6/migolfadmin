@@ -7,7 +7,7 @@
 <!-- Enabled Field -->
 <div class="form-group">
     {!! Form::label('enabled', __('models/courses.fields.enabled').':') !!}
-    <p>{{ $course->enabled }}</p>
+    <p>@if ($course->enabled==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
 </div>
 
 <!-- Description Field -->
@@ -25,7 +25,7 @@
 <!-- Club Id Field -->
 <div class="form-group">
     {!! Form::label('club_id', __('models/courses.fields.club_id').':') !!}
-    <p>{{ $course->club_id }}</p>
+    <p>{{ $clubItems[$course->club_id] ?? '' }}</p>
 </div>
 
 <!-- Created At Field -->

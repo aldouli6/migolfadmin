@@ -7,7 +7,7 @@
 <!-- Player Id Field -->
 <div class="form-group">
     {!! Form::label('player_id', __('models/userHandicapIndices.fields.player_id').':') !!}
-    <p>{{ $userHandicapIndex->player_id }}</p>
+    <p>{{ $userItems[$userHandicapIndex->player_id] ?? '' }}</p>
 </div>
 
 <!-- Handicap Index Field -->

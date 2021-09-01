@@ -3,17 +3,17 @@
         <thead>
             <tr>
                 <th>@lang('models/countries.fields.id')</th>
-        <th>@lang('models/countries.fields.enabled')</th>
-        <th>@lang('models/countries.fields.code')</th>
-        <th>@lang('models/countries.fields.name')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th>@lang('models/countries.fields.enabled')</th>
+                <th>@lang('models/countries.fields.code')</th>
+                <th>@lang('models/countries.fields.name')</th>
+                <th>@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
         @foreach($countries as $country)
             <tr>
-                       <td>{{ $country->id }}</td>
-            <td>{{ $country->enabled }}</td>
+            <td>{{ $country->id }}</td>
+            <td> {!! Form::checkbox('enabled', 1, $country->enabled,  ['class' => 'toggle','number'=>$country->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
             <td>{{ $country->code }}</td>
             <td>{{ $country->name }}</td>
                        <td class=" text-center">

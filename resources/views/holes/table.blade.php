@@ -7,7 +7,7 @@
         <th>@lang('models/holes.fields.tee_id')</th>
         <th>@lang('models/holes.fields.par')</th>
         <th>@lang('models/holes.fields.hole_raiting')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
@@ -15,7 +15,7 @@
             <tr>
                        <td>{{ $hole->id }}</td>
             <td>{{ $hole->hole_number }}</td>
-            <td>{{ $hole->tee_id }}</td>
+            <td>{{ $teeItems[$hole->tee_id] ?? '' }}</td>
             <td>{{ $hole->par }}</td>
             <td>{{ $hole->hole_raiting }}</td>
                        <td class=" text-center">

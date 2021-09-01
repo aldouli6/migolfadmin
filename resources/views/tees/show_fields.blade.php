@@ -7,25 +7,25 @@
 <!-- Enabled Field -->
 <div class="form-group">
     {!! Form::label('enabled', __('models/tees.fields.enabled').':') !!}
-    <p>{{ $tee->enabled }}</p>
+    <p>@if ($tee->enabled==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
 </div>
 
 <!-- Course Id Field -->
 <div class="form-group">
     {!! Form::label('course_id', __('models/tees.fields.course_id').':') !!}
-    <p>{{ $tee->course_id }}</p>
+    <p>{{ $courseItems[$tee->course_id] ?? '' }}</p>
 </div>
 
 <!-- Gender Field -->
 <div class="form-group">
     {!! Form::label('gender', __('models/tees.fields.gender').':') !!}
-    <p>{{ $tee->gender }}</p>
+    <p>@lang('models/tees.fields.'.$tee->gender  )</p>
 </div>
 
 <!-- Teecolor Id Field -->
 <div class="form-group">
     {!! Form::label('teecolor_id', __('models/tees.fields.teecolor_id').':') !!}
-    <p>{{ $tee->teecolor_id }}</p>
+    <p>{{ $tee_colorItems[$tee->teecolor_id] ?? '' }}</p>
 </div>
 
 <!-- Slope Field -->

@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class UserCourse
  * @package App\Models
- * @version August 16, 2021, 6:01 pm UTC
+ * @version August 23, 2021, 7:58 pm UTC
  *
  * @property integer $user_id
  * @property integer $course_id
+ * @property string $classification
  * @property integer $tee_default_male
  * @property integer $tee_default_female
  */
@@ -32,6 +33,7 @@ class UserCourse extends Model
     public $fillable = [
         'user_id',
         'course_id',
+        'classification',
         'tee_default_male',
         'tee_default_female'
     ];
@@ -45,6 +47,7 @@ class UserCourse extends Model
         'id' => 'integer',
         'user_id' => 'integer',
         'course_id' => 'integer',
+        'classification' => 'string',
         'tee_default_male' => 'integer',
         'tee_default_female' => 'integer'
     ];
@@ -56,7 +59,8 @@ class UserCourse extends Model
      */
     public static $rules = [
         'user_id' => 'required',
-        'course_id' => 'required'
+        'course_id' => 'required',
+        'classification' => 'required'
     ];
 
     

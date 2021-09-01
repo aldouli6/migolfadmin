@@ -49,8 +49,8 @@
     },
     {
         "name": "ghin",
-        "dbType": "double:nullable",
-        "htmlType": "number",
+        "dbType": "string:nullable",
+        "htmlType": "text",
         "validations": "",
         "searchable": true,
         "fillable": true,

@@ -28,10 +28,6 @@
     <a href="{{ route('clubs.index') }}"><i class="fa fa-edit"></i><span>@lang('models/clubs.plural')</span></a>
 </li>
 
-<li class="{{ Request::is('users*') ? 'active' : '' }}">
-    <a href="{{ route('users.index') }}"><i class="fa fa-edit"></i><span>@lang('models/users.plural')</span></a>
-</li>
-
 <li class="{{ Request::is('courses*') ? 'active' : '' }}">
     <a href="{{ route('courses.index') }}"><i class="fa fa-edit"></i><span>@lang('models/courses.plural')</span></a>
 </li>
@@ -56,14 +52,13 @@
     <a href="{{ route('userClubs.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userClubs.plural')</span></a>
 </li>
 
-<li class="{{ Request::is('userPlayers*') ? 'active' : '' }}">
-    <a href="{{ route('userPlayers.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userPlayers.plural')</span></a>
-</li>
-
 <li class="{{ Request::is('userCourses*') ? 'active' : '' }}">
     <a href="{{ route('userCourses.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userCourses.plural')</span></a>
 </li>
 
+<li class="{{ Request::is('userPlayers*') ? 'active' : '' }}">
+    <a href="{{ route('userPlayers.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userPlayers.plural')</span></a>
+</li>
 
 <li class="{{ Request::is('userHandicapIndices*') ? 'active' : '' }}">
     <a href="{{ route('userHandicapIndices.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userHandicapIndices.plural')</span></a>

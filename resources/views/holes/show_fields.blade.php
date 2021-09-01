@@ -13,7 +13,7 @@
 <!-- Tee Id Field -->
 <div class="form-group">
     {!! Form::label('tee_id', __('models/holes.fields.tee_id').':') !!}
-    <p>{{ $hole->tee_id }}</p>
+    <p>{{ $courseItems[ $teeCourseItems[$hole->tee_id]] }} - {{  $tee_colorItems[ $teeItems[$hole->tee_id]] }}</p>
 </div>
 
 <!-- Par Field -->

@@ -7,7 +7,7 @@ return array (
   array (
     'id' => 'Id',
     'enabled' => 'Enabled',
-    'country_id' => 'Country Id',
+    'country_id' => 'Country',
     'code' => 'Code',
     'name' => 'Name',
     'created_at' => 'Created At',

@@ -53,6 +53,7 @@ class Country extends Model
      */
     public static $rules = [
         
+        'code' => 'required|unique:countries,code'
     ];
 
     

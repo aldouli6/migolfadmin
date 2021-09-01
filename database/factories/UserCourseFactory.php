@@ -24,6 +24,7 @@ class UserCourseFactory extends Factory
         return [
             'user_id' => $this->faker->word,
         'course_id' => $this->faker->randomDigitNotNull,
+        'classification' => $this->faker->word,
         'tee_default_male' => $this->faker->randomDigitNotNull,
         'tee_default_female' => $this->faker->randomDigitNotNull,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
