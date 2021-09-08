@@ -5,9 +5,13 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateUserClubAPIRequest;
 use App\Http\Requests\API\UpdateUserClubAPIRequest;
 use App\Models\UserClub;
+use App\Models\Course;
+use App\Models\UserCourse;
+use App\Models\CourseTeeDefault;
 use App\Repositories\UserClubRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 /**
@@ -56,12 +60,82 @@ class UserClubAPIController extends AppBaseController
      */
     public function store(CreateUserClubAPIRequest $request)
     {
+        /** 
+         * Objeto Ideal para asignar un club, si lleva campo sede se agrega el course id
+         *  {
+         *   "user_id":14,
+         *   "club_id":3,
+         *  "course_id":7,
+         *  "classification":"1"
+         *  }
+        */
         $input = $request->all();
+        DB::beginTransaction();
+        $userClub= UserClub::updateOrCreate(
+            [
+                'user_id'=>$input['user_id'],
+                'club_id'=>$input['club_id'],
+                
+            ],
+            [
+                'classification' =>$input['classification'],
+            ]
+        );
+        $courses = Course::where('club_id', $input['club_id'])->get();
+        if (empty($courses)) {
+            DB::rollBack();
+            // $userClub->delete();
+            return response(['success'=>false, 'message'=>'No hay campos en este club, inténtelo después' ]);
+            // return $this->sendError('No hay campos en este club, inténtelo después');
+        }
+        foreach ($courses as $key => $course){
+            $dMale = CourseTeeDefault::where('course_id', $course['id']) ->where('gender', 'M')->first();
+            $dFeMale = CourseTeeDefault::where('course_id', $course['id']) ->where('gender', 'F')->first();
+            // dd($dMale, $dFeMale);
+            $courses[$key]['tee_default_male']=(is_null($dMale))?null:$dMale->toArray()['tee_id'];
+            $courses[$key]['tee_default_female']=(is_null($dFeMale))?null:$dFeMale->toArray()['tee_id'];
+        }
+        $coursesDM = array_column( $courses->toArray() , 'tee_default_male');
+        if (count(array_filter($coursesDM)) != count($coursesDM)){
+            DB::rollBack();
+            // $userClub->delete();
+            return response(['success'=>false, 'message'=>'Algún campo en el club no tiene salida default masculina' ]);
+            // return $this->sendError('Algún campo en el club no tiene salida default masculina');
+        }
+        $coursesDF = array_column( $courses->toArray() , 'tee_default_female');
+        if (count(array_filter($coursesDF)) != count($coursesDF)){
+            DB::rollBack();
+            // $userClub->delete();
+            return response(['success'=>false, 'message'=>'Algún campo en el club no tiene salida default femenina' ]);
+            // return $this->sendError('Algún campo en el club no tiene salida default femenina');
+        }  
 
-        $userClub = $this->userClubRepository->create($input);
+        $userClub=$userClub->toArray();
+        $vueltas= 0;
+        foreach ($courses as $key => $course){
+            if(isset($input['course_id']))
+                $clasi =($input['course_id']==$course['id'])?'1':'3';
+            else{
+                $clasi=($vueltas==0)? $input['classification']:'3';
+                $vueltas++;
+            }
+            $userCourse= UserCourse::updateOrCreate(
+                [
+                    'user_id'=>$input['user_id'],
+                    'course_id'=>$course['id'],
+                ],
+                [
+                    'classification' =>$clasi,
+                    'tee_default_male'=>$course['tee_default_male'],
+                    'tee_default_female'=>$course['tee_default_female']
 
+                ]
+            );
+            $userClub['userCourses'][$course['id']] = $userCourse;
+        }
+        DB::commit();
         return $this->sendResponse(
-            $userClub->toArray(),
+            $userClub,
             __('messages.saved', ['model' => __('models/userClubs.singular')])
         );
     }

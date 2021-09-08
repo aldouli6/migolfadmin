@@ -51,15 +51,13 @@ class ViewServiceProvider extends ServiceProvider
             $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();
             $userItems = User::where('enabled',1)->pluck('alias','id')->toArray();
             $tee_colorItems = TeeColor::pluck('name','id')->toArray();
-            $teesFemale = Tee::where('gender', '=','F')->where('enabled',1)->get()->toArray();
-            foreach ($teesFemale as $key => $teesFemale) {
-                $teesFemales[$teesFemale['id']]=$tee_colorItems[$teesFemale['teecolor_id']];
+            $tees = Tee::where('enabled',1)->get()->toArray();
+            foreach ($tees as $key => $teeItem) {
+                $course = $courseItems[$teeItem['course_id']]??'';
+                $color = $tee_colorItems[$teeItem['teecolor_id']]??'';
+                $teeItems[$teeItem['id']] = $course. ' - '. $color.' - '.$teeItem['gender'] ;
             }
-            $teesMale = Tee::where('gender', '=','M')->where('enabled',1)->get()->toArray();
-            foreach ($teesMale as $key => $teesMale) {
-                $teesMales[$teesMale['id']]=$tee_colorItems[$teesMale['teecolor_id']];
-            }
-            $view->with([ 'userItems'=> $userItems, 'courseItems'=> $courseItems, 'teesFemales'=> $teesFemales, 'teesMales'=> $teesMales]);
+            $view->with([ 'userItems'=> $userItems, 'courseItems'=> $courseItems, 'teeItems'=> $teeItems]);
         });
         View::composer(['user_clubs.fields','user_clubs.table', 'user_clubs.show_fields'], function ($view) {
             $clubItems = Club::where('enabled',1)->pluck('name','id')->toArray();
@@ -78,9 +76,13 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['course_tee_defaults.fields','course_tee_defaults.table', 'course_tee_defaults.show_fields'], function ($view) {
             $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();
             $tee_colorItems = TeeColor::pluck('name','id')->toArray();
-            $teeItems = Tee::where('enabled',1)->pluck('teecolor_id','id')->toArray();
-            // dd($teeItems);
-            $view->with(['courseItems'=>$courseItems, 'teeItems'=> $teeItems,'tee_colorItems'=> $tee_colorItems]);
+            $tees = Tee::where('enabled',1)->get()->toArray();
+            foreach ($tees as $key => $teeItem) {
+                $course = $courseItems[$teeItem['course_id']]??'';
+                $color = $tee_colorItems[$teeItem['teecolor_id']]??'';
+                $teeItems[$teeItem['id']] = $course. ' - '. $color.' - '.$teeItem['gender'] ;
+            }
+            $view->with(['courseItems'=>$courseItems, 'teeItems'=> $teeItems,'tees'=> $tees,'tee_colorItems'=> $tee_colorItems]);
         });
         View::composer(['tees.fields','tees.table', 'tees.show_fields'], function ($view) {
             $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();

@@ -1,3 +1,14 @@
+<?php
+    // var_dump($tees);
+    // echo "<hr>";
+    // print_r($courseTeeDefault->course_id);
+
+    // echo "<hr>";
+    // $filtrado = array_filter($tees, function ($var ) use ($courseTeeDefault) {
+    //     return ($var['course_id'] == $courseTeeDefault->course_id && $var['gender'] == $courseTeeDefault->gender);
+    // });
+    // print_r($filtrado);
+?>
 <!-- Course Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('course_id', __('models/courseTeeDefaults.fields.course_id').':') !!}

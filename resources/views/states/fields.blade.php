@@ -1,7 +1,8 @@
 <!-- 'bootstrap / Toggle Switch Enabled Field' -->
 <div class="form-group col-sm-6">
     {!! Form::label('enabled', __('models/states.fields.enabled').':') !!}
-    {!! Form::checkbox('enabled', 1, $state->enabled,  ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+    {!! Form::hidden('enabled', 0) !!}
+    {!! Form::checkbox('enabled',1, null,  ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
 
 </div>
 

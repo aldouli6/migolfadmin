@@ -13,7 +13,7 @@
             <tr>
             <td>{{ $courseItems[$courseTeeDefault->course_id] ?? '' }}</td> 
             <td> @lang('models/tees.fields.'.$courseTeeDefault->gender  )</td>
-            <td>{{  $tee_colorItems[ $teeItems[$courseTeeDefault->tee_id]??0] ?? '' }}</td>
+            <td>{{  $teeItems[$courseTeeDefault->tee_id] ?? '' }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['courseTeeDefaults.destroy', $courseTeeDefault->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

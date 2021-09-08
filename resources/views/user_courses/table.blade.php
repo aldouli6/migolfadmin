@@ -18,8 +18,8 @@
             <td>{{ $userItems[$userCourse->user_id] ?? '' }}</td> 
             <td>{{ $courseItems[$userCourse->course_id] ?? '' }}</td> 
             <td> @lang('models/userCourses.fields.0'.$userCourse->classification  )</td>
-            <td>{{ $teesMales[$userCourse->tee_default_male] ?? '' }}</td> 
-            <td>{{ $teesFemales[$userCourse->tee_default_female] ?? '' }}</td> 
+            <td>{{ $teeItems[$userCourse->tee_default_male] ?? $userCourse->tee_default_male }}</td> 
+            <td>{{ $teeItems[$userCourse->tee_default_female] ?? $userCourse->tee_default_female }}</td> 
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userCourses.destroy', $userCourse->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

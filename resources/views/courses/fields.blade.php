@@ -2,7 +2,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('enabled', __('models/courses.fields.enabled').':') !!}
         {!! Form::hidden('enabled', 0) !!}
-        {!! Form::checkbox('enabled', 1, $course->enabled,  ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+        {!! Form::checkbox('enabled', 1, 1,  ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
 
 </div>
 
