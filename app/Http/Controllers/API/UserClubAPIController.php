@@ -177,7 +177,6 @@ class UserClubAPIController extends AppBaseController
     public function update($id, UpdateUserClubAPIRequest $request)
     {
         $input = $request->all();
-
         /** @var UserClub $userClub */
         $userClub = $this->userClubRepository->find($id);
 
@@ -186,9 +185,10 @@ class UserClubAPIController extends AppBaseController
                 __('messages.not_found', ['model' => __('models/userClubs.singular')])
             );
         }
+        if($input['classification'] == '1')
+            $ud= UserClub::where(['user_id' => $input['user_id'] , 'classification'=>'1'])->first()->update(['classification' => '2']);
 
         $userClub = $this->userClubRepository->update($input, $id);
-
         return $this->sendResponse(
             $userClub->toArray(),
             __('messages.updated', ['model' => __('models/userClubs.singular')])

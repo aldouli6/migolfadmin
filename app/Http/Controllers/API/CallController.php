@@ -68,6 +68,7 @@ class CallController extends Controller{
         try{
             $user_data = $this->call('/api/users/'.$user,$request->bearerToken() );
             $data['country_id']=$country = $user_data['country_id'];
+            $data['state_id']=$country = $user_data['country_id'];
             $data['countries'] = $this->call('/api/countries?enabled=1',$request->bearerToken()); 
             $data['states'] = $this->call('/api/states/'.$country,$request->bearerToken());
             $data['clubs']=$this->call('/api/clubs',$request->bearerToken());
@@ -135,9 +136,38 @@ class CallController extends Controller{
             return response($res);
         }
     }
+    public function campo(Request $request, $course, $user) {
+        try{
+            // $usuario= trim($usuario);
+            $courseData =  $this->call('/api/courses/'.$course,$request->bearerToken());
+            //  dd($usuario);
+            $data['countries'] = $this->call('/api/countries?enabled=1',$request->bearerToken()); 
+            $data['states'] = $this->call('/api/states/'.$courseData['club']['state_id'],$request->bearerToken());
+            $data['tees'] = $this->call('/api/tees?enabled=1&course_id='.$course,$request->bearerToken());
+           foreach ($data['tees'] as $key => $tee) {
+                $data['tees'][$key]['holes']=$this->call('/api/holes?tee_id='.$tee['id'],$request->bearerToken());
+            }
 
-    function call($url, $token){
-        $request = Request::create($url, 'GET');
+            $data['user_club'] = $this->call('/api/user_clubs?club_id='.$courseData['club']['id'].'&user_id='.$user,$request->bearerToken())[0];
+            $data['user_course'] = $this->call('/api/user_courses?course_id='.$course.'&user_id='.$user,$request->bearerToken())[0];
+            $res['success']=true;
+            $res['data']=$data;
+            return response($res);
+        } catch (\Throwable $e) {
+            $res['success']=false;
+            $res['data']=[];
+            $res['message']=$e->getMessage();
+            return response($res);
+        }
+    }
+
+    function call($url, $token, $method = 'GET', $obj = null){
+        if($method=='GET' || $obj==null){
+            $request = Request::create($url, 'GET');
+        }else{
+            $request = Request::create($url, $method, $obj);
+        }
+        // dd($request);
         $request->headers->add(['Authorization' => "Bearer {$token}"]);
         $response = app()->handle($request);
         $responseBody = json_decode($response->getContent(), true);

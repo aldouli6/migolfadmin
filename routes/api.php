@@ -35,7 +35,8 @@ Route::middleware(['auth:api'])->group(function(){
     Route::get('/usuario/{usuario}', 'CallController@usuario');
     Route::get('/perfil/{usuario}', 'CallController@perfil');
     Route::get('/miscampos/{usuario}', 'CallController@miscampos');
-    Route::get('/campos/{country}', 'CallController@campos');
+    Route::get('/campos/{usuario}', 'CallController@campos');
+    Route::get('/campo/{course}/{usuario}', 'CallController@campo');
 });
 
 Route::get('/countries', 'CountryStateAPIController@countries');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateUserCourseAPIRequest;
 use App\Http\Requests\API\UpdateUserCourseAPIRequest;
 use App\Models\UserCourse;
+use App\Models\Course;
+use App\Models\UserClub;
 use App\Repositories\UserCourseRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -102,6 +104,8 @@ class UserCourseAPIController extends AppBaseController
      */
     public function update($id, UpdateUserCourseAPIRequest $request)
     {
+
+        $call = new CallController;
         $input = $request->all();
 
         /** @var UserCourse $userCourse */
@@ -112,7 +116,18 @@ class UserCourseAPIController extends AppBaseController
                 __('messages.not_found', ['model' => __('models/userCourses.singular')])
             );
         }
-
+        if($input['classification'] == '1'){
+            $uc= UserCourse::where(['user_id' => $input['user_id'] , 'classification'=>'1'])->first();//->update(['classification' => '2']);
+            if($uc){
+                $uc->update(['classification' => '2']);
+                $crse = Course::find($input['course_id']);
+                $uclb = UserClub::where(['user_id' => $input['user_id'] , 'club_id'=>$crse['club_id']])->first();
+                $r = $call->call('/api/user_clubs/'.$uclb['id'],$request->bearerToken(),'PUT',["user_id"=>$input['user_id'], "club_id"=>$crse['club_id'], "classification"=>"1"] );
+                // dd($uclb);
+            }
+            
+        }
+            
         $userCourse = $this->userCourseRepository->update($input, $id);
 
         return $this->sendResponse(
