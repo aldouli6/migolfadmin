@@ -57,9 +57,10 @@ class UserAPIController extends AppBaseController
     public function store(CreateUserAPIRequest $request)
     {
         $input = $request->all();
-
         $user = $this->userRepository->create($input);
-
+        if(isset($input['role'])) {
+            $user->assignRole($input['role']);
+        }
         return $this->sendResponse(
             $user->toArray(),
             __('messages.saved', ['model' => __('models/users.singular')])

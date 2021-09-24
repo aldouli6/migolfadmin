@@ -9,9 +9,9 @@ return array (
     'user_id' => 'User',
     'player_id' => 'Player',
     'frequency' => 'Frequency',
-    'course_id' => 'Course',
-    'tee_id' => 'Tee',
+    'tee_color_id' => 'Tee Color',
     'USER' => 'Usuario', 'RGLR' => 'Regular', 'EVNT' => 'Evetual', 'NRML' => 'Normal',
+    
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
   ),

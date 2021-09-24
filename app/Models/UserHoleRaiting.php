@@ -57,6 +57,9 @@ class UserHoleRaiting extends Model
         'player_id' => 'required',
         'hole_raiting_type' => 'required'
     ];
+    public static $rulesUpdate = [
+        'hole_raiting_type' => 'required'
+    ];
 
     
 }

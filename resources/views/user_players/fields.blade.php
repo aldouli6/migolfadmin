@@ -16,16 +16,10 @@
     {!! Form::select('frequency', ['USER' => 'Usuario', 'RGLR' => 'Regular', 'EVNT' => 'Evetual', 'NRML' => 'Normal'], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Course Id Field -->
+<!-- Tee Color Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('course_id', __('models/userPlayers.fields.course_id').':') !!}
-    {!! Form::select('course_id', $courseItems, null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Tee Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('tee_id', __('models/userPlayers.fields.tee_id').':') !!}
-    {!! Form::select('tee_id', $teeItems, null, ['class' => 'form-control']) !!}
+    {!! Form::label('tee_color_id', __('models/userPlayers.fields.tee_color_id').':') !!}
+    {!! Form::select('tee_color_id', $tee_colorItems, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -75,5 +75,17 @@ class User extends Authenticatable
         'name' => 'required',
         'alias' => 'required|unique:users',
     ];
+    // public static $rulesUpdate = [
+    //     'country_id' => 'required',
+    //     'gender' => 'required',
+    //     'state_id' => 'required',
+    //     'alias' => 'required|max:10',
+    //     'phone' => 'required|unique:users',
+    //     'phone_code' => 'required',
+    //     'email' => 'required|email|unique:users',
+    //     'lastname' => 'required',
+    //     'name' => 'required',
+    //     'alias' => 'required|unique:users',
+    // ];
 
 }

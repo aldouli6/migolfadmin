@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class UserPlayerRepository
  * @package App\Repositories
- * @version August 13, 2021, 5:43 pm UTC
+ * @version September 20, 2021, 5:34 pm UTC
 */
 
 class UserPlayerRepository extends BaseRepository
@@ -20,8 +20,7 @@ class UserPlayerRepository extends BaseRepository
         'user_id',
         'player_id',
         'frequency',
-        'course_id',
-        'tee_id'
+        'tee_color_id'
     ];
 
     /**

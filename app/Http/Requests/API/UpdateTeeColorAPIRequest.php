@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\UserPlayer;
+use App\Models\TeeColor;
 use InfyOm\Generator\Request\APIRequest;
 
-class UpdateUserPlayerAPIRequest extends APIRequest
+class UpdateTeeColorAPIRequest extends APIRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class UpdateUserPlayerAPIRequest extends APIRequest
      */
     public function rules()
     {
-        $rules = UserPlayer::$rulesUpdate;
+        $rules = TeeColor::$rules;
         
         return $rules;
     }

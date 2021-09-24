@@ -9,13 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class UserPlayer
  * @package App\Models
- * @version August 13, 2021, 5:43 pm UTC
+ * @version September 20, 2021, 5:34 pm UTC
  *
  * @property integer $user_id
  * @property integer $player_id
  * @property string $frequency
- * @property integer $course_id
- * @property integer $tee_id
+ * @property integer $tee_color_id
  */
 class UserPlayer extends Model
 {
@@ -34,8 +33,7 @@ class UserPlayer extends Model
         'user_id',
         'player_id',
         'frequency',
-        'course_id',
-        'tee_id'
+        'tee_color_id'
     ];
 
     /**
@@ -48,8 +46,7 @@ class UserPlayer extends Model
         'user_id' => 'integer',
         'player_id' => 'integer',
         'frequency' => 'string',
-        'course_id' => 'integer',
-        'tee_id' => 'integer'
+        'tee_color_id' => 'integer'
     ];
 
     /**
@@ -60,6 +57,11 @@ class UserPlayer extends Model
     public static $rules = [
         'user_id' => 'required',
         'player_id' => 'required',
+        'frequency' => 'required'
+    ];
+    public static $rulesUpdate = [
+        // 'user_id' => 'required',
+        // 'player_id' => 'required',
         'frequency' => 'required'
     ];
 

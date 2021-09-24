@@ -4,7 +4,7 @@ namespace App\Http\Requests\API;
 
 use App\Models\User;
 use InfyOm\Generator\Request\APIRequest;
-
+use Illuminate\Validation\Rule;
 class UpdateUserAPIRequest extends APIRequest
 {
     /**
@@ -25,10 +25,9 @@ class UpdateUserAPIRequest extends APIRequest
     public function rules()
     {
         $rules = [
-            'alias' => 'max:10',
-            'phone' => 'unique:users',
-            'email' => 'email|unique:users',
-            'alias' => 'unique:users',
+            'phone' => ['required', 'string', 'max:500',Rule::unique('users', 'phone')->ignore($this->user)],
+            'email' => ['required', 'string', 'max:500',Rule::unique('users', 'email')->ignore($this->user)],
+            'alias' => ['required', 'string', 'max:500',Rule::unique('users', 'alias')->ignore($this->user)],
         ];
         
         return $rules;

@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class TeeColorRepository
  * @package App\Repositories
- * @version August 13, 2021, 4:37 pm UTC
+ * @version September 20, 2021, 5:30 pm UTC
 */
 
 class TeeColorRepository extends BaseRepository

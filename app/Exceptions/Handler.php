@@ -38,6 +38,16 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        // $this->renderable( function ( ValidationException $ex, $request ) {
+        
+        //     $response = [
+        //         'ErrorCode' => 'my_error_code',
+        //         'ErrorMessage' => $ex->validator->errors()
+        //     ];
+            
+        //     return response()->json( $response );
+        // } );
     }
     /**
      * Convert an authentication exception into an unauthenticated response.

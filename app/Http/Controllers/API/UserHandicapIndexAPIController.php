@@ -39,7 +39,6 @@ class UserHandicapIndexAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
         return $this->sendResponse(
             $userHandicapIndices->toArray(),
             __('messages.retrieved', ['model' => __('models/userHandicapIndices.plural')])

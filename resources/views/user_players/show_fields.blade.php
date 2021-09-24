@@ -22,16 +22,10 @@
     <p>@lang('models/userPlayers.fields.'.$userPlayer->frequency  )</p>
 </div>
 
-<!-- Course Id Field -->
+<!-- Tee Color Id Field -->
 <div class="form-group">
-    {!! Form::label('course_id', __('models/userPlayers.fields.course_id').':') !!}
-    <p>{{ $courseItems[$userPlayer->course_id] ?? '' }}</p>
-</div>
-
-<!-- Tee Id Field -->
-<div class="form-group">
-    {!! Form::label('tee_id', __('models/userPlayers.fields.tee_id').':') !!}
-    <p>{{  $tee_colorItems[ $teeItems[$userPlayer->tee_id]] ?? '' }}</p>
+    {!! Form::label('tee_color_id', __('models/userPlayers.fields.tee_color_id').':') !!}
+    <p>{{ $userPlayer->tee_color_id }}</p>
 </div>
 
 <!-- Created At Field -->

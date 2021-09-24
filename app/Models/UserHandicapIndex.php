@@ -43,7 +43,7 @@ class UserHandicapIndex extends Model
     protected $casts = [
         'id' => 'integer',
         'player_id' => 'integer',
-        'handicap_index' => 'double',
+        'handicap_index' => 'float',
         'date_handicap_index' => 'datetime',
         'ghin' => 'string'
     ];
@@ -57,7 +57,7 @@ class UserHandicapIndex extends Model
         'player_id' => 'required'
     ];
     public static $rulesUpdate = [
-        'player_id' => ''
+        // 'player_id' => ''
     ];
 
     

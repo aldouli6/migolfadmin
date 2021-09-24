@@ -56,7 +56,6 @@ class UserController extends AppBaseController
     {
         $input = $request->all();
 
-        $user = $this->userRepository->create($input);
 
         $user = $this->userRepository->create($input);
         $user->assignRole($request->role);

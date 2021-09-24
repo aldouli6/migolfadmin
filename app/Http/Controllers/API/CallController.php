@@ -169,12 +169,13 @@ class CallController extends Controller{
         }
         // dd($request);
         $request->headers->add(['Authorization' => "Bearer {$token}"]);
+        $request->headers->add(['Accept' => "application/json"]);
         $response = app()->handle($request);
         $responseBody = json_decode($response->getContent(), true);
-        if($responseBody['success']){
+        if(isset($responseBody['success'])){
             return $responseBody['data'];
         }else{
-            return null;
+            return $responseBody;
         }
     }
 }  

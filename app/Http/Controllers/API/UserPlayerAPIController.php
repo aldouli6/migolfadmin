@@ -5,9 +5,13 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateUserPlayerAPIRequest;
 use App\Http\Requests\API\UpdateUserPlayerAPIRequest;
 use App\Models\UserPlayer;
+use App\Models\User;
+use App\Models\UserHandicapIndex;
+use App\Models\UserHoleRaiting;
 use App\Repositories\UserPlayerRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 /**
@@ -39,11 +43,25 @@ class UserPlayerAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-
+        foreach ($userPlayers as $userPlayer) {
+            $userPlayer['player'] =User::find($userPlayer['player_id']); 
+            $userPlayer['handicap'] = UserHandicapIndex::where('player_id',$userPlayer['player_id'])->first();
+            $userPlayer['rating'] = UserHoleRaiting::where('player_id',$userPlayer['player_id'])->first();
+        }
         return $this->sendResponse(
             $userPlayers->toArray(),
             __('messages.retrieved', ['model' => __('models/userPlayers.plural')])
         );
+    }
+
+     function getName($n) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < $n; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $randomString .= $characters[$index];
+        }
+        return $randomString;
     }
 
     /**
@@ -56,14 +74,82 @@ class UserPlayerAPIController extends AppBaseController
      */
     public function store(CreateUserPlayerAPIRequest $request)
     {
+    try{
+        $call = new CallController;
         $input = $request->all();
+        //Cree un usuariop
+        $pass = $this->getName(10);
+        // dd($pass);
+        $input_user = [
+            "name"=>$input['name'],
+            "password"=>$pass,
+            "password_confirmation"=>$pass,
+            "email"=>$input['email'],
+            "enabled"=>1,
+            "alias"=>$input['alias'],
+            "lastname"=>$input['lastname'],
+            "gender"=>$input['gender'],
+            "country_id"=>$input['country_id'],
+            "state_id"=>$input['state_id'],
+            "phone"=>$input['phone'],
+            "phone_code"=>$input['phone_code'],
+            "role"=>'jugador',
+        ];
+        DB::beginTransaction();
+        $user = $call->call('/api/users',$request->bearerToken(),'POST',$input_user );
+        if (isset($user['errors'])){
+            DB::rollBack();
+            return response(array_merge(['success'=>false], $user));
+        }
 
-        $userPlayer = $this->userPlayerRepository->create($input);
+        $input_uplayer =[
+            "user_id"=>$input['user_id'],
+            "player_id"=>$user['id'],
+            "frequency"=>$input['frequency'],
+            "tee_color_id"=>$input['tee_color_id'],
+        ];
+        $userPlayer = $this->userPlayerRepository->create($input_uplayer);
 
+        if (isset($userPlayer['errors'])){
+            DB::rollBack();
+            return response(array_merge(['success'=>false], $userPlayer));
+        }
+        //create my user handicap index
+        $input_hcp=[
+            "player_id"=>$user['id'],
+            "handicap_index"=>$input['handicap_index'],
+            "date_handicap_index"=>date("Y-m-d H:i:s")
+        ];
+        $user_hcp = $call->call('api/user_handicap_indices',$request->bearerToken(),'POST',$input_hcp );
+        if (isset($user_hcp['errors'])){
+            DB::rollBack();
+            return response(array_merge(['success'=>false], $user_hcp));
+        }
+        //create my user hole rating
+        $input_rating=[
+            "player_id"=>$user['id'],
+            "hole_raiting_type"=>$input['hole_raiting_type'],
+            "hole_raitinig"=>$input['hole_raitinig'],
+        ];
+        $user_rating = $call->call('api/user_hole_raitings',$request->bearerToken(),'POST',$input_rating );
+        if (isset($user_rating['errors'])){
+            DB::rollBack();
+            return response(array_merge(['success'=>false], $user_rating));
+        }
+        
+
+        DB::commit();
         return $this->sendResponse(
             $userPlayer->toArray(),
             __('messages.saved', ['model' => __('models/userPlayers.singular')])
         );
+    } catch (\Throwable $e) {
+        DB::rollBack();
+        $res['success']=false;
+        $res['data']=[];
+        $res['message']=$e->getMessage();
+        return response($res);
+    }
     }
 
     /**
@@ -102,23 +188,79 @@ class UserPlayerAPIController extends AppBaseController
      */
     public function update($id, UpdateUserPlayerAPIRequest $request)
     {
-        $input = $request->all();
+        try{
+            $call = new CallController;
+            $input = $request->all();
 
-        /** @var UserPlayer $userPlayer */
-        $userPlayer = $this->userPlayerRepository->find($id);
+            $input_user = [
+                "name"=>$input['name'],
+                "email"=>$input['email'],
+                "alias"=>$input['alias'],
+                "lastname"=>$input['lastname'],
+                "gender"=>$input['gender'],
+                "country_id"=>$input['country_id'],
+                "state_id"=>$input['state_id'],
+                "phone"=>$input['phone'],
+                "phone_code"=>$input['phone_code'],
+                "user_id"=>$input['player_id']
+            ];
 
-        if (empty($userPlayer)) {
-            return $this->sendError(
-                __('messages.not_found', ['model' => __('models/userPlayers.singular')])
+            DB::beginTransaction();
+            $user = $call->call('/api/users/'.$input['player_id'],$request->bearerToken(),'PUT',$input_user );
+            if (isset($user['errors'])){
+                DB::rollBack();
+                return response(array_merge(['success'=>false], $user));
+            }
+            $input_hcp=[
+                "handicap_index"=>$input['handicap_index'],
+                "date_handicap_index"=>date("Y-m-d H:i:s")
+            ];
+            $user_hcp = $call->call('api/user_handicap_indices/'.$input['handicap_id'],$request->bearerToken(),'PUT',$input_hcp );
+            if (isset($user_hcp['errors'])){
+                DB::rollBack();
+                return response(array_merge(['success'=>false], $user_hcp));
+            }
+            $input_rating=[
+                "hole_raiting_type"=>$input['hole_raiting_type'],
+                "hole_raitinig"=>$input['hole_raitinig'],
+            ];
+            $user_rating = $call->call('api/user_hole_raitings/'.$input['hole_rating_id'],$request->bearerToken(),'PUT',$input_rating );
+            if (isset($user_rating['errors'])){
+                DB::rollBack();
+                return response(array_merge(['success'=>false], $user_rating));
+            }
+
+            $input_uplayer =[
+                "frequency"=>$input['frequency'],
+                "tee_color_id"=>$input['tee_color_id'],
+            ];
+
+            /** @var UserPlayer $userPlayer */
+            $userPlayer = $this->userPlayerRepository->find($id);
+
+            if (empty($userPlayer)) {
+                DB::rollBack();
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/userPlayers.singular')])
+                );
+            }
+
+            DB::commit();
+            $userPlayer = $this->userPlayerRepository->update($input_uplayer, $id);
+
+            // dd($userPlayer);
+            return $this->sendResponse(
+                ['userPlayer'=>$userPlayer->toArray(), "user"=>$user],
+                __('messages.updated', ['model' => __('models/userPlayers.singular')])
             );
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            $res['success']=false;
+            $res['data']=[];
+            $res['message']=$e->getMessage();
+            return response($res);
         }
-
-        $userPlayer = $this->userPlayerRepository->update($input, $id);
-
-        return $this->sendResponse(
-            $userPlayer->toArray(),
-            __('messages.updated', ['model' => __('models/userPlayers.singular')])
-        );
+        
     }
 
     /**

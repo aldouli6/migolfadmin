@@ -42,10 +42,8 @@ class ViewServiceProvider extends ServiceProvider
         });
         View::composer(['user_players.fields','user_players.table', 'user_players.show_fields'], function ($view) {
             $userItems = User::where('enabled',1)->pluck('alias','id')->toArray();
-            $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();
-            $teeItems = Tee::where('enabled',1)->pluck('teecolor_id','id')->toArray();
             $tee_colorItems = TeeColor::pluck('name','id')->toArray();
-            $view->with([ 'userItems'=> $userItems, 'courseItems'=> $courseItems, 'teeItems'=> $teeItems, 'tee_colorItems'=> $tee_colorItems]);
+            $view->with([ 'userItems'=> $userItems,  'tee_colorItems'=> $tee_colorItems]);
         });
         View::composer(['user_courses.fields','user_courses.table', 'user_courses.show_fields'], function ($view) {
             $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();

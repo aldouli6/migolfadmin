@@ -24,7 +24,7 @@ class UpdateUserHoleRaitingAPIRequest extends APIRequest
      */
     public function rules()
     {
-        $rules = UserHoleRaiting::$rules;
+        $rules = UserHoleRaiting::$rulesUpdate;
         
         return $rules;
     }

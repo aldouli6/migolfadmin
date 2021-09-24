@@ -28,6 +28,7 @@ Route::middleware(['auth:api'])->group(function(){
     Route::resource('user_players', UserPlayerAPIController::class);
     Route::resource('courses', CourseAPIController::class);
     Route::resource('tees', TeeAPIController::class);
+    Route::resource('tee_colors', TeeColorAPIController::class);
     Route::resource('course_tee_defaults', CourseTeeDefaultAPIController::class);
     Route::resource('user_courses', UserCourseAPIController::class);
     Route::resource('user_handicap_indices', UserHandicapIndexAPIController::class);
@@ -39,6 +40,8 @@ Route::middleware(['auth:api'])->group(function(){
     Route::get('/campo/{course}/{usuario}', 'CallController@campo');
 });
 
+
+
 Route::get('/countries', 'CountryStateAPIController@countries');
 Route::get('/states/{id}', 'CountryStateAPIController@states');
 Route::get('/courses', 'CourseAPIController@index');
@@ -46,3 +49,5 @@ Route::get('/clubs', 'ClubAPIController@index');
 Route::get('/tees', 'TeeAPIController@index');
 
  
+
+
