@@ -17,6 +17,9 @@ class CallController extends Controller{
             $data['states'] = $this->call('/api/states/'.$data['user']['country_id'],$request->bearerToken());
             $data['userHandicapIndex'] = $this->call('/api/user_handicap_indices?limit=1&player_id='.$user,$request->bearerToken());
             $data['userHandicapIndex'] =$data['userHandicapIndex'][0]??null;
+            $data['userPlayer'] = $this->call('/api/user_players?limit=1&player_id='.$user,$request->bearerToken());
+            $data['colores'] = $this->call('/api/tee_colors',$request->bearerToken());
+            
             $res['success']=true;
             $res['data']=$data;
             return response($res);

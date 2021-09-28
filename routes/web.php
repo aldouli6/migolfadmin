@@ -166,3 +166,8 @@ Route::resource('userHoleRaitings', App\Http\Controllers\UserHoleRaitingControll
 
 
 Route::resource('userCourses', App\Http\Controllers\UserCourseController::class);
+
+
+
+
+Route::resource('userGroups', App\Http\Controllers\UserGroupController::class);

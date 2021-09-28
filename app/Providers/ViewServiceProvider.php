@@ -32,6 +32,14 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['user_groups.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
+        View::composer(['user_groups.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
         View::composer(['user_hole_raitings.fields','user_hole_raitings.table', 'user_hole_raitings.show_fields'], function ($view) {
             $userItems = User::where('enabled',1)->pluck('alias','id')->toArray();
             $view->with('userItems', $userItems);

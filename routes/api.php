@@ -33,6 +33,7 @@ Route::middleware(['auth:api'])->group(function(){
     Route::resource('user_courses', UserCourseAPIController::class);
     Route::resource('user_handicap_indices', UserHandicapIndexAPIController::class);
     Route::resource('user_hole_raitings', UserHoleRaitingAPIController::class);
+    Route::resource('user_groups', UserGroupAPIController::class);
     Route::get('/usuario/{usuario}', 'CallController@usuario');
     Route::get('/perfil/{usuario}', 'CallController@perfil');
     Route::get('/miscampos/{usuario}', 'CallController@miscampos');
@@ -49,5 +50,9 @@ Route::get('/clubs', 'ClubAPIController@index');
 Route::get('/tees', 'TeeAPIController@index');
 
  
+
+
+
+
 
 

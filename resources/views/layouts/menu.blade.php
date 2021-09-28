@@ -68,3 +68,8 @@
     <a href="{{ route('userHoleRaitings.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userHoleRaitings.plural')</span></a>
 </li>
 
+
+<li class="{{ Request::is('userGroups*') ? 'active' : '' }}">
+    <a href="{{ route('userGroups.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userGroups.plural')</span></a>
+</li>
+

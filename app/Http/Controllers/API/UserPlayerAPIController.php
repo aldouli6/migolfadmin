@@ -220,15 +220,18 @@ class UserPlayerAPIController extends AppBaseController
                 DB::rollBack();
                 return response(array_merge(['success'=>false], $user_hcp));
             }
-            $input_rating=[
-                "hole_raiting_type"=>$input['hole_raiting_type'],
-                "hole_raitinig"=>$input['hole_raitinig'],
-            ];
-            $user_rating = $call->call('api/user_hole_raitings/'.$input['hole_rating_id'],$request->bearerToken(),'PUT',$input_rating );
-            if (isset($user_rating['errors'])){
-                DB::rollBack();
-                return response(array_merge(['success'=>false], $user_rating));
+            if(isset($input['hole_rating_id'])){
+                $input_rating=[
+                    "hole_raiting_type"=>$input['hole_raiting_type'],
+                    "hole_raitinig"=>$input['hole_raitinig'],
+                ];
+                $user_rating = $call->call('api/user_hole_raitings/'.$input['hole_rating_id'],$request->bearerToken(),'PUT',$input_rating );
+                if (isset($user_rating['errors'])){
+                    DB::rollBack();
+                    return response(array_merge(['success'=>false], $user_rating));
+                }
             }
+            
 
             $input_uplayer =[
                 "frequency"=>$input['frequency'],

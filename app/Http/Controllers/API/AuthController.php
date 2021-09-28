@@ -52,6 +52,14 @@ class AuthController extends  AppBaseController
             $userHandicapIndex['player_id']=$user->id;
             UserHandicapIndex::create($userHandicapIndex);
         }
+        //Inserta el handicap
+        $userPlayer =[
+            "user_id"=>$user->id,
+            "player_id"=>$user->id,
+            "frequency"=>'USER',
+            "tee_color_id"=>0,
+        ];
+        userPlayer::create($userPlayer);
         //Inserta el club
         if($input['club_id']!=0){
             $userClub['club_id']=$input['club_id'];
@@ -82,7 +90,7 @@ class AuthController extends  AppBaseController
         }
         if($course_id!=0){
             $res= UserCourse::updateOrCreate(
-                ['user_id'=>$user->id],
+                ['user_id'=>$user->id, 'classification'=>1],
                 [
                     'course_id'=>$course_id,
                     'tee_default_male'=>($input['tee_male_id']==0)?null:$input['tee_male_id'],

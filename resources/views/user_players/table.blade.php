@@ -18,7 +18,7 @@
                        <td>{{ $userItems[$userPlayer->user_id] ?? '' }}</td> 
             <td>{{ $userItems[$userPlayer->player_id] ?? '' }}</td> 
             <td> @lang('models/userPlayers.fields.'.$userPlayer->frequency  )</td>
-            <td>{{$tee_colorItems[ $userPlayer->tee_color_id] }}</td>
+            <td>{{$tee_colorItems[ $userPlayer->tee_color_id] ??'' }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['userPlayers.destroy', $userPlayer->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>
