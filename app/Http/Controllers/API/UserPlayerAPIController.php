@@ -276,22 +276,38 @@ class UserPlayerAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        /** @var UserPlayer $userPlayer */
-        $userPlayer = $this->userPlayerRepository->find($id);
+        if($id!=0){
+            /** @var UserPlayer $userPlayer */
+            $userPlayer = $this->userPlayerRepository->find($id);
 
-        if (empty($userPlayer)) {
-            return $this->sendError(
-                __('messages.not_found', ['model' => __('models/userPlayers.singular')])
+            if (empty($userPlayer)) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/userPlayers.singular')])
+                );
+            }
+
+            $userPlayer->delete();
+
+            return $this->sendResponse(
+                $id,
+                __('messages.deleted', ['model' => __('models/userPlayers.singular')])
+            );
+        }else{
+            $ids = $request->all();
+            $userPlayers = UserPlayer::whereIn('player_id', $ids);
+            // dd($userPlayers->get());
+            if (empty($userPlayers->get()->toArray())) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/userPlayers.singular')])
+                );
+            }
+            $userPlayers->delete();
+            return $this->sendResponse(
+                array("data" =>$ids),
+                __('messages.deleted', ['model' => __('models/userPlayers.singular')])
             );
         }
-
-        $userPlayer->delete();
-
-        return $this->sendResponse(
-            $id,
-            __('messages.deleted', ['model' => __('models/userPlayers.singular')])
-        );
     }
 }

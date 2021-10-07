@@ -162,3 +162,6 @@ php artisan infyom:api_scaffold UserPlayer --fieldsFile=/Applications/MAMP/htdoc
 php artisan infyom:api_scaffold UserGroup --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/UserGroup.json
 
 php artisan infyom:rollback UserGroup api_scaffold
+
+
+php artisan migrate:rollback  --path=database/migrations/2021_08_04_155544_add_field_to_users.php

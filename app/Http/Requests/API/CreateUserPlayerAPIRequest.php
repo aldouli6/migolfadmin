@@ -24,6 +24,6 @@ class CreateUserPlayerAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return UserPlayer::$rules;
+        return [];
     }
 }

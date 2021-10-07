@@ -136,22 +136,38 @@ class UserGroupAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        /** @var UserGroup $userGroup */
-        $userGroup = $this->userGroupRepository->find($id);
+        if($id!=0){
+            /** @var UserGroup $userGroup */
+            $userGroup = $this->userGroupRepository->find($id);
 
-        if (empty($userGroup)) {
-            return $this->sendError(
-                __('messages.not_found', ['model' => __('models/userGroups.singular')])
+            if (empty($userGroup)) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/userGroups.singular')])
+                );
+            }
+
+            $userGroup->delete();
+
+            return $this->sendResponse(
+                $id,
+                __('messages.deleted', ['model' => __('models/userGroups.singular')])
+            );
+        }else{
+            $ids = $request->all();
+            $userGroups = UserGroup::whereIn('id', $ids);
+            // dd($userGroups->get());
+            if (empty($userGroups->get()->toArray())) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/userGroups.singular')])
+                );
+            }
+            $userGroups->delete();
+            return $this->sendResponse(
+                array("data" =>$ids),
+                __('messages.deleted', ['model' => __('models/userGroups.singular')])
             );
         }
-
-        $userGroup->delete();
-
-        return $this->sendResponse(
-            $id,
-            __('messages.deleted', ['model' => __('models/userGroups.singular')])
-        );
     }
 }

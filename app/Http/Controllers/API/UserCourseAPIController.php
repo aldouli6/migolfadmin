@@ -146,22 +146,64 @@ class UserCourseAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        /** @var UserCourse $userCourse */
-        $userCourse = $this->userCourseRepository->find($id);
+        /**
+         * Para cada user_course 
+         * elimino el couse
+         * checo al club que pertenece este user_course 
+         * traigo todos los courses que tiene el club 
+         * checo los user_course que pertenecen a los courses del club con wherein course_id, courses->ids 
+         * 
+         * si hay mas de uno no se elimana el club 
+         * si es 0 elimino el club del paso 3
+         */
+        if($id!=0){
+            /** @var UserCourse $userCourse */
+            $userCourse = $this->userCourseRepository->find($id);
 
-        if (empty($userCourse)) {
-            return $this->sendError(
-                __('messages.not_found', ['model' => __('models/userCourses.singular')])
+            if (empty($userCourse)) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/userCourses.singular')])
+                );
+            }
+
+            $userCourse->delete();
+
+            return $this->sendResponse(
+                $id,
+                __('messages.deleted', ['model' => __('models/userCourses.singular')])
+            );
+        }else {
+            $ids = $request->all();
+            foreach ($ids as $key => $id) {
+                
+                $userCourse = $this->userCourseRepository->find($id);
+                if (empty($userCourse)) {
+                    return $this->sendError(
+                        __('messages.not_found', ['model' => __('models/userCourses.singular')])
+                    );
+                }
+                $uc =$userCourse;
+                
+                $userCourse->delete();
+                $course = Course::where('id', $uc['course_id'])->first();
+                // dd($course);
+                $courses = Course::where('club_id', $course['club_id'])->get();
+ 
+                $userCourses = UserCourse::whereIn('course_id',array_column($courses->toArray(), 'id') )->get();
+                $userCourses->where('user_id',$uc['user_id']);
+                if(count($userCourses)==0){
+                    $userClub = UserClub::where('club_id', $course['club_id'])->where('user_id',$uc['user_id']);
+                    $userClub->delete();
+                }
+                
+            }
+            return $this->sendResponse(
+                array("data"=> $ids),
+                __('messages.deleted', ['model' => __('models/userCourses.singular')])
             );
         }
-
-        $userCourse->delete();
-
-        return $this->sendResponse(
-            $id,
-            __('messages.deleted', ['model' => __('models/userCourses.singular')])
-        );
+        
     }
 }
