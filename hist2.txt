@@ -165,3 +165,31 @@ php artisan infyom:rollback UserGroup api_scaffold
 
 
 php artisan migrate:rollback  --path=database/migrations/2021_08_04_155544_add_field_to_users.php
+
+
+php artisan infyom:api_scaffold Bet --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Bet.json
+
+php artisan infyom:api_scaffold BetMatchIndividual --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetMatchIndividual.json
+php artisan infyom:rollback BetMedalPlay api_scaffold
+
+php artisan infyom:api_scaffold BetRompeHandicap --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetRompeHandicap.json
+php artisan infyom:api_scaffold BetMatchPareja --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetMatchPareja.json
+php artisan infyom:api_scaffold BetSkin --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetSkin.json
+php artisan infyom:api_scaffold BetGreen --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetGreen.json
+
+php artisan infyom:rollback BetMatchIndividual api_scaffold
+php artisan infyom:rollback BetMedalPlay api_scaffold
+php artisan infyom:rollback BetStableford api_scaffold
+php artisan infyom:rollback BetRompeHandicap api_scaffold
+php artisan infyom:rollback BetMatchPareja api_scaffold
+php artisan infyom:rollback BetSkin api_scaffold
+php artisan infyom:rollback BetGreen api_scaffold
+
+php artisan infyom:api_scaffold BetMatchIndividual --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetMatchIndividual.json
+php artisan infyom:api_scaffold BetMedalPlay --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetMedalPlay.json
+php artisan infyom:api_scaffold BetStableford --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetStableford.json
+php artisan infyom:api_scaffold BetRompeHandicap --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetRompeHandicap.json
+php artisan infyom:api_scaffold BetMatchPareja --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetMatchPareja.json
+php artisan infyom:api_scaffold BetSkin --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetSkin.json
+php artisan infyom:api_scaffold BetGreen --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetGreen.json
+php artisan infyom:api_scaffold BetRayaPunto --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetRayaPunto.json
