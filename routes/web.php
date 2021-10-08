@@ -171,3 +171,62 @@ Route::resource('userCourses', App\Http\Controllers\UserCourseController::class)
 
 
 Route::resource('userGroups', App\Http\Controllers\UserGroupController::class);
+
+
+Route::resource('bets', App\Http\Controllers\BetController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::resource('betMatchIndividuals', App\Http\Controllers\BetMatchIndividualController::class);
+
+
+Route::resource('betMedalPlays', App\Http\Controllers\BetMedalPlayController::class);
+
+
+Route::resource('betStablefords', App\Http\Controllers\BetStablefordController::class);
+
+
+Route::resource('betRompeHandicaps', App\Http\Controllers\BetRompeHandicapController::class);
+
+
+Route::resource('betMatchParejas', App\Http\Controllers\BetMatchParejaController::class);
+
+
+Route::resource('betSkins', App\Http\Controllers\BetSkinController::class);
+
+
+Route::resource('betGreens', App\Http\Controllers\BetGreenController::class);
+
+
+Route::resource('betRayaPuntos', App\Http\Controllers\BetRayaPuntoController::class);

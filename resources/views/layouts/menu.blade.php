@@ -73,3 +73,39 @@
     <a href="{{ route('userGroups.index') }}"><i class="fa fa-edit"></i><span>@lang('models/userGroups.plural')</span></a>
 </li>
 
+<li class="{{ Request::is('bets*') ? 'active' : '' }}">
+    <a href="{{ route('bets.index') }}"><i class="fa fa-edit"></i><span>@lang('models/bets.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betMatchIndividuals*') ? 'active' : '' }}">
+    <a href="{{ route('betMatchIndividuals.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betMatchIndividuals.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betMedalPlays*') ? 'active' : '' }}">
+    <a href="{{ route('betMedalPlays.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betMedalPlays.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betStablefords*') ? 'active' : '' }}">
+    <a href="{{ route('betStablefords.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betStablefords.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betRompeHandicaps*') ? 'active' : '' }}">
+    <a href="{{ route('betRompeHandicaps.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betRompeHandicaps.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betMatchParejas*') ? 'active' : '' }}">
+    <a href="{{ route('betMatchParejas.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betMatchParejas.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betSkins*') ? 'active' : '' }}">
+    <a href="{{ route('betSkins.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betSkins.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betGreens*') ? 'active' : '' }}">
+    <a href="{{ route('betGreens.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betGreens.plural')</span></a>
+</li>
+
+<li class="{{ Request::is('betRayaPuntos*') ? 'active' : '' }}">
+    <a href="{{ route('betRayaPuntos.index') }}"><i class="fa fa-edit"></i><span>@lang('models/betRayaPuntos.plural')</span></a>
+</li>
+

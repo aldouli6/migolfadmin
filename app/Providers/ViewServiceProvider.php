@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Bet;
 use App\Models\Tee;
 use App\Models\TeeColor;
 use App\Models\Course;
@@ -32,6 +33,42 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['bet_raya_puntos.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_greens.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_skins.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_match_parejas.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_rompe_handicaps.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_stablefords.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_medal_plays.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bet_match_individuals.fields'], function ($view) {
+            $betItems = Bet::pluck('name','id')->toArray();
+            $view->with('betItems', $betItems);
+        });
+        View::composer(['bets.fields'], function ($view) {
+            $userItems = User::pluck('alias','id')->toArray();
+            $view->with('userItems', $userItems);
+        });
         View::composer(['user_groups.fields'], function ($view) {
             $userItems = User::pluck('alias','id')->toArray();
             $view->with('userItems', $userItems);

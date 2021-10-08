@@ -56,3 +56,56 @@ Route::get('/tees', 'TeeAPIController@index');
 
 
 
+
+
+Route::resource('bets', App\Http\Controllers\API\BetAPIController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::resource('bet_match_individuals', App\Http\Controllers\API\BetMatchIndividualAPIController::class);
+
+
+Route::resource('bet_medal_plays', App\Http\Controllers\API\BetMedalPlayAPIController::class);
+
+
+Route::resource('bet_stablefords', App\Http\Controllers\API\BetStablefordAPIController::class);
+
+
+Route::resource('bet_rompe_handicaps', App\Http\Controllers\API\BetRompeHandicapAPIController::class);
+
+
+Route::resource('bet_match_parejas', App\Http\Controllers\API\BetMatchParejaAPIController::class);
+
+
+Route::resource('bet_skins', App\Http\Controllers\API\BetSkinAPIController::class);
+
+
+Route::resource('bet_greens', App\Http\Controllers\API\BetGreenAPIController::class);
+
+
+Route::resource('bet_raya_puntos', App\Http\Controllers\API\BetRayaPuntoAPIController::class);
