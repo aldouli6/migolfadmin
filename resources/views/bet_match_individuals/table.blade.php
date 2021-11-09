@@ -8,7 +8,7 @@
         <th>@lang('models/betMatchIndividuals.fields.bet1_9')</th>
         <th>@lang('models/betMatchIndividuals.fields.bet10_18')</th>
         <th>@lang('models/betMatchIndividuals.fields.bet_total')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th  >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

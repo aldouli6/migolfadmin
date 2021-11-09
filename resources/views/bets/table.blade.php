@@ -6,7 +6,7 @@
         <th>@lang('models/bets.fields.user_id')</th>
         <th>@lang('models/bets.fields.name')</th>
         <th>@lang('models/bets.fields.classification')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th  >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

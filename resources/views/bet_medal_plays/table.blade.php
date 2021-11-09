@@ -9,7 +9,7 @@
         <th>@lang('models/betMedalPlays.fields.bet10_18')</th>
         <th>@lang('models/betMedalPlays.fields.bet_total')</th>
         <th>@lang('models/betMedalPlays.fields.empate')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th  >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

@@ -18,6 +18,7 @@ class BetRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'user_id',
+        'id',
         'name',
         'classification'
     ];

@@ -193,3 +193,6 @@ php artisan infyom:api_scaffold BetMatchPareja --fieldsFile=/Applications/MAMP/h
 php artisan infyom:api_scaffold BetSkin --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetSkin.json
 php artisan infyom:api_scaffold BetGreen --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetGreen.json
 php artisan infyom:api_scaffold BetRayaPunto --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/BetRayaPunto.json
+
+
+php artisan infyom:api_scaffold Tee --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Tee.json --skip=migration

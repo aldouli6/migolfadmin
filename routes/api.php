@@ -34,6 +34,15 @@ Route::middleware(['auth:api'])->group(function(){
     Route::resource('user_handicap_indices', UserHandicapIndexAPIController::class);
     Route::resource('user_hole_raitings', UserHoleRaitingAPIController::class);
     Route::resource('user_groups', UserGroupAPIController::class);
+    Route::resource('bets', BetAPIController::class);
+    Route::resource('bet_match_individuals', BetMatchIndividualAPIController::class);
+    Route::resource('bet_medal_plays', BetMedalPlayAPIController::class);
+    Route::resource('bet_stablefords', BetStablefordAPIController::class);
+    Route::resource('bet_rompe_handicaps', BetRompeHandicapAPIController::class);
+    Route::resource('bet_match_parejas', BetMatchParejaAPIController::class);
+    Route::resource('bet_skins', BetSkinAPIController::class);
+    Route::resource('bet_greens', BetGreenAPIController::class);
+    Route::resource('bet_raya_puntos', BetRayaPuntoAPIController::class);
     Route::get('/usuario/{usuario}', 'CallController@usuario');
     Route::get('/perfil/{usuario}', 'CallController@perfil');
     Route::get('/miscampos/{usuario}', 'CallController@miscampos');
@@ -58,54 +67,4 @@ Route::get('/tees', 'TeeAPIController@index');
 
 
 
-Route::resource('bets', App\Http\Controllers\API\BetAPIController::class);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::resource('bet_match_individuals', App\Http\Controllers\API\BetMatchIndividualAPIController::class);
-
-
-Route::resource('bet_medal_plays', App\Http\Controllers\API\BetMedalPlayAPIController::class);
-
-
-Route::resource('bet_stablefords', App\Http\Controllers\API\BetStablefordAPIController::class);
-
-
-Route::resource('bet_rompe_handicaps', App\Http\Controllers\API\BetRompeHandicapAPIController::class);
-
-
-Route::resource('bet_match_parejas', App\Http\Controllers\API\BetMatchParejaAPIController::class);
-
-
-Route::resource('bet_skins', App\Http\Controllers\API\BetSkinAPIController::class);
-
-
-Route::resource('bet_greens', App\Http\Controllers\API\BetGreenAPIController::class);
-
-
-Route::resource('bet_raya_puntos', App\Http\Controllers\API\BetRayaPuntoAPIController::class);

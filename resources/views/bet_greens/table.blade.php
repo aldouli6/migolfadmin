@@ -8,7 +8,7 @@
         <th>@lang('models/betGreens.fields.bet')</th>
         <th>@lang('models/betGreens.fields.condicion1')</th>
         <th>@lang('models/betGreens.fields.condicion2')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th  >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

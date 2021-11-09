@@ -11,7 +11,7 @@
         <th>@lang('models/betRayaPuntos.fields.albatros')</th>
         <th>@lang('models/betRayaPuntos.fields.hoyo_uno')</th>
         <th>@lang('models/betRayaPuntos.fields.exceso')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th  >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

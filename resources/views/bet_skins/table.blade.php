@@ -7,7 +7,7 @@
         <th>@lang('models/betSkins.fields.enabled')</th>
         <th>@lang('models/betSkins.fields.bet')</th>
         <th>@lang('models/betSkins.fields.ventaja')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th  >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>
