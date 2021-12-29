@@ -41,9 +41,23 @@ class UserCourseAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
-        $userCourses->sortByDesc('classification');
+        // $uc ;
+        if(isset($request->input()['club_id'])){
+            foreach($userCourses as $key => $val){
+              $course = Course::find($val['course_id']);
+             
+              if ($course['club_id']==$request->input()['club_id']){
+                $uc[]=$val;
+              } 
+            }
+        }else{
+            $uc=$userCourses->toArray();
+        }
+
+        // $userCourses->sortByDesc('classification');
+       
         return $this->sendResponse(
-            $userCourses->toArray(),
+            $uc,
             __('messages.retrieved', ['model' => __('models/userCourses.plural')])
         );
     }
@@ -188,11 +202,10 @@ class UserCourseAPIController extends AppBaseController
                 
                 $userCourse->delete();
                 $course = Course::where('id', $uc['course_id'])->first();
-                // dd($course);
+                
                 $courses = Course::where('club_id', $course['club_id'])->get();
  
-                $userCourses = UserCourse::whereIn('course_id',array_column($courses->toArray(), 'id') )->get();
-                $userCourses->where('user_id',$uc['user_id']);
+                $userCourses = UserCourse::whereIn('course_id',array_column($courses->toArray(), 'id') )->where('user_id',$uc['user_id'])->get();
                 if(count($userCourses)==0){
                     $userClub = UserClub::where('club_id', $course['club_id'])->where('user_id',$uc['user_id']);
                     $userClub->delete();

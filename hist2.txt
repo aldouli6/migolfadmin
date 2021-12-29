@@ -196,3 +196,28 @@ php artisan infyom:api_scaffold BetRayaPunto --fieldsFile=/Applications/MAMP/htd
 
 
 php artisan infyom:api_scaffold Tee --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/Tee.json --skip=migration
+
+
+
+php artisan migrate:rollback --path=database/migrations/2021_09_30_170039_create_ductos_table.php
+
+
+php artisan infyom:rollback Ducto api_scaffold
+php artisan infyom:rollback DuctoType scaffold
+php artisan infyom:rollback DuctoRuta scaffold
+php artisan infyom:rollback Diametro scaffold
+ 
+ 
+49,290.38 63.23
+
+php artisan infyom:api_scaffold Ducto --fieldsFile=/var/www/vhosts/invent.ndi.mx/resources/model_schemas/Ducto.json  
+
+
+php artisan infyom:scaffold Diametro --fieldsFile=/var/www/vhosts/invent.ndi.mx/resources/model_schemas/Diametro.json  
+php artisan infyom:scaffold DuctoType --fieldsFile=/var/www/vhosts/invent.ndi.mx/resources/model_schemas/DuctoType.json 
+php artisan infyom:scaffold DuctoRuta --fieldsFile=/var/www/vhosts/invent.ndi.mx/resources/model_schemas/DuctoRuta.json 
+php artisan infyom:api_scaffold Ducto --fieldsFile=/var/www/vhosts/invent.ndi.mx/resources/model_schemas/Ducto.json 
+
+
+
+php artisan infyom:scaffold User --fieldsFile=/Applications/MAMP/htdocs/migolf/resources/model_schemas/User.json --skip=migration,model

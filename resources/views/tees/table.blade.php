@@ -4,6 +4,7 @@
             <tr>
                 <th>@lang('models/tees.fields.id')</th>
         <th>@lang('models/tees.fields.enabled')</th>
+        <th>@lang('models/tees.fields.default')</th>
         <th>@lang('models/tees.fields.course_id')</th>
         <th>@lang('models/tees.fields.gender')</th>
         <th>@lang('models/tees.fields.teecolor_id')</th>
@@ -17,6 +18,7 @@
             <tr>
             <td>{{ $tee->id }}</td>
             <td>{!! Form::checkbox('enabled', 1, $tee->enabled,  ['class' => 'toggle','number'=>$tee->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+            <td>{!! Form::checkbox('default', 1, $tee->default,  ['class' => 'toggle','number'=>$tee->id,'data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
             <td>{{ $courseItems[$tee->course_id] ?? '' }}</td>
             <td> @lang('models/tees.fields.'.$tee->gender  )</td>
             <td>{{ $tee_colorItems[$tee->teecolor_id] ?? '' }}</td>

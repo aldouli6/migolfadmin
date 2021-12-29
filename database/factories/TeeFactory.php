@@ -23,6 +23,7 @@ class TeeFactory extends Factory
     {
         return [
             'enabled' => $this->faker->word,
+        'default' => $this->faker->word,
         'course_id' => $this->faker->randomDigitNotNull,
         'gender' => $this->faker->word,
         'teecolor_id' => $this->faker->randomDigitNotNull,

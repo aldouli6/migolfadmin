@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateUserGroupAPIRequest;
 use App\Http\Requests\API\UpdateUserGroupAPIRequest;
 use App\Models\UserGroup;
+use App\Models\UserPlayer;
 use App\Models\User;
 use App\Repositories\UserGroupRepository;
 use Illuminate\Http\Request;
@@ -41,8 +42,8 @@ class UserGroupAPIController extends AppBaseController
             $request->get('limit')
         );
         foreach ($userGroups as $userGroup) {
-            $players = explode(',', $userGroup['players']);
-            $userGroup['jugadores'] =User::whereIn('id',$players)->get(['id','name'])->toArray(); 
+            $players =  UserPlayer::where('user_id', $userGroup['user_id'])->get('player_id');
+            $userGroup['jugadores'] =User::whereIn('id',$players)->get(['id','name', 'lastname', 'alias',])->toArray(); 
         }
 
         return $this->sendResponse(
@@ -119,6 +120,11 @@ class UserGroupAPIController extends AppBaseController
         }
 
         $userGroup = $this->userGroupRepository->update($input, $id);
+
+        
+        $players =  UserPlayer::where('user_id', $userGroup['user_id'])->get('player_id');
+        $userGroup['jugadores'] =User::whereIn('id',$players)->get(['id','name', 'lastname', 'alias',])->toArray(); 
+        
 
         return $this->sendResponse(
             $userGroup->toArray(),

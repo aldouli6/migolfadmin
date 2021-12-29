@@ -10,6 +10,12 @@
     <p>@if ($tee->enabled==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
 </div>
 
+<!-- Default Field -->
+<div class="form-group">
+    {!! Form::label('default', __('models/tees.fields.default').':') !!}
+    <p>@if ($tee->default==1) @lang('crud.yes') @else @lang('crud.no') @endif </p>
+</div>
+
 <!-- Course Id Field -->
 <div class="form-group">
     {!! Form::label('course_id', __('models/tees.fields.course_id').':') !!}

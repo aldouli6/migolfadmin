@@ -50,15 +50,18 @@ class BetAPIController extends AppBaseController
         );
 
         foreach ($bets as $bet) {
-            $bet['green'] =BetGreen::where('bet_id', $bet['id'])->get(); 
-            $bet['match_individual'] =BetMatchIndividual::where('bet_id', $bet['id'])->get(); 
-            // dd($bet);
-            $bet['match_pareja'] =BetMatchPareja::where('bet_id', $bet['id'])->get(); 
-            $bet['medal_play'] =BetMedalPlay::where('bet_id', $bet['id'])->get(); 
-            $bet['raya_punto'] =BetRayaPunto::where('bet_id', $bet['id'])->get(); 
-            $bet['rompe_handicap'] =BetRompeHandicap::where('bet_id', $bet['id'])->get(); 
-            $bet['skin'] =BetSkin::where('bet_id', $bet['id'])->get(); 
-            $bet['stableford'] =BetStableford::where('bet_id', $bet['id'])->get(); 
+            $bet['green'] =BetGreen::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            $bet['match_individual'] =BetMatchIndividual::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            // if (!$bet['match_individual']->isEmpty()){
+            //     $bet['match_individual'] = $bet['match_individual']->first();
+            // }
+            // dd($bet['match_individual']);
+            $bet['match_pareja'] =BetMatchPareja::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            $bet['medal_play'] =BetMedalPlay::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            $bet['raya_punto'] =BetRayaPunto::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            $bet['rompe_handicap'] =BetRompeHandicap::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            $bet['skin'] =BetSkin::where('bet_id', $bet['id'])->get()->first()->toArray(); 
+            $bet['stableford'] =BetStableford::where('bet_id', $bet['id'])->get()->first()->toArray(); 
         }
         return $this->sendResponse(
             $bets->toArray(),
@@ -96,6 +99,8 @@ class BetAPIController extends AppBaseController
         }
         DB::commit();
         $full_bet = $call->call('/api/bets?id='.$bet['id'],$request->bearerToken(),'GET' );
+        if(count($full_bet)>0)
+            $full_bet = $full_bet[0];
         return $this->sendResponse(
             $full_bet,
             __('messages.saved', ['model' => __('models/bets.singular')])
@@ -167,8 +172,11 @@ class BetAPIController extends AppBaseController
         }
         DB::commit();
         $full_bet = $call->call('/api/bets?id='.$bet['id'],$request->bearerToken(),'GET' );
+        // dd($full_bet);
+        if(count($full_bet)>0)
+            $full_bet = $full_bet[0];
         return $this->sendResponse(
-            $bet->toArray(),
+            $full_bet,
             __('messages.updated', ['model' => __('models/bets.singular')])
         );
     }
@@ -183,22 +191,39 @@ class BetAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        /** @var Bet $bet */
-        $bet = $this->betRepository->find($id);
+        if($id!=0){
+           /** @var Bet $bet */
+            $bet = $this->betRepository->find($id);
 
-        if (empty($bet)) {
-            return $this->sendError(
-                __('messages.not_found', ['model' => __('models/bets.singular')])
+            if (empty($bet)) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/bets.singular')])
+                );
+            }
+
+            $bet->delete();
+
+            return $this->sendResponse(
+                $id,
+                __('messages.deleted', ['model' => __('models/bets.singular')])
+            );
+        }else{
+            $ids = $request->all();
+            $bets = Bet::whereIn('id', $ids);
+            // dd($bets->get());
+            if (empty($bets->get()->toArray())) {
+                return $this->sendError(
+                    __('messages.not_found', ['model' => __('models/bets.singular')])
+                );
+            }
+            $bets->delete();
+            return $this->sendResponse(
+                array("data" =>$ids),
+                __('messages.deleted', ['model' => __('models/bets.singular')])
             );
         }
-
-        $bet->delete();
-
-        return $this->sendResponse(
-            $id,
-            __('messages.deleted', ['model' => __('models/bets.singular')])
-        );
     }
+        
 }

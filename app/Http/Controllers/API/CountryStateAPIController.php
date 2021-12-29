@@ -14,6 +14,12 @@ class CountryStateAPIController extends AppBaseController
         $countries = Country::all('id', 'name','code', 'enabled');
         if(isset($input['enabled']))
             $countries = $countries->where('enabled',$input['enabled']);
+        foreach ($countries as $key => $countrie) {
+            $states = State::select('id', 'name','code', 'enabled')->where('country_id',$countrie->id)->get();
+            if(isset($input['enabled']))
+                $states = $states->where('enabled',$input['enabled']);
+            $countrie['states']=$states;
+        }
         return $this->sendResponse(
             $countries->toArray(),
             __('messages.retrieved', ['model' => __('models/countries.plural')])

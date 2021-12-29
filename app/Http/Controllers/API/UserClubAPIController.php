@@ -7,7 +7,7 @@ use App\Http\Requests\API\UpdateUserClubAPIRequest;
 use App\Models\UserClub;
 use App\Models\Course;
 use App\Models\UserCourse;
-use App\Models\CourseTeeDefault;
+use App\Models\Tee;
 use App\Repositories\UserClubRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -89,11 +89,11 @@ class UserClubAPIController extends AppBaseController
             // return $this->sendError('No hay campos en este club, inténtelo después');
         }
         foreach ($courses as $key => $course){
-            $dMale = CourseTeeDefault::where('course_id', $course['id']) ->where('gender', 'M')->first();
-            $dFeMale = CourseTeeDefault::where('course_id', $course['id']) ->where('gender', 'F')->first();
+            $dMale = Tee::where('course_id', $course['id']) ->where('gender', 'M')->where('default', 1)->where('enabled', 1)->first();
+            $dFeMale = Tee::where('course_id', $course['id']) ->where('gender', 'F')->where('default', 1)->where('enabled', 1)->first();
             // dd($dMale, $dFeMale);
-            $courses[$key]['tee_default_male']=(is_null($dMale))?null:$dMale->toArray()['tee_id'];
-            $courses[$key]['tee_default_female']=(is_null($dFeMale))?null:$dFeMale->toArray()['tee_id'];
+            $courses[$key]['tee_default_male']=(is_null($dMale))?null:$dMale->toArray()['id'];
+            $courses[$key]['tee_default_female']=(is_null($dFeMale))?null:$dFeMale->toArray()['id'];
         }
         $coursesDM = array_column( $courses->toArray() , 'tee_default_male');
         if (count(array_filter($coursesDM)) != count($coursesDM)){
@@ -131,8 +131,12 @@ class UserClubAPIController extends AppBaseController
 
                 ]
             );
-            $userClub['userCourses'][$course['id']] = $userCourse;
+
+            // $userClub['userCourses'][$course['id']] = $userCourse;
         }
+        $call = new CallController;
+        $uc = $call->call('/api/miscampos/'.$input['user_id'].'?club_id='.$input['club_id'],$request->bearerToken(),'GET' );
+        $userClub['userCourses'] = $uc['userCourses'];
         DB::commit();
         return $this->sendResponse(
             $userClub,

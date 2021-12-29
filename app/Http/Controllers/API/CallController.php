@@ -67,7 +67,7 @@ class CallController extends Controller{
             return response($res);
         }
     }
-    public function campos(Request $request, $user){
+    public function campos(Request $request){
         try{
             $user_data = $this->call('/api/users/'.$user,$request->bearerToken() );
             $data['country_id']=$country = $user_data['country_id'];
@@ -87,10 +87,46 @@ class CallController extends Controller{
             return response($res);
         }
     }
+    public function updateOffline(Request $request){
+        try{
+            $urls = array('grupos'=>'/api/user_groups/', 'players'=>'/api/user_players/');
+            if($request->input()!=null){
+                $offlines = $request->input();
+                foreach ($offlines as $name => $offline) {
+                    foreach ($offline as $key => $value) {
+                        // dd( $value);
+                        $offlines[$name][$key] = $this->call($urls[$name].$value['id'],$request->bearerToken(),'PUT',$value );
+                        
+                    }
+                }
+            }
+            $res['success']=true;
+            $res['data']=$offlines;
+            return response($res);
+        } catch (\Throwable $e) {
+            $res['success']=false;
+            $res['data']=[];
+            $res['message']=$e->getMessage();
+            return response($res);
+        }
+    }
     public function miscampos(Request $request, $user){
         try{
-            $data['userCourses'] = $this->call('/api/user_courses?user_id='.$user,$request->bearerToken());
+            $cond = 'user_id='.$user;
+            if($request->input()!=null){
+                foreach(array_keys($request->input()) as $key){
+                    $cond.='&'.$key.'='.$request->input()[$key];
+                }
+            }
+            $data['userCourses'] = $this->call('/api/user_courses?'.$cond,$request->bearerToken());
+            
             foreach ($data['userCourses'] as $key => $usercourse) {
+                 
+                $data['userCourses'][$key]['tees'] = $this->call('/api/tees?enabled=1&course_id='.$usercourse['course_id'],$request->bearerToken());
+           
+                foreach ($data['userCourses'][$key]['tees'] as $k => $tee) {
+                    $data['userCourses'][$key]['tees'][$k]['holes']=$this->call('/api/holes?tee_id='.$tee['id'],$request->bearerToken());
+                }
                 $data['userCourses'][$key]['course'] = $this->call('/api/courses/'.$usercourse['course_id'],$request->bearerToken());
                 $countires = $this->call('/api/countries?enabled=1', null);
                 $found_key = array_search($data['userCourses'][$key]['course']['club']['country_id'], array_column($countires, 'id'));
@@ -102,6 +138,8 @@ class CallController extends Controller{
                     $data['userCourses'][$key]['course']['country']=null;
                     $data['userCourses'][$key]['course']['state']=null;
                 }
+
+                $data['userCourses'][$key]['club'] = $this->call('/api/user_clubs?club_id='.$data['userCourses'][$key]['course']['club']['id'].'&user_id='.$user,$request->bearerToken())[0];
             }
             $res['success']=true;
             $res['data']=$data;
@@ -150,7 +188,6 @@ class CallController extends Controller{
            foreach ($data['tees'] as $key => $tee) {
                 $data['tees'][$key]['holes']=$this->call('/api/holes?tee_id='.$tee['id'],$request->bearerToken());
             }
-
             $data['user_club'] = $this->call('/api/user_clubs?club_id='.$courseData['club']['id'].'&user_id='.$user,$request->bearerToken())[0];
             $data['user_course'] = $this->call('/api/user_courses?course_id='.$course.'&user_id='.$user,$request->bearerToken())[0];
             $res['success']=true;

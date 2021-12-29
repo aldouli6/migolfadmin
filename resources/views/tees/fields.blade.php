@@ -5,6 +5,14 @@
     {!! Form::checkbox('enabled',1, 1,   ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
 
 </div>
+<!-- 'bootstrap / Toggle Switch Enabled Field' -->
+<div class="form-group col-sm-6">
+    {!! Form::label('default', __('models/tees.fields.default').':') !!}
+    {!! Form::hidden('default', 0) !!}
+    {!! Form::checkbox('default',1, 0,   ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+
+</div>
+
 
 
 <!-- Course Id Field -->

@@ -80,6 +80,7 @@ class TeeAPIController extends AppBaseController
     {
         /** @var Tee $tee */
         $tee = $this->teeRepository->find($id);
+
         if (empty($tee)) {
             return $this->sendError(
                 __('messages.not_found', ['model' => __('models/tees.singular')])

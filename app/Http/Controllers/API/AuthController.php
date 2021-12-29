@@ -134,9 +134,10 @@ class AuthController extends  AppBaseController
                 'Usuario sin permisos para esta aplicación', 200
             );
         }
-
+        $call = new CallController;
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
         $user['access_token']  = $accessToken;
+        $user['countries'] = $call->call('/api/countries',$request->bearerToken());
         return response(['success'=>true,'data' => $user]);
 
     }

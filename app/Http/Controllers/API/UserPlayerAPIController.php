@@ -188,10 +188,11 @@ class UserPlayerAPIController extends AppBaseController
      */
     public function update($id, UpdateUserPlayerAPIRequest $request)
     {
+
         try{
             $call = new CallController;
             $input = $request->all();
-
+            
             $input_user = [
                 "name"=>$input['name'],
                 "email"=>$input['email'],
@@ -211,15 +212,19 @@ class UserPlayerAPIController extends AppBaseController
                 DB::rollBack();
                 return response(array_merge(['success'=>false], $user));
             }
+
             $input_hcp=[
                 "handicap_index"=>$input['handicap_index'],
                 "date_handicap_index"=>date("Y-m-d H:i:s")
             ];
+
             $user_hcp = $call->call('api/user_handicap_indices/'.$input['handicap_id'],$request->bearerToken(),'PUT',$input_hcp );
             if (isset($user_hcp['errors'])){
                 DB::rollBack();
                 return response(array_merge(['success'=>false], $user_hcp));
             }
+
+            // dd($user_hcp);
             if(isset($input['hole_rating_id'])){
                 $input_rating=[
                     "hole_raiting_type"=>$input['hole_raiting_type'],
@@ -251,11 +256,18 @@ class UserPlayerAPIController extends AppBaseController
             DB::commit();
             $userPlayer = $this->userPlayerRepository->update($input_uplayer, $id);
 
-            // dd($userPlayer);
+            $userPlayer['player'] =User::find($userPlayer['player_id']); 
+            $userPlayer['handicap'] = UserHandicapIndex::where('player_id',$userPlayer['player_id'])->first();
+            $userPlayer['rating'] = UserHoleRaiting::where('player_id',$userPlayer['player_id'])->first();
+            
             return $this->sendResponse(
-                ['userPlayer'=>$userPlayer->toArray(), "user"=>$user],
-                __('messages.updated', ['model' => __('models/userPlayers.singular')])
+                $userPlayer->toArray(),
+                __('messages.retrieved', ['model' => __('models/userPlayers.plural')])
             );
+            // return $this->sendResponse(
+            //     ['userPlayer'=>$userPlayer->toArray(), "user"=>$user],
+            //     __('messages.updated', ['model' => __('models/userPlayers.singular')])
+            // );
         } catch (\Throwable $e) {
             DB::rollBack();
             $res['success']=false;

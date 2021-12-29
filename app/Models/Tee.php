@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Tee
  * @package App\Models
- * @version August 13, 2021, 4:40 pm UTC
+ * @version November 9, 2021, 7:43 pm UTC
  *
  * @property boolean $enabled
+ * @property boolean $default
  * @property integer $course_id
  * @property string $gender
  * @property integer $teecolor_id
@@ -33,6 +34,7 @@ class Tee extends Model
 
     public $fillable = [
         'enabled',
+        'default',
         'course_id',
         'gender',
         'teecolor_id',
@@ -48,6 +50,7 @@ class Tee extends Model
     protected $casts = [
         'id' => 'integer',
         'enabled' => 'boolean',
+        'default' => 'boolean',
         'course_id' => 'integer',
         'gender' => 'string',
         'teecolor_id' => 'integer',
@@ -72,5 +75,5 @@ class Tee extends Model
     {
         return $this->hasOne(Teecolor::class,'id');
     }
-    
+        
 }

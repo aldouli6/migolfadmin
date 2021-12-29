@@ -7,6 +7,7 @@ return array (
   array (
     'id' => 'Id',
     'enabled' => 'Enabled',
+    'default' => 'Default',
     'course_id' => 'Course',
     'gender' => 'Gender',
     'teecolor_id' => 'Tee Color',

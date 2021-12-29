@@ -48,6 +48,7 @@ Route::middleware(['auth:api'])->group(function(){
     Route::get('/miscampos/{usuario}', 'CallController@miscampos');
     Route::get('/campos/{usuario}', 'CallController@campos');
     Route::get('/campo/{course}/{usuario}', 'CallController@campo');
+    Route::post('/update_offline', 'CallController@updateOffline');
 });
 
 

@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class TeeRepository
  * @package App\Repositories
- * @version August 13, 2021, 4:40 pm UTC
+ * @version November 9, 2021, 7:43 pm UTC
 */
 
 class TeeRepository extends BaseRepository
@@ -18,6 +18,7 @@ class TeeRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'enabled',
+        'default',
         'course_id',
         'gender',
         'teecolor_id',
