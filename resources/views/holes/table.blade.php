@@ -8,7 +8,7 @@
         <th>@lang('models/holes.fields.par')</th>
         <th>@lang('models/holes.fields.hole_raiting_male')</th>
         <th>@lang('models/holes.fields.hole_raiting_female')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th >@lang('crud.action')</th>
             </tr>
         </thead>
         <tbody>

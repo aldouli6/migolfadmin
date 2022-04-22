@@ -108,13 +108,13 @@ class ViewServiceProvider extends ServiceProvider
             $view->with([ 'userItems'=> $userItems, 'clubItems'=> $clubItems]);
         });
         View::composer(['holes.fields','holes.table', 'holes.show_fields'], function ($view) {
-            $teeItems = Tee::where('enabled',1)->get()->toArray();
+            // $teeItems = Tee::where('enabled',1)->get()->toArray();
             $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();
-            $tee_colorItems = TeeColor::pluck('name','id')->toArray();
-            foreach ($teeItems as $key => $teeItem) {
-                $teeItems[$key] = $courseItems[$teeItem['course_id']]??''. ' - '. $tee_colorItems[$teeItem['teecolor_id']]??''.' '.$teeItem['gender'] ;
-            }
-            $view->with([ 'teeItems'=> $teeItems]);
+            // $tee_colorItems = TeeColor::pluck('name','id')->toArray();
+            // foreach ($teeItems as $key => $teeItem) {
+            //     $teeItems[$key] = $courseItems[$teeItem['course_id']]??''. ' - '. $tee_colorItems[$teeItem['teecolor_id']]??''.' '.$teeItem['gender'] ;
+            // }
+            $view->with([ 'courseItems'=> $courseItems]);
         });
         View::composer(['course_tee_defaults.fields','course_tee_defaults.table', 'course_tee_defaults.show_fields'], function ($view) {
             $courseItems = Course::where('enabled',1)->pluck('alias','id')->toArray();

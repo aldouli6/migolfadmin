@@ -9,7 +9,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('default', __('models/tees.fields.default').':') !!}
     {!! Form::hidden('default', 0) !!}
-    {!! Form::checkbox('default',1, 0,   ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
+    {!! Form::checkbox('default',1, 1,   ['data-toggle' => 'toggle','data-on'=>__('crud.yes'),'data-off'=>__('crud.no'), 'data-size'=>'mini','data-offstyle'=>'secondary']) !!}</td>
 
 </div>
 
@@ -42,7 +42,7 @@
 <!-- Rating Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('rating', __('models/tees.fields.rating').':') !!}
-    {!! Form::number('rating', null, ['class' => 'form-control']) !!}
+    {!! Form::number('rating', null, ['class' => 'form-control', 'step'=>'.01']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -67,7 +67,7 @@ class CallController extends Controller{
             return response($res);
         }
     }
-    public function campos(Request $request){
+    public function campos(Request $request, $user){
         try{
             $user_data = $this->call('/api/users/'.$user,$request->bearerToken() );
             $data['country_id']=$country = $user_data['country_id'];
@@ -134,6 +134,8 @@ class CallController extends Controller{
                     $data['userCourses'][$key]['course']['country'] = $countires[$found_key];
                     $data['userCourses'][$key]['course']['state']  = $this->call('/api/states/'.$data['userCourses'][$key]['course']['club']['state_id'],$request->bearerToken());
                     $data['userCourses'][$key]['course']['state'] = $data['userCourses'][$key]['course']['state'][0]??null;
+                    $data['userCourses'][$key]['course']['holes']  = $this->call('/api/holes?enabled=1&course_id='.$usercourse['course_id'],$request->bearerToken());
+                    
                 }else{
                     $data['userCourses'][$key]['course']['country']=null;
                     $data['userCourses'][$key]['course']['state']=null;
