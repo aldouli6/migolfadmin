@@ -23,9 +23,10 @@ class HoleFactory extends Factory
     {
         return [
             'hole_number' => $this->faker->randomDigitNotNull,
-        'tee_id' => $this->faker->randomDigitNotNull,
+        'course_id' => $this->faker->randomDigitNotNull,
         'par' => $this->faker->randomDigitNotNull,
-        'hole_raiting' => $this->faker->word,
+        'hole_raiting_male' => $this->faker->word,
+        'hole_raiting_female' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

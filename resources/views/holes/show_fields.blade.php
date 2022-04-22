@@ -10,10 +10,10 @@
     <p>{{ $hole->hole_number }}</p>
 </div>
 
-<!-- Tee Id Field -->
+<!-- Course Id Field -->
 <div class="form-group">
-    {!! Form::label('tee_id', __('models/holes.fields.tee_id').':') !!}
-    <p>{{ $courseItems[ $teeCourseItems[$hole->tee_id]] }} - {{  $tee_colorItems[ $teeItems[$hole->tee_id]] }}</p>
+    {!! Form::label('course_id', __('models/holes.fields.course_id').':') !!}
+    <p>{{ $courseItems[ $hole->course_id]  }}</p>
 </div>
 
 <!-- Par Field -->
@@ -22,10 +22,16 @@
     <p>{{ $hole->par }}</p>
 </div>
 
-<!-- Hole Raiting Field -->
+<!-- Hole Raiting Male Field -->
 <div class="form-group">
-    {!! Form::label('hole_raiting', __('models/holes.fields.hole_raiting').':') !!}
-    <p>{{ $hole->hole_raiting }}</p>
+    {!! Form::label('hole_raiting_male', __('models/holes.fields.hole_raiting_male').':') !!}
+    <p>{{ $hole->hole_raiting_male }}</p>
+</div>
+
+<!-- Hole Raiting Female Field -->
+<div class="form-group">
+    {!! Form::label('hole_raiting_female', __('models/holes.fields.hole_raiting_female').':') !!}
+    <p>{{ $hole->hole_raiting_female }}</p>
 </div>
 
 <!-- Created At Field -->

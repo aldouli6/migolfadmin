@@ -4,10 +4,10 @@
     {!! Form::number('hole_number', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Tee Id Field -->
+<!-- Course Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tee_id', __('models/holes.fields.tee_id').':') !!}
-    {!! Form::select('tee_id', $teeItems, null, ['class' => 'form-control']) !!}
+    {!! Form::label('course_id', __('models/holes.fields.course_id').':') !!}
+    {!! Form::select('course_id', $courseItems, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Par Field -->
@@ -16,10 +16,16 @@
     {!! Form::number('par', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Hole Raiting Field -->
+<!-- Hole Raiting Male Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('hole_raiting', __('models/holes.fields.hole_raiting').':') !!}
-    {!! Form::number('hole_raiting', null, ['class' => 'form-control']) !!}
+    {!! Form::label('hole_raiting_male', __('models/holes.fields.hole_raiting_male').':') !!}
+    {!! Form::number('hole_raiting_male', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Hole Raiting Female Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('hole_raiting_female', __('models/holes.fields.hole_raiting_female').':') !!}
+    {!! Form::number('hole_raiting_female', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

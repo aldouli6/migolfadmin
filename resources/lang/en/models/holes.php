@@ -7,9 +7,10 @@ return array (
   array (
     'id' => 'Id',
     'hole_number' => 'Hole Number',
-    'tee_id' => 'Tee',
+    'course_id' => 'Course',
     'par' => 'Par',
-    'hole_raiting' => 'Hole Raiting',
+    'hole_raiting_male' => 'Hole Raiting Male',
+    'hole_raiting_female' => 'Hole Raiting Female',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
   ),
